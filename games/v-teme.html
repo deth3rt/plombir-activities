@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>ПЛОМБИР YOUNG 2026 | В ТЕМЕ</title>
-  
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -41,42 +41,14 @@
             'pulse-scale': 'pulseScale 1.5s ease-in-out infinite'
           },
           keyframes: {
-            float: {
-              '0%, 100%': { transform: 'translateY(0px)' },
-              '50%': { transform: 'translateY(-10px)' }
-            },
-            pop: {
-              '0%': { transform: 'scale(0.8)', opacity: '0' },
-              '50%': { transform: 'scale(1.05)' },
-              '100%': { transform: 'scale(1)', opacity: '1' }
-            },
-            shake: {
-              '0%, 100%': { transform: 'translateX(0)' },
-              '25%': { transform: 'translateX(-8px)' },
-              '75%': { transform: 'translateX(8px)' }
-            },
-            slideUp: {
-              '0%': { transform: 'translateY(40px)', opacity: '0' },
-              '100%': { transform: 'translateY(0)', opacity: '1' }
-            },
-            bounceIn: {
-              '0%': { transform: 'scale(0.3)', opacity: '0' },
-              '50%': { transform: 'scale(1.1)' },
-              '70%': { transform: 'scale(0.95)' },
-              '100%': { transform: 'scale(1)', opacity: '1' }
-            },
-            wiggle: {
-              '0%, 100%': { transform: 'rotate(-3deg)' },
-              '50%': { transform: 'rotate(3deg)' }
-            },
-            bounceSlow: {
-              '0%, 100%': { transform: 'translateY(0)' },
-              '50%': { transform: 'translateY(-15px)' }
-            },
-            pulseScale: {
-              '0%, 100%': { transform: 'scale(1)' },
-              '50%': { transform: 'scale(1.15)' }
-            }
+            float: { '0%, 100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-10px)' } },
+            pop: { '0%': { transform: 'scale(0.8)', opacity: '0' }, '50%': { transform: 'scale(1.05)' }, '100%': { transform: 'scale(1)', opacity: '1' } },
+            shake: { '0%, 100%': { transform: 'translateX(0)' }, '25%': { transform: 'translateX(-8px)' }, '75%': { transform: 'translateX(8px)' } },
+            slideUp: { '0%': { transform: 'translateY(40px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
+            bounceIn: { '0%': { transform: 'scale(0.3)', opacity: '0' }, '50%': { transform: 'scale(1.1)' }, '70%': { transform: 'scale(0.95)' }, '100%': { transform: 'scale(1)', opacity: '1' } },
+            wiggle: { '0%, 100%': { transform: 'rotate(-3deg)' }, '50%': { transform: 'rotate(3deg)' } },
+            bounceSlow: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-15px)' } },
+            pulseScale: { '0%, 100%': { transform: 'scale(1)' }, '50%': { transform: 'scale(1.15)' } }
           }
         }
       }
@@ -84,111 +56,65 @@
   </script>
 
   <style>
-    * {
-      -webkit-tap-highlight-color: transparent;
-      user-select: none;
-      -webkit-user-select: none;
-    }
+    * { -webkit-tap-highlight-color: transparent; user-select: none; -webkit-user-select: none; }
     body { overscroll-behavior: none; }
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    
-    input {
-      user-select: text;
-      -webkit-user-select: text;
-    }
-    
-    .glass {
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-    }
-    
-    .product-emoji {
-      filter: drop-shadow(0 10px 20px rgba(0, 242, 254, 0.3));
-    }
+    input { user-select: text; -webkit-user-select: text; }
+    .glass { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+    .product-emoji { filter: drop-shadow(0 10px 20px rgba(0, 242, 254, 0.3)); }
   </style>
 </head>
 
 <body class="bg-brand-darkBg text-gray-100 font-sans min-h-screen antialiased overflow-x-hidden">
 
-  <!-- BACKGROUND -->
   <div class="fixed inset-0 pointer-events-none overflow-hidden">
     <div class="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full bg-brand-cyan/25 blur-[120px] animate-float"></div>
     <div class="absolute -bottom-40 -right-40 w-[500px] h-[500px] rounded-full bg-emerald-500/20 blur-[120px] animate-float" style="animation-delay: 1.5s"></div>
   </div>
 
-  <!-- HEADER -->
   <header class="sticky top-0 z-40 glass bg-brand-darkBg/90 border-b border-gray-800/80 px-4 py-3">
     <div class="flex items-center justify-between gap-2 max-w-md mx-auto">
-      <button onclick="confirmExit()" 
-              class="w-9 h-9 rounded-xl bg-gray-900 border border-gray-800 flex items-center justify-center hover:border-rose-500/50 transition active:scale-95">
+      <button onclick="confirmExit()" class="w-9 h-9 rounded-xl bg-gray-900 border border-gray-800 flex items-center justify-center hover:border-rose-500/50 transition active:scale-95">
         <i data-lucide="arrow-left" class="w-4 h-4 text-gray-400"></i>
       </button>
-      
       <div class="text-center">
         <h1 class="text-sm font-black tracking-wide">💰 В ТЕМЕ</h1>
         <p class="text-[10px] text-gray-500 font-medium" id="headerStatus">Готов к игре</p>
       </div>
-      
-      <button onclick="openResetCounterModal()" 
-              class="w-9 h-9 rounded-xl bg-gray-900 border border-gray-800 flex items-center justify-center hover:border-amber-500/50 transition active:scale-95">
+      <button onclick="openResetCounterModal()" class="w-9 h-9 rounded-xl bg-gray-900 border border-gray-800 flex items-center justify-center hover:border-amber-500/50 transition active:scale-95">
         <i data-lucide="refresh-cw" class="w-4 h-4 text-gray-400"></i>
       </button>
     </div>
   </header>
 
-  <!-- MAIN -->
   <main class="relative z-10 px-4 py-4 max-w-md mx-auto pb-32">
 
-    <!-- ==================== SCREEN: START ==================== -->
     <div id="screen-start" class="space-y-4 pt-4">
-      
       <div class="text-center py-4 animate-pop">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-[28px] bg-gradient-to-tr from-brand-cyan to-emerald-400 shadow-2xl shadow-brand-cyan/40 text-5xl mb-4 animate-float">
-          💰
-        </div>
+        <div class="inline-flex items-center justify-center w-24 h-24 rounded-[28px] bg-gradient-to-tr from-brand-cyan to-emerald-400 shadow-2xl shadow-brand-cyan/40 text-5xl mb-4 animate-float">💰</div>
         <h2 class="text-2xl font-black text-white mb-1">В ТЕМЕ</h2>
         <p class="text-sm text-gray-400">Угадай цену. Дуэль на двоих</p>
       </div>
 
-      <!-- NEXT GAME -->
       <div class="bg-gradient-to-tr from-brand-cyan/20 to-emerald-400/20 border-2 border-brand-cyan/50 rounded-3xl p-6 text-center animate-pop" style="animation-delay: 0.1s">
-        <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2">
-          🎮 Следующая игра
-        </p>
-        <p class="text-4xl font-black text-brand-cyan mb-3" id="nextGameDisplay">
-          ИГРА 1
-        </p>
+        <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2">🎮 Следующая игра</p>
+        <p class="text-4xl font-black text-brand-cyan mb-3" id="nextGameDisplay">ИГРА 1</p>
         <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-black/30 rounded-full">
           <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span class="text-[10px] text-gray-400 font-bold">
-            Всего игр: <span id="totalPlayedDisplay" class="text-white">0</span>
-          </span>
+          <span class="text-[10px] text-gray-400 font-bold">Всего игр: <span id="totalPlayedDisplay" class="text-white">0</span></span>
         </div>
       </div>
 
-      <!-- SETTINGS -->
       <div class="bg-brand-cardBg border border-gray-800 rounded-3xl p-5 animate-pop" style="animation-delay: 0.2s">
-        <label class="text-[10px] font-black text-gray-500 uppercase tracking-wider mb-3 block">
-          🎯 Игра до
-        </label>
+        <label class="text-[10px] font-black text-gray-500 uppercase tracking-wider mb-3 block">🎯 Игра до</label>
         <div class="grid grid-cols-3 gap-2" id="targetOptions">
-          <button onclick="selectTarget(3)" data-target="3"
-                  class="target-btn py-3 rounded-xl border-2 font-black text-sm transition active:scale-95">
-            3 очка
-          </button>
-          <button onclick="selectTarget(5)" data-target="5"
-                  class="target-btn py-3 rounded-xl border-2 font-black text-sm transition active:scale-95">
-            5 очков
-          </button>
-          <button onclick="selectTarget(7)" data-target="7"
-                  class="target-btn py-3 rounded-xl border-2 font-black text-sm transition active:scale-95">
-            7 очков
-          </button>
+          <button onclick="selectTarget(3)" data-target="3" class="target-btn py-3 rounded-xl border-2 font-black text-sm transition active:scale-95">3 очка</button>
+          <button onclick="selectTarget(5)" data-target="5" class="target-btn py-3 rounded-xl border-2 font-black text-sm transition active:scale-95">5 очков</button>
+          <button onclick="selectTarget(7)" data-target="7" class="target-btn py-3 rounded-xl border-2 font-black text-sm transition active:scale-95">7 очков</button>
         </div>
       </div>
 
-      <!-- Rules -->
       <div class="bg-brand-cardBg border border-gray-800 rounded-3xl p-5 animate-pop" style="animation-delay: 0.3s">
         <h3 class="text-[10px] font-black text-gray-500 uppercase tracking-wider mb-3">📋 Правила</h3>
         <ul class="space-y-2 text-xs text-gray-400">
@@ -199,41 +125,22 @@
         </ul>
       </div>
 
-      <!-- START BUTTON -->
-      <button onclick="startGame()" 
-              class="w-full py-4 bg-gradient-to-r from-brand-cyan to-emerald-400 text-white font-black text-base rounded-2xl shadow-xl shadow-brand-cyan/40 active:scale-95 transition animate-pop"
-              style="animation-delay: 0.4s">
-        🚀 НАЧАТЬ ИГРУ
-      </button>
-
-      <button onclick="openResetCounterModal()" 
-              class="w-full py-3 bg-gray-900 hover:bg-gray-800 border border-gray-800 hover:border-amber-500/50 text-gray-500 hover:text-amber-400 font-bold text-xs rounded-2xl active:scale-95 transition animate-pop"
-              style="animation-delay: 0.5s">
-        🔄 СБРОСИТЬ СЧЁТЧИК ИГР
-      </button>
-
+      <button onclick="startGame()" class="w-full py-4 bg-gradient-to-r from-brand-cyan to-emerald-400 text-white font-black text-base rounded-2xl shadow-xl shadow-brand-cyan/40 active:scale-95 transition animate-pop" style="animation-delay: 0.4s">🚀 НАЧАТЬ ИГРУ</button>
+      <button onclick="openResetCounterModal()" class="w-full py-3 bg-gray-900 hover:bg-gray-800 border border-gray-800 hover:border-amber-500/50 text-gray-500 hover:text-amber-400 font-bold text-xs rounded-2xl active:scale-95 transition animate-pop" style="animation-delay: 0.5s">🔄 СБРОСИТЬ СЧЁТЧИК ИГР</button>
     </div>
 
-    <!-- ==================== SCREEN: GAME ==================== -->
     <div id="screen-game" class="space-y-4 pt-2 hidden">
-
-      <!-- Scoreboard -->
       <div class="bg-gradient-to-tr from-brand-cyan/20 to-emerald-400/20 border border-brand-cyan/40 rounded-3xl p-4 animate-pop">
         <div class="grid grid-cols-3 gap-2 items-center">
-          <!-- Player 1 -->
           <div class="text-center">
             <p class="text-[10px] text-gray-400 font-bold uppercase mb-1">👤 Игрок 1</p>
             <p class="text-3xl font-black text-brand-cyan" id="p1Score">0</p>
           </div>
-          
-          <!-- VS -->
           <div class="text-center">
             <p class="text-[10px] text-gray-500 font-black">ДО <span id="targetDisplay">3</span></p>
             <p class="text-lg font-black text-gray-600">VS</p>
             <p class="text-[10px] text-gray-400 font-bold uppercase">Раунд <span id="roundDisplay">1</span></p>
           </div>
-          
-          <!-- Player 2 -->
           <div class="text-center">
             <p class="text-[10px] text-gray-400 font-bold uppercase mb-1">👤 Игрок 2</p>
             <p class="text-3xl font-black text-brand-pink" id="p2Score">0</p>
@@ -241,113 +148,74 @@
         </div>
       </div>
 
-      <!-- PRODUCT CARD -->
       <div class="bg-brand-cardBg border-2 border-gray-800 rounded-3xl p-6 animate-pop" id="productCard">
-        
-        <!-- Progress dots -->
         <div class="flex justify-center gap-1.5 mb-4" id="progressDots"></div>
-        
-        <!-- Product emoji -->
+
         <div class="text-center mb-4">
           <div class="inline-flex items-center justify-center w-32 h-32 rounded-3xl bg-gradient-to-tr from-gray-900 to-gray-800 border-2 border-gray-800 shadow-2xl animate-bounce-slow">
             <span class="text-7xl product-emoji" id="productEmoji">🍌</span>
           </div>
         </div>
-        
-        <!-- Product name -->
+
         <div class="text-center mb-5">
           <p class="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-1">Что это?</p>
           <p class="text-xl font-black text-white" id="productName">Бананы</p>
           <p class="text-xs text-gray-400 mt-1" id="productUnit">1 кг</p>
         </div>
 
-        <!-- Reveal button -->
-        <button onclick="revealPrice()" id="revealBtn"
-                class="w-full py-4 bg-gradient-to-r from-brand-cyan to-emerald-400 text-white font-black text-base rounded-2xl shadow-xl shadow-brand-cyan/40 active:scale-95 transition">
-          💰 УЗНАТЬ ЦЕНУ
-        </button>
+        <button onclick="revealPrice()" id="revealBtn" class="w-full py-4 bg-gradient-to-r from-brand-cyan to-emerald-400 text-white font-black text-base rounded-2xl shadow-xl shadow-brand-cyan/40 active:scale-95 transition">💰 УЗНАТЬ ЦЕНУ</button>
 
-        <!-- Price reveal area (hidden) -->
         <div id="priceReveal" class="hidden space-y-4">
-          
-          <!-- Price -->
           <div class="text-center py-4 bg-gradient-to-tr from-brand-gold/20 to-orange-400/20 border-2 border-brand-gold/50 rounded-2xl animate-bounce-in">
             <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">Реальная цена</p>
             <p class="text-4xl font-black text-brand-gold" id="actualPrice">3.29</p>
             <p class="text-xs text-gray-400 mt-1" id="actualUnit">руб. / кг</p>
           </div>
 
-          <!-- Inputs for player guesses -->
           <div class="bg-gray-900/60 border border-gray-800 rounded-2xl p-3 space-y-2">
-            <p class="text-[10px] font-black text-gray-500 uppercase tracking-wider mb-2">
-              💡 Кто ближе? (введите суммы)
-            </p>
-            
+            <p class="text-[10px] font-black text-gray-500 uppercase tracking-wider mb-2">💡 Кто ближе? (введите суммы)</p>
+
             <div class="flex items-center gap-2">
               <span class="text-xs font-black text-brand-cyan w-20">Игрок 1:</span>
-              <input type="number" step="0.01" id="p1Guess" placeholder="0.00"
-                     oninput="calcCloser()"
-                     class="flex-1 bg-gray-900 border border-gray-800 rounded-xl px-3 py-2 text-sm text-white text-center focus:outline-none focus:border-brand-cyan transition">
+              <input type="number" step="0.01" id="p1Guess" placeholder="0.00" oninput="calcCloser()" class="flex-1 bg-gray-900 border border-gray-800 rounded-xl px-3 py-2 text-sm text-white text-center focus:outline-none focus:border-brand-cyan transition">
               <span class="text-[10px] font-black w-14 text-right" id="p1Diff">—</span>
             </div>
-            
+
             <div class="flex items-center gap-2">
               <span class="text-xs font-black text-brand-pink w-20">Игрок 2:</span>
-              <input type="number" step="0.01" id="p2Guess" placeholder="0.00"
-                     oninput="calcCloser()"
-                     class="flex-1 bg-gray-900 border border-gray-800 rounded-xl px-3 py-2 text-sm text-white text-center focus:outline-none focus:border-brand-pink transition">
+              <input type="number" step="0.01" id="p2Guess" placeholder="0.00" oninput="calcCloser()" class="flex-1 bg-gray-900 border border-gray-800 rounded-xl px-3 py-2 text-sm text-white text-center focus:outline-none focus:border-brand-pink transition">
               <span class="text-[10px] font-black w-14 text-right" id="p2Diff">—</span>
             </div>
-            
+
             <div id="closerResult" class="hidden mt-2 p-2 bg-black/40 rounded-xl text-center">
               <p class="text-[10px] text-gray-400 font-bold">Ближе:</p>
               <p class="text-sm font-black text-brand-gold" id="closerText">—</p>
             </div>
           </div>
 
-          <!-- Award buttons -->
           <div class="grid grid-cols-3 gap-2">
-            <button onclick="awardPoint(1)" 
-                    class="py-3 bg-brand-cyan/15 hover:bg-brand-cyan/25 border-2 border-brand-cyan/40 hover:border-brand-cyan text-brand-cyan font-black text-xs rounded-2xl active:scale-95 transition">
-              👤 И1 +1
-            </button>
-            <button onclick="awardPoint(2)" 
-                    class="py-3 bg-brand-pink/15 hover:bg-brand-pink/25 border-2 border-brand-pink/40 hover:border-brand-pink text-brand-pink font-black text-xs rounded-2xl active:scale-95 transition">
-              👤 И2 +1
-            </button>
-            <button onclick="awardPoint(0)" 
-                    class="py-3 bg-gray-800 hover:bg-gray-700 border-2 border-gray-700 text-gray-300 font-black text-xs rounded-2xl active:scale-95 transition">
-              🤝 НИЧЬЯ
-            </button>
+            <button onclick="awardPoint(1)" class="py-3 bg-brand-cyan/15 hover:bg-brand-cyan/25 border-2 border-brand-cyan/40 hover:border-brand-cyan text-brand-cyan font-black text-xs rounded-2xl active:scale-95 transition">👤 И1 +1</button>
+            <button onclick="awardPoint(2)" class="py-3 bg-brand-pink/15 hover:bg-brand-pink/25 border-2 border-brand-pink/40 hover:border-brand-pink text-brand-pink font-black text-xs rounded-2xl active:scale-95 transition">👤 И2 +1</button>
+            <button onclick="awardPoint(0)" class="py-3 bg-gray-800 hover:bg-gray-700 border-2 border-gray-700 text-gray-300 font-black text-xs rounded-2xl active:scale-95 transition">🤝 НИЧЬЯ</button>
           </div>
-
         </div>
-
       </div>
 
-      <!-- Controls -->
       <div class="grid grid-cols-1 gap-2">
-        <button onclick="confirmExit()" 
-                class="flex items-center justify-center gap-2 py-3.5 bg-gray-900 hover:bg-gray-800 border border-gray-800 hover:border-rose-500/50 text-gray-400 hover:text-rose-400 font-bold text-xs rounded-2xl active:scale-95 transition">
+        <button onclick="confirmExit()" class="flex items-center justify-center gap-2 py-3.5 bg-gray-900 hover:bg-gray-800 border border-gray-800 hover:border-rose-500/50 text-gray-400 hover:text-rose-400 font-bold text-xs rounded-2xl active:scale-95 transition">
           <i data-lucide="x" class="w-4 h-4"></i>
           <span>ПРЕРВАТЬ ИГРУ</span>
         </button>
       </div>
-
     </div>
 
-    <!-- ==================== SCREEN: RESULT ==================== -->
     <div id="screen-result" class="space-y-4 pt-4 hidden">
-      
       <div class="text-center py-4 animate-bounce-in">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-tr from-brand-gold to-orange-400 shadow-2xl shadow-brand-gold/40 text-5xl mb-4" id="winnerEmoji">
-          🏆
-        </div>
+        <div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-tr from-brand-gold to-orange-400 shadow-2xl shadow-brand-gold/40 text-5xl mb-4" id="winnerEmoji">🏆</div>
         <h2 class="text-3xl font-black text-white mb-1">ИГРА ЗАВЕРШЕНА!</h2>
         <p class="text-sm text-gray-400" id="winnerLabel">Победитель: Игрок 1</p>
       </div>
 
-      <!-- Final score -->
       <div class="bg-gradient-to-tr from-brand-gold/20 to-orange-400/20 border-2 border-brand-gold/50 rounded-3xl p-6 animate-pop" style="animation-delay: 0.1s">
         <p class="text-[10px] text-gray-400 font-black uppercase tracking-wider mb-3 text-center">Финальный счёт</p>
         <div class="flex items-center justify-center gap-6">
@@ -363,80 +231,167 @@
         </div>
       </div>
 
-      <!-- History -->
       <div class="bg-brand-cardBg border border-gray-800 rounded-3xl p-4 animate-pop" style="animation-delay: 0.2s">
         <h3 class="text-[10px] font-black text-gray-500 uppercase tracking-wider mb-3">📋 История раундов</h3>
         <div class="space-y-2" id="resultBreakdown"></div>
       </div>
 
-      <!-- Buttons -->
       <div class="space-y-2 animate-pop" style="animation-delay: 0.3s">
-        <button onclick="newGame()" 
-                class="w-full py-4 bg-gradient-to-r from-brand-cyan to-emerald-400 text-white font-black text-base rounded-2xl shadow-xl shadow-brand-cyan/40 active:scale-95 transition">
-          🚀 НОВАЯ ИГРА
-        </button>
-        <button onclick="exitToMenu()" 
-                class="w-full py-3 bg-gray-900 hover:bg-gray-800 border border-gray-800 text-gray-400 font-bold text-xs rounded-2xl active:scale-95 transition">
-          ⚙️ В ГЛАВНОЕ МЕНЮ
-        </button>
+        <button onclick="newGame()" class="w-full py-4 bg-gradient-to-r from-brand-cyan to-emerald-400 text-white font-black text-base rounded-2xl shadow-xl shadow-brand-cyan/40 active:scale-95 transition">🚀 НОВАЯ ИГРА</button>
+        <button onclick="exitToMenu()" class="w-full py-3 bg-gray-900 hover:bg-gray-800 border border-gray-800 text-gray-400 font-bold text-xs rounded-2xl active:scale-95 transition">⚙️ В ГЛАВНОЕ МЕНЮ</button>
       </div>
-
     </div>
 
   </main>
 
-  <!-- EXIT MODAL -->
   <div id="exitModal" class="fixed inset-0 z-[150] hidden">
     <div class="absolute inset-0 bg-black/80 backdrop-blur-md" onclick="closeExitModal()"></div>
     <div class="relative flex items-center justify-center min-h-screen p-4">
       <div class="w-full max-w-sm bg-brand-cardBg border border-gray-800 rounded-3xl p-6 shadow-2xl animate-slide-up text-center">
-        <div class="inline-flex items-center justify-center w-16 h-16 rounded-3xl bg-amber-500/20 border border-amber-500/40 text-3xl mb-4">
-          ⚠️
-        </div>
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-3xl bg-amber-500/20 border border-amber-500/40 text-3xl mb-4">⚠️</div>
         <h2 class="text-lg font-black text-white mb-2">ВЫЙТИ?</h2>
-        <p class="text-xs text-gray-400 mb-5">
-          Прогресс текущей игры будет потерян
-        </p>
+        <p class="text-xs text-gray-400 mb-5">Прогресс текущей игры будет потерян</p>
         <div class="space-y-2">
-          <button onclick="exitToMenu()" 
-                  class="w-full py-3 bg-rose-500/20 hover:bg-rose-500/30 border border-rose-500/40 text-rose-400 font-black text-xs rounded-2xl active:scale-95 transition">
-            🚪 ВЫЙТИ
-          </button>
-          <button onclick="closeExitModal()" 
-                  class="w-full py-3 bg-gray-900 hover:bg-gray-800 border border-gray-800 text-gray-400 font-bold text-xs rounded-2xl active:scale-95 transition">
-            ОСТАТЬСЯ
-          </button>
+          <button onclick="exitToMenu()" class="w-full py-3 bg-rose-500/20 hover:bg-rose-500/30 border border-rose-500/40 text-rose-400 font-black text-xs rounded-2xl active:scale-95 transition">🚪 ВЫЙТИ</button>
+          <button onclick="closeExitModal()" class="w-full py-3 bg-gray-900 hover:bg-gray-800 border border-gray-800 text-gray-400 font-bold text-xs rounded-2xl active:scale-95 transition">ОСТАТЬСЯ</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- RESET COUNTER MODAL -->
   <div id="resetCounterModal" class="fixed inset-0 z-[150] hidden">
     <div class="absolute inset-0 bg-black/80 backdrop-blur-md" onclick="closeResetCounterModal()"></div>
     <div class="relative flex items-center justify-center min-h-screen p-4">
       <div class="w-full max-w-sm bg-brand-cardBg border border-gray-800 rounded-3xl p-6 shadow-2xl animate-slide-up text-center">
-        <div class="inline-flex items-center justify-center w-16 h-16 rounded-3xl bg-brand-cyan/20 border border-brand-cyan/40 text-3xl mb-4">
-          🔄
-        </div>
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-3xl bg-brand-cyan/20 border border-brand-cyan/40 text-3xl mb-4">🔄</div>
         <h2 class="text-lg font-black text-white mb-2">СБРОСИТЬ СЧЁТЧИК?</h2>
-        <p class="text-xs text-gray-400 mb-5">
-          Следующая игра снова будет <span class="text-brand-cyan font-bold">«Игра 1»</span><br>
-          <span class="text-[10px] text-gray-500">Статистика сохранится</span>
-        </p>
+        <p class="text-xs text-gray-400 mb-5">Следующая игра снова будет <span class="text-brand-cyan font-bold">«Игра 1»</span><br><span class="text-[10px] text-gray-500">Статистика сохранится</span></p>
         <div class="space-y-2">
-          <button onclick="doResetCounter()" 
-                  class="w-full py-3 bg-brand-cyan/20 hover:bg-brand-cyan/30 border border-brand-cyan/40 text-brand-cyan font-black text-xs rounded-2xl active:scale-95 transition">
-            🔄 СБРОСИТЬ
-          </button>
-          <button onclick="closeResetCounterModal()" 
-                  class="w-full py-3 bg-gray-900 hover:bg-gray-800 border border-gray-800 text-gray-400 font-bold text-xs rounded-2xl active:scale-95 transition">
-            ОТМЕНА
-          </button>
+          <button onclick="doResetCounter()" class="w-full py-3 bg-brand-cyan/20 hover:bg-brand-cyan/30 border border-brand-cyan/40 text-brand-cyan font-black text-xs rounded-2xl active:scale-95 transition">🔄 СБРОСИТЬ</button>
+          <button onclick="closeResetCounterModal()" class="w-full py-3 bg-gray-900 hover:bg-gray-800 border border-gray-800 text-gray-400 font-bold text-xs rounded-2xl active:scale-95 transition">ОТМЕНА</button>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- ==================== SYNC MODULE ==================== -->
+  <script>
+    const Sync = {
+      CONFIG: {
+        URL: 'https://script.google.com/macros/s/AKfycbxXZkgQXEUwMIqceGfjnV7V_YSVzIKnuE1WsYLHlzNb3ovCOKz2b9OkZt5IBwHkTP_ixA/exec',
+        KEY: 'Pavel9696',
+        QUEUE_STORAGE: 'plombir_sync_queue_v1',
+        MAX_RETRIES: 3,
+        TIMEOUT_MS: 8000,
+        RETRY_DELAY_MS: 2000
+      },
+
+      async send(activity, player, result, details = {}) {
+        const payload = {
+          key: this.CONFIG.KEY,
+          activity: activity,
+          player: player,
+          result: result,
+          details: JSON.stringify(details),
+          timestamp: Date.now()
+        };
+
+        const success = await this._trySend(payload);
+
+        if (success) {
+          console.log('✅ Синхронизировано:', payload);
+          return true;
+        }
+
+        this._addToQueue(payload);
+        console.log('📥 Добавлено в очередь:', payload);
+        return false;
+      },
+
+      async _trySend(payload, attempt = 1) {
+        try {
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), this.CONFIG.TIMEOUT_MS);
+
+          await fetch(this.CONFIG.URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify(payload),
+            signal: controller.signal
+          });
+
+          clearTimeout(timeoutId);
+          return true;
+        } catch (err) {
+          console.warn(`⚠️ Попытка ${attempt} не удалась:`, err.message);
+
+          if (attempt < this.CONFIG.MAX_RETRIES) {
+            await this._sleep(this.CONFIG.RETRY_DELAY_MS);
+            return this._trySend(payload, attempt + 1);
+          }
+
+          return false;
+        }
+      },
+
+      _getQueue() {
+        try {
+          const data = localStorage.getItem(this.CONFIG.QUEUE_STORAGE);
+          return data ? JSON.parse(data) : [];
+        } catch(e) { return []; }
+      },
+
+      _saveQueue(queue) {
+        try { localStorage.setItem(this.CONFIG.QUEUE_STORAGE, JSON.stringify(queue)); } catch(e) {}
+      },
+
+      _addToQueue(payload) {
+        const queue = this._getQueue();
+        queue.push({ ...payload, queuedAt: Date.now() });
+        this._saveQueue(queue);
+      },
+
+      async flushQueue() {
+        const queue = this._getQueue();
+        if (queue.length === 0) return;
+
+        console.log(`📤 Отправка очереди (${queue.length} записей)...`);
+        const remaining = [];
+
+        for (const item of queue) {
+          const success = await this._trySend(item);
+          if (!success) remaining.push(item);
+        }
+
+        this._saveQueue(remaining);
+
+        if (remaining.length === 0) console.log('✅ Очередь очищена');
+        else console.log(`⏳ Осталось в очереди: ${remaining.length}`);
+      },
+
+      _sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+      },
+
+      init() {
+        window.addEventListener('online', () => {
+          console.log('🌐 Интернет появился — отправка очереди');
+          this.flushQueue();
+        });
+
+        if (navigator.onLine) {
+          setTimeout(() => this.flushQueue(), 2000);
+        }
+
+        setInterval(() => {
+          if (navigator.onLine) this.flushQueue();
+        }, 30000);
+      }
+    };
+
+    Sync.init();
+  </script>
 
   <!-- AUDIO -->
   <script>
@@ -466,7 +421,6 @@
       },
       tap() { this.tone(660, 0.06); },
       reveal() {
-        // Звук дзынь при показе цены
         this.tone(1046.5, 0.1, 'triangle', 0.12);
         setTimeout(() => this.tone(1318.5, 0.15, 'triangle', 0.12), 80);
         setTimeout(() => this.tone(1568, 0.2, 'triangle', 0.12), 160);
@@ -499,7 +453,7 @@
         PLAYER_COUNTER: 'plombir_player_counter_v1',
         SETTINGS: 'plombir_vteme_settings_v1'
       },
-      
+
       isAuthValid(activityId) {
         try {
           const session = JSON.parse(localStorage.getItem(this.KEYS.AUTH_SESSION) || '{}');
@@ -509,25 +463,25 @@
           return true;
         } catch(e) { return false; }
       },
-      
+
       getStats() {
         try {
           const data = localStorage.getItem(this.KEYS.STATS);
           return data ? JSON.parse(data) : {};
         } catch(e) { return {}; }
       },
-      
+
       saveStats(stats) {
         try { localStorage.setItem(this.KEYS.STATS, JSON.stringify(stats)); } catch(e) {}
       },
-      
+
       getPlayerCounter(activityId) {
         try {
           const data = JSON.parse(localStorage.getItem(this.KEYS.PLAYER_COUNTER) || '{}');
           return data[activityId] || 0;
         } catch(e) { return 0; }
       },
-      
+
       incrementPlayerCounter(activityId) {
         try {
           const data = JSON.parse(localStorage.getItem(this.KEYS.PLAYER_COUNTER) || '{}');
@@ -536,7 +490,7 @@
           return data[activityId];
         } catch(e) { return 1; }
       },
-      
+
       resetPlayerCounter(activityId) {
         try {
           const data = JSON.parse(localStorage.getItem(this.KEYS.PLAYER_COUNTER) || '{}');
@@ -544,29 +498,29 @@
           localStorage.setItem(this.KEYS.PLAYER_COUNTER, JSON.stringify(data));
         } catch(e) {}
       },
-      
+
       getNextGameNumber(activityId) {
         return this.getPlayerCounter(activityId) + 1;
       },
-      
+
       getSettings() {
         try {
           const data = localStorage.getItem(this.KEYS.SETTINGS);
           return data ? JSON.parse(data) : { target: 3 };
         } catch(e) { return { target: 3 }; }
       },
-      
+
       saveSettings(settings) {
         try { localStorage.setItem(this.KEYS.SETTINGS, JSON.stringify(settings)); } catch(e) {}
       },
-      
+
       recordGame(activityId, session) {
         const stats = this.getStats();
-        
+
         if (!stats[activityId]) {
           stats[activityId] = { sessions: [], players: [] };
         }
-        
+
         stats[activityId].sessions.push({
           p1Score: session.p1Score,
           p2Score: session.p2Score,
@@ -575,7 +529,7 @@
           rounds: session.rounds,
           timestamp: Date.now()
         });
-        
+
         this.saveStats(stats);
       }
     };
@@ -583,11 +537,7 @@
 
   <!-- ==================== БАЗА ТОВАРОВ (300+) ==================== -->
   <script>
-    // Формат: { name, emoji, price, unit, category, anim }
-    // anim: анимация эмодзи (float, bounce-slow, wiggle, pulse-scale, spin-slow)
     const PRODUCTS_DATABASE = [
-      // ==================== 🍔 ПРОДУКТЫ (100) ====================
-      // Мясо
       { name: 'Куриное филе «Петруха»', emoji: '🍗', price: 13.40, unit: '1 кг', cat: 'meat', anim: 'bounce-slow' },
       { name: 'Бедра куриные «Дзержинка»', emoji: '🍗', price: 11.54, unit: '1 кг', cat: 'meat', anim: 'float' },
       { name: 'Свинина лопаточная', emoji: '🥩', price: 17.99, unit: '1 кг', cat: 'meat', anim: 'wiggle' },
@@ -598,8 +548,6 @@
       { name: 'Грудка «Аппетитная» копчено-вареная', emoji: '🍗', price: 12.99, unit: '1 кг', cat: 'meat', anim: 'float' },
       { name: 'Голень цыпленка-бройлера', emoji: '🍗', price: 7.39, unit: '1 кг', cat: 'meat', anim: 'bounce-slow' },
       { name: 'Сосиски «Брестские»', emoji: '🌭', price: 8.99, unit: '500 г', cat: 'meat', anim: 'wiggle' },
-      
-      // Овощи/фрукты
       { name: 'Бананы', emoji: '🍌', price: 3.29, unit: '1 кг', cat: 'fruits', anim: 'wiggle' },
       { name: 'Ананас', emoji: '🍍', price: 3.99, unit: '1 кг', cat: 'fruits', anim: 'bounce-slow' },
       { name: 'Груша «Конференция»', emoji: '🍐', price: 3.59, unit: '1 кг', cat: 'fruits', anim: 'float' },
@@ -615,8 +563,6 @@
       { name: 'Мандарины', emoji: '🍊', price: 4.49, unit: '1 кг', cat: 'fruits', anim: 'float' },
       { name: 'Виноград', emoji: '🍇', price: 6.99, unit: '1 кг', cat: 'fruits', anim: 'pulse-scale' },
       { name: 'Арбуз', emoji: '🍉', price: 1.29, unit: '1 кг', cat: 'fruits', anim: 'bounce-slow' },
-      
-      // Бакалея
       { name: 'Майонез «Провансаль»', emoji: '🥫', price: 2.99, unit: '400 г', cat: 'grocery', anim: 'float' },
       { name: 'Кетчуп Heinz', emoji: '🍅', price: 12.49, unit: '570 г', cat: 'grocery', anim: 'pulse-scale' },
       { name: 'Хлеб «Кривицкий»', emoji: '🍞', price: 1.56, unit: '1 шт', cat: 'bakery', anim: 'bounce-slow' },
@@ -628,8 +574,6 @@
       { name: 'Чай Greenfield', emoji: '🍵', price: 7.99, unit: '25 пак.', cat: 'drinks', anim: 'wiggle' },
       { name: 'Кофе Lavazza crema e gusto', emoji: '☕', price: 17.99, unit: '250 г', cat: 'drinks', anim: 'pulse-scale' },
       { name: 'Кофе Dallmayr prodomo', emoji: '☕', price: 29.99, unit: '500 г', cat: 'drinks', anim: 'bounce-slow' },
-      
-      // Сладкое
       { name: 'Шоколад Nestle milky', emoji: '🍫', price: 2.39, unit: '82 г', cat: 'sweets', anim: 'wiggle' },
       { name: 'Пряники «СВАЁ» шоколадно-сливочные', emoji: '🍪', price: 3.49, unit: '300 г', cat: 'sweets', anim: 'float' },
       { name: 'Мармелад «СВАЁ» цитрусовый', emoji: '🍬', price: 2.25, unit: '210 г', cat: 'sweets', anim: 'pulse-scale' },
@@ -638,8 +582,6 @@
       { name: 'Печенье «Слодыч»', emoji: '🍪', price: 2.19, unit: '100 г', cat: 'sweets', anim: 'wiggle' },
       { name: 'Вафли «Спартак»', emoji: '🧇', price: 2.49, unit: '200 г', cat: 'sweets', anim: 'pulse-scale' },
       { name: 'Мороженое «Санта Бремор»', emoji: '🍦', price: 4.99, unit: '500 мл', cat: 'sweets', anim: 'bounce-slow' },
-      
-      // Молочка
       { name: 'Масло «Стары Менск»', emoji: '🧈', price: 2.69, unit: '160 г', cat: 'dairy', anim: 'float' },
       { name: 'Масло «Сваё» крестьянское', emoji: '🧈', price: 2.99, unit: '180 г', cat: 'dairy', anim: 'wiggle' },
       { name: 'Молоко «Сваё»', emoji: '🥛', price: 1.99, unit: '1 л', cat: 'dairy', anim: 'pulse-scale' },
@@ -648,8 +590,6 @@
       { name: 'Сметана «Савушкин»', emoji: '🥛', price: 2.99, unit: '300 г', cat: 'dairy', anim: 'wiggle' },
       { name: 'Йогурт «Савушкин»', emoji: '🥛', price: 1.89, unit: '290 г', cat: 'dairy', anim: 'pulse-scale' },
       { name: 'Кефир «Савушкин»', emoji: '🥛', price: 1.79, unit: '1 л', cat: 'dairy', anim: 'bounce-slow' },
-      
-      // Снеки
       { name: 'Чипсы «СВАЁ» холодец с хреном', emoji: '🍟', price: 2.39, unit: '100 г', cat: 'snacks', anim: 'wiggle' },
       { name: 'Чипсы «СВАЁ» сметана с луком', emoji: '🍟', price: 2.39, unit: '100 г', cat: 'snacks', anim: 'float' },
       { name: 'Трубочки вафельные «СВАЁ» какао', emoji: '🍫', price: 4.12, unit: '150 г', cat: 'snacks', anim: 'pulse-scale' },
@@ -657,8 +597,6 @@
       { name: 'Сухарики «Воронцовские»', emoji: '🍞', price: 1.79, unit: '90 г', cat: 'snacks', anim: 'wiggle' },
       { name: 'Орешки «Кириешки»', emoji: '🥜', price: 1.99, unit: '80 г', cat: 'snacks', anim: 'float' },
       { name: 'Попкорн', emoji: '🍿', price: 2.49, unit: '100 г', cat: 'snacks', anim: 'pulse-scale' },
-      
-      // Быт
       { name: 'Бумага туалетная Papia bio care', emoji: '🧻', price: 4.79, unit: '6 рул.', cat: 'household', anim: 'bounce-slow' },
       { name: 'Бумага туалетная Papia Bali flower', emoji: '🧻', price: 9.99, unit: '12 рул.', cat: 'household', anim: 'float' },
       { name: 'Капсулы для стирки Eclips', emoji: '🧴', price: 7.99, unit: '12 шт', cat: 'household', anim: 'wiggle' },
@@ -667,9 +605,6 @@
       { name: 'Гель для душа Palmolive', emoji: '🧴', price: 8.99, unit: '500 мл', cat: 'household', anim: 'float' },
       { name: 'Зубная паста Colgate', emoji: '🪥', price: 5.99, unit: '100 мл', cat: 'household', anim: 'wiggle' },
       { name: 'Мыло Dove', emoji: '🧼', price: 3.49, unit: '100 г', cat: 'household', anim: 'pulse-scale' },
-      
-      // ==================== 📱 ТЕХНИКА (100) ====================
-      // Смартфоны
       { name: 'iPhone 17 256 ГБ', emoji: '📱', price: 3330.90, unit: 'руб.', cat: 'phones', anim: 'pulse-scale' },
       { name: 'iPhone 17 Pro 256 ГБ', emoji: '📱', price: 4736.90, unit: 'руб.', cat: 'phones', anim: 'bounce-slow' },
       { name: 'iPhone 17 Pro Max 256 ГБ', emoji: '📱', price: 5080.20, unit: 'руб.', cat: 'phones', anim: 'float' },
@@ -678,8 +613,6 @@
       { name: 'Samsung Galaxy S25 128 ГБ', emoji: '📱', price: 2199.00, unit: 'руб.', cat: 'phones', anim: 'bounce-slow' },
       { name: 'Xiaomi 15 Pro 256 ГБ', emoji: '📱', price: 2499.00, unit: 'руб.', cat: 'phones', anim: 'float' },
       { name: 'Huawei Pura 70 Pro', emoji: '📱', price: 2399.00, unit: 'руб.', cat: 'phones', anim: 'wiggle' },
-      
-      // Ноутбуки
       { name: 'MSI Cyborg 15 RTX 5060', emoji: '💻', price: 4551.90, unit: 'руб.', cat: 'laptops', anim: 'bounce-slow' },
       { name: 'MSI Cyborg 17 RTX 5060', emoji: '💻', price: 4796.10, unit: 'руб.', cat: 'laptops', anim: 'float' },
       { name: 'Asus ROG Strix G16 RTX 5080', emoji: '💻', price: 15651.00, unit: 'руб.', cat: 'laptops', anim: 'pulse-scale' },
@@ -687,16 +620,12 @@
       { name: 'MacBook Pro 14 M3', emoji: '💻', price: 5499.00, unit: 'руб.', cat: 'laptops', anim: 'bounce-slow' },
       { name: 'Lenovo IdeaPad 3', emoji: '💻', price: 1299.00, unit: 'руб.', cat: 'laptops', anim: 'float' },
       { name: 'HP Pavilion 15', emoji: '💻', price: 1599.00, unit: 'руб.', cat: 'laptops', anim: 'pulse-scale' },
-      
-      // Телевизоры
       { name: 'Samsung 43" FullHD', emoji: '📺', price: 1073.90, unit: 'руб.', cat: 'tv', anim: 'wiggle' },
       { name: 'Samsung 55" 4K', emoji: '📺', price: 1998.90, unit: 'руб.', cat: 'tv', anim: 'bounce-slow' },
       { name: 'Samsung 55" QLED', emoji: '📺', price: 3999.00, unit: 'руб.', cat: 'tv', anim: 'float' },
       { name: 'Samsung 65" OLED', emoji: '📺', price: 7999.00, unit: 'руб.', cat: 'tv', anim: 'pulse-scale' },
       { name: 'LG 55" 4K', emoji: '📺', price: 1899.00, unit: 'руб.', cat: 'tv', anim: 'wiggle' },
       { name: 'Xiaomi TV 43"', emoji: '📺', price: 899.00, unit: 'руб.', cat: 'tv', anim: 'bounce-slow' },
-      
-      // Бытовая техника
       { name: 'Холодильник Candy CCRN6200WD', emoji: '🧊', price: 1460.00, unit: 'руб.', cat: 'appliances', anim: 'float' },
       { name: 'Холодильник Bosch', emoji: '🧊', price: 3531.00, unit: 'руб.', cat: 'appliances', anim: 'pulse-scale' },
       { name: 'Стиральная машина Bosch', emoji: '🧺', price: 2390.00, unit: 'руб.', cat: 'appliances', anim: 'wiggle' },
@@ -707,8 +636,6 @@
       { name: 'Блендер Philips', emoji: '🥤', price: 199.00, unit: 'руб.', cat: 'appliances', anim: 'bounce-slow' },
       { name: 'Электрочайник Bosch', emoji: '🫖', price: 149.00, unit: 'руб.', cat: 'appliances', anim: 'float' },
       { name: 'Утюг Philips', emoji: '👔', price: 249.00, unit: 'руб.', cat: 'appliances', anim: 'pulse-scale' },
-      
-      // Наушники, гаджеты
       { name: 'AirPods Pro 2', emoji: '🎧', price: 899.00, unit: 'руб.', cat: 'gadgets', anim: 'wiggle' },
       { name: 'AirPods 4', emoji: '🎧', price: 599.00, unit: 'руб.', cat: 'gadgets', anim: 'bounce-slow' },
       { name: 'Samsung Galaxy Buds 3', emoji: '🎧', price: 499.00, unit: 'руб.', cat: 'gadgets', anim: 'float' },
@@ -722,8 +649,6 @@
       { name: 'Планшет Samsung Tab S9', emoji: '📱', price: 1899.00, unit: 'руб.', cat: 'gadgets', anim: 'float' },
       { name: 'Фотоаппарат Canon', emoji: '📷', price: 2499.00, unit: 'руб.', cat: 'gadgets', anim: 'pulse-scale' },
       { name: 'GoPro Hero 12', emoji: '📷', price: 1499.00, unit: 'руб.', cat: 'gadgets', anim: 'wiggle' },
-      
-      // ==================== 👕 ОДЕЖДА И БРЕНДЫ (50) ====================
       { name: 'Худи Jordan', emoji: '👕', price: 326.00, unit: 'руб.', cat: 'clothes', anim: 'wiggle' },
       { name: 'Худи Nike', emoji: '👕', price: 189.00, unit: 'руб.', cat: 'clothes', anim: 'float' },
       { name: 'Худи Adidas', emoji: '👕', price: 179.00, unit: 'руб.', cat: 'clothes', anim: 'bounce-slow' },
@@ -749,8 +674,6 @@
       { name: 'Очки Gucci', emoji: '🕶️', price: 1899.00, unit: 'руб.', cat: 'accessories', anim: 'bounce-slow' },
       { name: 'Часы Casio G-Shock', emoji: '⌚', price: 699.00, unit: 'руб.', cat: 'accessories', anim: 'pulse-scale' },
       { name: 'Часы Rolex', emoji: '⌚', price: 29999.00, unit: 'руб.', cat: 'accessories', anim: 'wiggle' },
-      
-      // ==================== 🎒 ШКОЛЬНЫЕ ТОВАРЫ (50) ====================
       { name: 'Рюкзак бюджетный', emoji: '🎒', price: 45.00, unit: 'руб.', cat: 'school', anim: 'float' },
       { name: 'Рюкзак ортопедический', emoji: '🎒', price: 149.00, unit: 'руб.', cat: 'school', anim: 'bounce-slow' },
       { name: 'Рюкзак на колёсиках', emoji: '🎒', price: 115.00, unit: 'руб.', cat: 'school', anim: 'pulse-scale' },
@@ -800,7 +723,7 @@
       { name: 'Учебник', emoji: '📚', price: 22.00, unit: 'руб.', cat: 'school', anim: 'pulse-scale' },
       { name: 'Рабочая тетрадь', emoji: '📓', price: 8.50, unit: 'руб.', cat: 'school', anim: 'wiggle' },
       { name: 'Дневник твёрдый', emoji: '📔', price: 8.90, unit: 'руб.', cat: 'school', anim: 'float' },
-      { name: 'Закладка магнитная', emoji: '🔖', price: 2.50, unit: 'руб.', cat: 'school', anim: 'bounce-slow' },
+      { name: 'Закладка магнитная', emoji: '🔖', price: 2.50, unit: 'руб.', cat: 'school', anim: 'bounce-slow' }
     ];
   </script>
 
@@ -808,7 +731,7 @@
   <script>
     const ACTIVITY_ID = 'v-teme';
     const ROUND_SIZE = 5;
-    
+
     let currentTarget = 3;
     let currentGameNumber = 1;
     let p1Score = 0;
@@ -818,20 +741,18 @@
     let currentProduct = null;
     let roundHistory = [];
     let productAnswered = false;
-    
-    // ==================== SCREENS ====================
+
     function showScreen(name) {
       ['start', 'game', 'result'].forEach(s => {
         document.getElementById(`screen-${s}`).classList.toggle('hidden', s !== name);
       });
     }
-    
-    // ==================== TARGET SELECTION ====================
+
     function selectTarget(target) {
       AudioEngine.tap();
       currentTarget = target;
       Storage.saveSettings({ target });
-      
+
       document.querySelectorAll('.target-btn').forEach(btn => {
         const val = parseInt(btn.dataset.target);
         if (val === target) {
@@ -841,136 +762,116 @@
         }
       });
     }
-    
-    // ==================== UPDATE NEXT GAME UI ====================
+
     function updateNextGameUI() {
       const nextNum = Storage.getNextGameNumber(ACTIVITY_ID);
       const totalPlayed = Storage.getPlayerCounter(ACTIVITY_ID);
-      
       document.getElementById('nextGameDisplay').innerText = `ИГРА ${nextNum}`;
       document.getElementById('totalPlayedDisplay').innerText = totalPlayed;
     }
-    
-    // ==================== START GAME ====================
+
     function startGame() {
       currentGameNumber = Storage.getNextGameNumber(ACTIVITY_ID);
       p1Score = 0;
       p2Score = 0;
       currentRound = 0;
       roundHistory = [];
-      
-      // Выбираем 5 случайных товаров
+
       roundProducts = pickRandomProducts(ROUND_SIZE);
-      
+
       AudioEngine.newGame();
-      
+
       document.getElementById('headerStatus').innerText = `Игра ${currentGameNumber}`;
       document.getElementById('targetDisplay').innerText = currentTarget;
-      
+
       updateScoreUI();
       showScreen('game');
       showProduct();
     }
-    
-    // ==================== PICK RANDOM ====================
+
     function pickRandomProducts(count) {
       const shuffled = [...PRODUCTS_DATABASE].sort(() => Math.random() - 0.5);
       return shuffled.slice(0, count);
     }
-    
-    // ==================== SHOW PRODUCT ====================
+
     function showProduct() {
       if (currentRound >= ROUND_SIZE) {
         finishGame();
         return;
       }
-      
+
       currentProduct = roundProducts[currentRound];
       productAnswered = false;
-      
-      // Анимация появления
+
       const card = document.getElementById('productCard');
       card.classList.remove('animate-pop');
       void card.offsetWidth;
       card.classList.add('animate-pop');
-      
-      // Заполнить данные
+
       const emojiEl = document.getElementById('productEmoji');
       emojiEl.innerText = currentProduct.emoji;
       emojiEl.className = `text-7xl product-emoji animate-${currentProduct.anim || 'float'}`;
-      
+
       document.getElementById('productName').innerText = currentProduct.name;
       document.getElementById('productUnit').innerText = currentProduct.unit;
-      
-      // Показать кнопку "Узнать цену"
+
       document.getElementById('revealBtn').classList.remove('hidden');
       document.getElementById('priceReveal').classList.add('hidden');
-      
-      // Сброс полей ввода
+
       document.getElementById('p1Guess').value = '';
       document.getElementById('p2Guess').value = '';
       document.getElementById('p1Diff').innerText = '—';
       document.getElementById('p2Diff').innerText = '—';
       document.getElementById('closerResult').classList.add('hidden');
-      
-      // Прогресс-точки
+
       renderProgressDots();
-      
-      // Раунд
+
       currentRound++;
       document.getElementById('roundDisplay').innerText = currentRound;
-      
+
       lucide.createIcons();
     }
-    
-    // ==================== PROGRESS DOTS ====================
+
     function renderProgressDots() {
       const container = document.getElementById('progressDots');
       container.innerHTML = Array.from({ length: ROUND_SIZE }, (_, i) => {
         let cls = 'w-2 h-2 rounded-full transition-all';
-        if (i < currentRound - 1) {
-          cls += ' bg-brand-cyan';
-        } else if (i === currentRound - 1) {
-          cls += ' bg-brand-gold w-6';
-        } else {
-          cls += ' bg-gray-700';
-        }
+        if (i < currentRound - 1) cls += ' bg-brand-cyan';
+        else if (i === currentRound - 1) cls += ' bg-brand-gold w-6';
+        else cls += ' bg-gray-700';
         return `<div class="${cls}"></div>`;
       }).join('');
     }
-    
-    // ==================== REVEAL PRICE ====================
+
     function revealPrice() {
       if (productAnswered) return;
-      
+
       AudioEngine.reveal();
-      
+
       document.getElementById('revealBtn').classList.add('hidden');
       document.getElementById('priceReveal').classList.remove('hidden');
-      
+
       document.getElementById('actualPrice').innerText = currentProduct.price.toFixed(2);
       document.getElementById('actualUnit').innerText = currentProduct.unit === 'руб.' ? 'руб.' : `руб. / ${currentProduct.unit}`;
-      
-      // Автофокус на поле первого игрока
+
       setTimeout(() => {
         document.getElementById('p1Guess').focus();
       }, 300);
     }
-    
-    // ==================== CALC CLOSER ====================
+
     function calcCloser() {
       const p1 = parseFloat(document.getElementById('p1Guess').value);
       const p2 = parseFloat(document.getElementById('p2Guess').value);
       const actual = currentProduct.price;
-      
+
       const p1DiffEl = document.getElementById('p1Diff');
       const p2DiffEl = document.getElementById('p2Diff');
       const resultEl = document.getElementById('closerResult');
       const closerTextEl = document.getElementById('closerText');
-      
+
       let p1Diff = null;
       let p2Diff = null;
-      
+
       if (!isNaN(p1)) {
         p1Diff = p1 - actual;
         p1DiffEl.innerText = (p1Diff >= 0 ? '+' : '') + p1Diff.toFixed(2);
@@ -979,7 +880,7 @@
         p1DiffEl.innerText = '—';
         p1DiffEl.className = 'text-[10px] font-black w-14 text-right text-gray-500';
       }
-      
+
       if (!isNaN(p2)) {
         p2Diff = p2 - actual;
         p2DiffEl.innerText = (p2Diff >= 0 ? '+' : '') + p2Diff.toFixed(2);
@@ -988,14 +889,13 @@
         p2DiffEl.innerText = '—';
         p2DiffEl.className = 'text-[10px] font-black w-14 text-right text-gray-500';
       }
-      
-      // Определить ближайшего
+
       if (p1Diff !== null && p2Diff !== null) {
         const absP1 = Math.abs(p1Diff);
         const absP2 = Math.abs(p2Diff);
-        
+
         resultEl.classList.remove('hidden');
-        
+
         if (Math.abs(absP1 - absP2) < 0.01) {
           closerTextEl.innerText = '🤝 НИЧЬЯ';
           closerTextEl.className = 'text-sm font-black text-gray-400';
@@ -1010,32 +910,25 @@
         resultEl.classList.add('hidden');
       }
     }
-    
-    // ==================== AWARD POINT ====================
+
     function awardPoint(player) {
       if (productAnswered) return;
       productAnswered = true;
-      
+
       AudioEngine.point();
-      
-      if (player === 1) {
-        p1Score++;
-      } else if (player === 2) {
-        p2Score++;
-      }
-      // player === 0 — ничья, никому
-      
-      // Сохранить в историю
+
+      if (player === 1) p1Score++;
+      else if (player === 2) p2Score++;
+
       roundHistory.push({
         product: currentProduct,
         p1Guess: parseFloat(document.getElementById('p1Guess').value) || null,
         p2Guess: parseFloat(document.getElementById('p2Guess').value) || null,
         awarded: player
       });
-      
+
       updateScoreUI();
-      
-      // Проверка победы
+
       if (p1Score >= currentTarget || p2Score >= currentTarget || currentRound >= ROUND_SIZE) {
         setTimeout(() => finishGame(), 500);
       } else {
@@ -1044,22 +937,20 @@
         }, 400);
       }
     }
-    
-    // ==================== UPDATE SCORE UI ====================
+
     function updateScoreUI() {
       document.getElementById('p1Score').innerText = p1Score;
       document.getElementById('p2Score').innerText = p2Score;
     }
-    
-    // ==================== FINISH GAME ====================
-    function finishGame() {
+
+    async function finishGame() {
       AudioEngine.win();
-      
-      let winner = 0; // 0 = ничья
+
+      let winner = 0;
       if (p1Score > p2Score) winner = 1;
       else if (p2Score > p1Score) winner = 2;
-      
-      // Записать в статистику
+
+      // Локальная статистика
       Storage.recordGame(ACTIVITY_ID, {
         p1Score,
         p2Score,
@@ -1067,10 +958,29 @@
         target: currentTarget,
         rounds: roundHistory.length
       });
-      
+
       Storage.incrementPlayerCounter(ACTIVITY_ID);
-      
-      // UI
+
+      // ===== ОТПРАВКА В GOOGLE SHEETS =====
+      Sync.send(
+        'v-teme',
+        `Игра ${currentGameNumber}`,
+        `${p1Score}:${p2Score}`,
+        {
+          p1Score,
+          p2Score,
+          winner,
+          target: currentTarget,
+          rounds: roundHistory.length,
+          history: roundHistory.map(h => ({
+            product: h.product.name,
+            price: h.product.price,
+            awarded: h.awarded
+          }))
+        }
+      );
+      // ====================================
+
       if (winner === 0) {
         document.getElementById('winnerEmoji').innerText = '🤝';
         document.getElementById('winnerLabel').innerText = 'НИЧЬЯ!';
@@ -1078,18 +988,17 @@
         document.getElementById('winnerEmoji').innerText = '🏆';
         document.getElementById('winnerLabel').innerText = `Победитель: Игрок ${winner}`;
       }
-      
+
       document.getElementById('resultP1').innerText = p1Score;
       document.getElementById('resultP2').innerText = p2Score;
-      
-      // История
+
       document.getElementById('resultBreakdown').innerHTML = roundHistory.map((h, i) => {
         let awardText = '';
         let awardCls = '';
         if (h.awarded === 1) { awardText = '👤 Игрок 1'; awardCls = 'text-brand-cyan'; }
         else if (h.awarded === 2) { awardText = '👤 Игрок 2'; awardCls = 'text-brand-pink'; }
         else { awardText = '🤝 Ничья'; awardCls = 'text-gray-400'; }
-        
+
         return `
           <div class="p-3 bg-gray-900/60 rounded-xl border border-gray-800">
             <div class="flex items-center gap-2 mb-1">
@@ -1103,42 +1012,39 @@
           </div>
         `;
       }).join('');
-      
+
       showScreen('result');
     }
-    
-    // ==================== NEW GAME ====================
+
     function newGame() {
       AudioEngine.newGame();
       p1Score = 0;
       p2Score = 0;
       currentRound = 0;
       roundHistory = [];
-      
+
       updateNextGameUI();
       document.getElementById('headerStatus').innerText = 'Готов к игре';
-      
+
       showScreen('start');
     }
-    
-    // ==================== RESET COUNTER ====================
+
     function openResetCounterModal() {
       AudioEngine.tap();
       document.getElementById('resetCounterModal').classList.remove('hidden');
     }
-    
+
     function closeResetCounterModal() {
       document.getElementById('resetCounterModal').classList.add('hidden');
     }
-    
+
     function doResetCounter() {
       Storage.resetPlayerCounter(ACTIVITY_ID);
       AudioEngine.reset();
       updateNextGameUI();
       closeResetCounterModal();
     }
-    
-    // ==================== EXIT ====================
+
     function confirmExit() {
       if (roundHistory.length > 0) {
         document.getElementById('exitModal').classList.remove('hidden');
@@ -1146,40 +1052,38 @@
         exitToMenu();
       }
     }
-    
+
     function closeExitModal() {
       document.getElementById('exitModal').classList.add('hidden');
     }
-    
+
     function exitToMenu() {
       window.location.href = '../index.html';
     }
-    
-    // ==================== INIT ====================
+
     window.addEventListener('DOMContentLoaded', () => {
-      // Telegram
-const tg = window.Telegram?.WebApp;
-if (tg) {
-  tg.ready();
-  tg.expand();
-  tg.setHeaderColor('#0b0c10');
-  tg.setBackgroundColor('#0b0c10');
-}
-      
+      const tg = window.Telegram?.WebApp;
+      if (tg) {
+        tg.ready();
+        tg.expand();
+        tg.setHeaderColor('#0b0c10');
+        tg.setBackgroundColor('#0b0c10');
+      }
+
       if (!Storage.isAuthValid(ACTIVITY_ID)) {
         alert('🔒 Требуется авторизация');
         window.location.href = '../index.html';
         return;
       }
-      
+
       const settings = Storage.getSettings();
       currentTarget = settings.target || 3;
       selectTarget(currentTarget);
-      
+
       updateNextGameUI();
       showScreen('start');
       lucide.createIcons();
-      
+
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
           closeExitModal();

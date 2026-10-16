@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>ПЛОМБИР YOUNG 2026 | ФАКТЫ!</title>
-  
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -38,34 +38,12 @@
             'pulse-ring': 'pulseRing 1.5s ease-out infinite'
           },
           keyframes: {
-            float: {
-              '0%, 100%': { transform: 'translateY(0px)' },
-              '50%': { transform: 'translateY(-10px)' }
-            },
-            pop: {
-              '0%': { transform: 'scale(0.8)', opacity: '0' },
-              '50%': { transform: 'scale(1.05)' },
-              '100%': { transform: 'scale(1)', opacity: '1' }
-            },
-            shake: {
-              '0%, 100%': { transform: 'translateX(0)' },
-              '25%': { transform: 'translateX(-8px)' },
-              '75%': { transform: 'translateX(8px)' }
-            },
-            slideUp: {
-              '0%': { transform: 'translateY(40px)', opacity: '0' },
-              '100%': { transform: 'translateY(0)', opacity: '1' }
-            },
-            bounceIn: {
-              '0%': { transform: 'scale(0.3)', opacity: '0' },
-              '50%': { transform: 'scale(1.1)' },
-              '70%': { transform: 'scale(0.95)' },
-              '100%': { transform: 'scale(1)', opacity: '1' }
-            },
-            pulseRing: {
-              '0%': { transform: 'scale(0.9)', opacity: '0.7' },
-              '100%': { transform: 'scale(1.4)', opacity: '0' }
-            }
+            float: { '0%, 100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-10px)' } },
+            pop: { '0%': { transform: 'scale(0.8)', opacity: '0' }, '50%': { transform: 'scale(1.05)' }, '100%': { transform: 'scale(1)', opacity: '1' } },
+            shake: { '0%, 100%': { transform: 'translateX(0)' }, '25%': { transform: 'translateX(-8px)' }, '75%': { transform: 'translateX(8px)' } },
+            slideUp: { '0%': { transform: 'translateY(40px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
+            bounceIn: { '0%': { transform: 'scale(0.3)', opacity: '0' }, '50%': { transform: 'scale(1.1)' }, '70%': { transform: 'scale(0.95)' }, '100%': { transform: 'scale(1)', opacity: '1' } },
+            pulseRing: { '0%': { transform: 'scale(0.9)', opacity: '0.7' }, '100%': { transform: 'scale(1.4)', opacity: '0' } }
           }
         }
       }
@@ -73,117 +51,66 @@
   </script>
 
   <style>
-    * {
-      -webkit-tap-highlight-color: transparent;
-      user-select: none;
-      -webkit-user-select: none;
-    }
+    * { -webkit-tap-highlight-color: transparent; user-select: none; -webkit-user-select: none; }
     body { overscroll-behavior: none; }
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    
-    .glass {
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-    }
-    
-    @keyframes timerPulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.08); }
-    }
-    
-    .timer-warning {
-      animation: timerPulse 0.5s ease-in-out infinite;
-    }
+    .glass { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+    @keyframes timerPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+    .timer-warning { animation: timerPulse 0.5s ease-in-out infinite; }
   </style>
 </head>
 
 <body class="bg-brand-darkBg text-gray-100 font-sans min-h-screen antialiased overflow-x-hidden">
 
-  <!-- BACKGROUND -->
   <div class="fixed inset-0 pointer-events-none overflow-hidden">
     <div class="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full bg-brand-purple/25 blur-[120px] animate-float"></div>
     <div class="absolute -bottom-40 -right-40 w-[500px] h-[500px] rounded-full bg-brand-cyan/20 blur-[120px] animate-float" style="animation-delay: 1.5s"></div>
   </div>
 
-  <!-- HEADER -->
   <header class="sticky top-0 z-40 glass bg-brand-darkBg/90 border-b border-gray-800/80 px-4 py-3">
     <div class="flex items-center justify-between gap-2 max-w-md mx-auto">
-      <button onclick="confirmExit()" 
-              class="w-9 h-9 rounded-xl bg-gray-900 border border-gray-800 flex items-center justify-center hover:border-rose-500/50 transition active:scale-95">
+      <button onclick="confirmExit()" class="w-9 h-9 rounded-xl bg-gray-900 border border-gray-800 flex items-center justify-center hover:border-rose-500/50 transition active:scale-95">
         <i data-lucide="arrow-left" class="w-4 h-4 text-gray-400"></i>
       </button>
-      
       <div class="text-center">
         <h1 class="text-sm font-black tracking-wide">📊 ФАКТЫ!</h1>
         <p class="text-[10px] text-gray-500 font-medium" id="headerStatus">Готов к игре</p>
       </div>
-      
-      <button onclick="openResetCounterModal()" 
-              class="w-9 h-9 rounded-xl bg-gray-900 border border-gray-800 flex items-center justify-center hover:border-amber-500/50 transition active:scale-95">
+      <button onclick="openResetCounterModal()" class="w-9 h-9 rounded-xl bg-gray-900 border border-gray-800 flex items-center justify-center hover:border-amber-500/50 transition active:scale-95">
         <i data-lucide="refresh-cw" class="w-4 h-4 text-gray-400"></i>
       </button>
     </div>
   </header>
 
-  <!-- MAIN -->
   <main class="relative z-10 px-4 py-4 max-w-md mx-auto pb-32">
 
-    <!-- ==================== SCREEN: START ==================== -->
     <div id="screen-start" class="space-y-4 pt-4">
-      
       <div class="text-center py-4 animate-pop">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-[28px] bg-gradient-to-tr from-brand-purple to-brand-cyan shadow-2xl shadow-brand-purple/40 text-5xl mb-4 animate-float">
-          📊
-        </div>
+        <div class="inline-flex items-center justify-center w-24 h-24 rounded-[28px] bg-gradient-to-tr from-brand-purple to-brand-cyan shadow-2xl shadow-brand-purple/40 text-5xl mb-4 animate-float">📊</div>
         <h2 class="text-2xl font-black text-white mb-1">ФАКТЫ!</h2>
         <p class="text-sm text-gray-400">Правда или ложь? Блиц-раунд</p>
       </div>
 
-      <!-- NEXT PLAYER -->
       <div class="bg-gradient-to-tr from-brand-purple/20 to-brand-cyan/20 border-2 border-brand-purple/50 rounded-3xl p-6 text-center animate-pop" style="animation-delay: 0.1s">
-        <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2">
-          🎯 Следующий игрок
-        </p>
-        <p class="text-5xl font-black text-brand-purple mb-3" id="nextPlayerDisplay">
-          ИГРОК 1
-        </p>
+        <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2">🎯 Следующий игрок</p>
+        <p class="text-5xl font-black text-brand-purple mb-3" id="nextPlayerDisplay">ИГРОК 1</p>
         <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-black/30 rounded-full">
           <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span class="text-[10px] text-gray-400 font-bold">
-            Всего сыграно: <span id="totalPlayedDisplay" class="text-white">0</span>
-          </span>
+          <span class="text-[10px] text-gray-400 font-bold">Всего сыграно: <span id="totalPlayedDisplay" class="text-white">0</span></span>
         </div>
       </div>
 
-      <!-- SETTINGS -->
-      <div class="bg-brand-cardBg border border-gray-800 rounded-3xl p-5 animate-pop" style="animation-delay: 0.2s space-y-4">
-        <div>
-          <label class="text-[10px] font-black text-gray-500 uppercase tracking-wider mb-2 block">
-            ⏱ Таймер на ответ
-          </label>
-          <div class="grid grid-cols-4 gap-2" id="timerOptions">
-            <button onclick="selectTimer(10)" data-timer="10"
-                    class="timer-btn py-3 rounded-xl border-2 font-black text-sm transition active:scale-95">
-              10с
-            </button>
-            <button onclick="selectTimer(15)" data-timer="15"
-                    class="timer-btn py-3 rounded-xl border-2 font-black text-sm transition active:scale-95">
-              15с
-            </button>
-            <button onclick="selectTimer(30)" data-timer="30"
-                    class="timer-btn py-3 rounded-xl border-2 font-black text-sm transition active:scale-95">
-              30с
-            </button>
-            <button onclick="selectTimer(0)" data-timer="0"
-                    class="timer-btn py-3 rounded-xl border-2 font-black text-xs transition active:scale-95">
-              Без
-            </button>
-          </div>
+      <div class="bg-brand-cardBg border border-gray-800 rounded-3xl p-5 animate-pop" style="animation-delay: 0.2s">
+        <label class="text-[10px] font-black text-gray-500 uppercase tracking-wider mb-2 block">⏱ Таймер на ответ</label>
+        <div class="grid grid-cols-4 gap-2" id="timerOptions">
+          <button onclick="selectTimer(10)" data-timer="10" class="timer-btn py-3 rounded-xl border-2 font-black text-sm transition active:scale-95">10с</button>
+          <button onclick="selectTimer(15)" data-timer="15" class="timer-btn py-3 rounded-xl border-2 font-black text-sm transition active:scale-95">15с</button>
+          <button onclick="selectTimer(30)" data-timer="30" class="timer-btn py-3 rounded-xl border-2 font-black text-sm transition active:scale-95">30с</button>
+          <button onclick="selectTimer(0)" data-timer="0" class="timer-btn py-3 rounded-xl border-2 font-black text-xs transition active:scale-95">Без</button>
         </div>
       </div>
 
-      <!-- Rules -->
       <div class="bg-brand-cardBg border border-gray-800 rounded-3xl p-5 animate-pop" style="animation-delay: 0.3s">
         <h3 class="text-[10px] font-black text-gray-500 uppercase tracking-wider mb-3">📋 Правила</h3>
         <ul class="space-y-2 text-xs text-gray-400">
@@ -194,31 +121,15 @@
         </ul>
       </div>
 
-      <!-- START BUTTON -->
-      <button onclick="startRound()" 
-              class="w-full py-4 bg-gradient-to-r from-brand-purple to-brand-cyan text-white font-black text-base rounded-2xl shadow-xl shadow-brand-purple/40 active:scale-95 transition animate-pop"
-              style="animation-delay: 0.4s">
-        🚀 НАЧАТЬ РАУНД
-      </button>
-
-      <button onclick="openResetCounterModal()" 
-              class="w-full py-3 bg-gray-900 hover:bg-gray-800 border border-gray-800 hover:border-amber-500/50 text-gray-500 hover:text-amber-400 font-bold text-xs rounded-2xl active:scale-95 transition animate-pop"
-              style="animation-delay: 0.5s">
-        🔄 СБРОСИТЬ СЧЁТЧИК ИГРОКОВ
-      </button>
-
+      <button onclick="startRound()" class="w-full py-4 bg-gradient-to-r from-brand-purple to-brand-cyan text-white font-black text-base rounded-2xl shadow-xl shadow-brand-purple/40 active:scale-95 transition animate-pop" style="animation-delay: 0.4s">🚀 НАЧАТЬ РАУНД</button>
+      <button onclick="openResetCounterModal()" class="w-full py-3 bg-gray-900 hover:bg-gray-800 border border-gray-800 hover:border-amber-500/50 text-gray-500 hover:text-amber-400 font-bold text-xs rounded-2xl active:scale-95 transition animate-pop" style="animation-delay: 0.5s">🔄 СБРОСИТЬ СЧЁТЧИК ИГРОКОВ</button>
     </div>
 
-    <!-- ==================== SCREEN: GAME ==================== -->
     <div id="screen-game" class="space-y-4 pt-2 hidden">
-
-      <!-- Scoreboard -->
       <div class="bg-gradient-to-tr from-brand-purple/20 to-brand-cyan/20 border border-brand-purple/40 rounded-3xl p-4 animate-pop">
         <div class="flex items-center justify-between gap-3">
           <div class="flex items-center gap-3">
-            <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-brand-purple to-brand-cyan flex items-center justify-center text-2xl">
-              📊
-            </div>
+            <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-brand-purple to-brand-cyan flex items-center justify-center text-2xl">📊</div>
             <div>
               <p class="text-[10px] text-gray-400 font-bold uppercase">Игрок</p>
               <p class="text-sm font-black text-white" id="gamePlayerLabel">Игрок 1</p>
@@ -229,8 +140,6 @@
             <p class="text-3xl font-black text-brand-gold" id="gameScoreDisplay">0/0</p>
           </div>
         </div>
-        
-        <!-- Progress dots -->
         <div class="flex items-center gap-2 mt-3">
           <span class="text-[10px] text-gray-400 font-bold uppercase">Вопросы:</span>
           <div class="flex gap-1.5" id="questionProgress">
@@ -243,170 +152,225 @@
         </div>
       </div>
 
-      <!-- TIMER BAR -->
       <div id="timerContainer" class="hidden bg-brand-cardBg border border-gray-800 rounded-2xl p-3">
         <div class="flex items-center justify-between mb-2">
-          <span class="text-[10px] font-black text-gray-400 uppercase" id="timerStatus">⏱ ИДЁТ ОТСЧЁТ</span>
+          <span class="text-[10px] font-black text-gray-400 uppercase" id="timerStatus">⏱ ИДЁТ ОТСЧЕТ</span>
           <span class="text-lg font-black text-brand-cyan" id="timerDisplay">10с</span>
         </div>
         <div class="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
           <div id="timerBar" class="h-full bg-gradient-to-r from-brand-cyan via-brand-purple to-brand-pink transition-all ease-linear"></div>
         </div>
-        <button onclick="togglePause()" id="pauseBtn"
-                class="w-full mt-2 py-2 bg-gray-900 hover:bg-gray-800 border border-gray-800 hover:border-brand-cyan/50 text-gray-400 hover:text-brand-cyan font-bold text-xs rounded-xl transition active:scale-95">
-          ⏸ ПАУЗА
-        </button>
+        <button onclick="togglePause()" id="pauseBtn" class="w-full mt-2 py-2 bg-gray-900 hover:bg-gray-800 border border-gray-800 hover:border-brand-cyan/50 text-gray-400 hover:text-brand-cyan font-bold text-xs rounded-xl transition active:scale-95">⏸ ПАУЗА</button>
       </div>
 
-      <!-- FACT CARD -->
       <div class="bg-brand-cardBg border-2 border-gray-800 rounded-3xl p-5 animate-pop" id="factCard">
         <div class="flex items-center justify-between mb-3">
-          <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-[10px] font-black tracking-wider bg-gray-800/90 text-gray-400 border border-gray-700/50" id="factNumber">
-            ФАКТ #1
-          </span>
+          <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-[10px] font-black tracking-wider bg-gray-800/90 text-gray-400 border border-gray-700/50" id="factNumber">ФАКТ #1</span>
         </div>
-        
-        <p class="text-base md:text-lg font-bold text-gray-100 leading-snug mb-4" id="factText">
-          Загрузка...
-        </p>
+        <p class="text-base md:text-lg font-bold text-gray-100 leading-snug mb-4" id="factText">Загрузка...</p>
 
-        <!-- Answer buttons -->
         <div class="grid grid-cols-2 gap-2" id="answerButtons">
-          <button onclick="answerFact(true)" 
-                  class="py-4 bg-emerald-500/15 hover:bg-emerald-500/25 border-2 border-emerald-500/40 hover:border-emerald-500 text-emerald-400 font-black text-sm rounded-2xl active:scale-95 transition">
-            ✓ ПРАВДА
-          </button>
-          <button onclick="answerFact(false)" 
-                  class="py-4 bg-rose-500/15 hover:bg-rose-500/25 border-2 border-rose-500/40 hover:border-rose-500 text-rose-400 font-black text-sm rounded-2xl active:scale-95 transition">
-            ✗ ЛОЖЬ
-          </button>
+          <button onclick="answerFact(true)" class="py-4 bg-emerald-500/15 hover:bg-emerald-500/25 border-2 border-emerald-500/40 hover:border-emerald-500 text-emerald-400 font-black text-sm rounded-2xl active:scale-95 transition">✓ ПРАВДА</button>
+          <button onclick="answerFact(false)" class="py-4 bg-rose-500/15 hover:bg-rose-500/25 border-2 border-rose-500/40 hover:border-rose-500 text-rose-400 font-black text-sm rounded-2xl active:scale-95 transition">✗ ЛОЖЬ</button>
         </div>
 
-        <!-- Reveal area (hidden by default) -->
         <div id="revealArea" class="hidden mt-4 space-y-3">
-          <div id="revealBadge" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-black uppercase tracking-wide border">
-            —
-          </div>
+          <div id="revealBadge" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-black uppercase tracking-wide border">—</div>
           <div class="p-3 rounded-2xl bg-gray-900/80 border border-gray-800 text-xs text-gray-300 leading-relaxed">
             <span class="font-black text-brand-cyan">💡 Пояснение:</span>
             <span id="revealNote">—</span>
           </div>
-          <button onclick="nextFact()" id="nextFactBtn"
-                  class="w-full py-4 bg-gradient-to-r from-brand-purple to-brand-cyan text-white font-black text-base rounded-2xl shadow-xl shadow-brand-purple/40 active:scale-95 transition">
-            ➡️ СЛЕДУЮЩИЙ ФАКТ
-          </button>
+          <button onclick="nextFact()" id="nextFactBtn" class="w-full py-4 bg-gradient-to-r from-brand-purple to-brand-cyan text-white font-black text-base rounded-2xl shadow-xl shadow-brand-purple/40 active:scale-95 transition">➡️ СЛЕДУЮЩИЙ ФАКТ</button>
         </div>
       </div>
 
-      <!-- Controls -->
       <div class="grid grid-cols-1 gap-2">
-        <button onclick="confirmExit()" 
-                class="flex items-center justify-center gap-2 py-3.5 bg-gray-900 hover:bg-gray-800 border border-gray-800 hover:border-rose-500/50 text-gray-400 hover:text-rose-400 font-bold text-xs rounded-2xl active:scale-95 transition">
+        <button onclick="confirmExit()" class="flex items-center justify-center gap-2 py-3.5 bg-gray-900 hover:bg-gray-800 border border-gray-800 hover:border-rose-500/50 text-gray-400 hover:text-rose-400 font-bold text-xs rounded-2xl active:scale-95 transition">
           <i data-lucide="x" class="w-4 h-4"></i>
           <span>ПРЕРВАТЬ РАУНД</span>
         </button>
       </div>
-
     </div>
 
-    <!-- ==================== SCREEN: RESULT ==================== -->
     <div id="screen-result" class="space-y-4 pt-4 hidden">
-      
       <div class="text-center py-4 animate-bounce-in">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-tr from-brand-gold to-orange-400 shadow-2xl shadow-brand-gold/40 text-5xl mb-4" id="resultEmoji">
-          🏆
-        </div>
+        <div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-tr from-brand-gold to-orange-400 shadow-2xl shadow-brand-gold/40 text-5xl mb-4" id="resultEmoji">🏆</div>
         <h2 class="text-3xl font-black text-white mb-1">РАУНД ЗАВЕРШЁН!</h2>
         <p class="text-sm text-gray-400" id="resultPlayerLabel">Игрок 1</p>
       </div>
 
-      <!-- Final score -->
       <div class="bg-gradient-to-tr from-brand-gold/20 to-orange-400/20 border-2 border-brand-gold/50 rounded-3xl p-6 text-center animate-pop" style="animation-delay: 0.1s">
         <p class="text-[10px] text-gray-400 font-black uppercase tracking-wider mb-1">Результат</p>
         <p class="text-6xl font-black text-brand-gold" id="resultScore">0/5</p>
         <p class="text-xs text-gray-400 mt-2" id="resultPercent">0%</p>
       </div>
 
-      <!-- Breakdown -->
       <div class="bg-brand-cardBg border border-gray-800 rounded-3xl p-4 animate-pop" style="animation-delay: 0.2s">
         <h3 class="text-[10px] font-black text-gray-500 uppercase tracking-wider mb-3">📋 Ответы</h3>
         <div class="space-y-2" id="resultBreakdown"></div>
       </div>
 
-      <!-- Rating -->
       <div class="bg-brand-cardBg border border-gray-800 rounded-3xl p-4 text-center animate-pop" style="animation-delay: 0.3s">
         <p class="text-[10px] text-gray-500 font-black uppercase tracking-wider mb-1">Оценка</p>
         <p class="text-2xl font-black" id="resultRating">—</p>
       </div>
 
-      <!-- Buttons -->
       <div class="space-y-2 animate-pop" style="animation-delay: 0.4s">
-        <button onclick="newPlayer()" 
-                class="w-full py-4 bg-gradient-to-r from-brand-purple to-brand-cyan text-white font-black text-base rounded-2xl shadow-xl shadow-brand-purple/40 active:scale-95 transition">
-          👤 СЛЕДУЮЩИЙ ИГРОК
-        </button>
-        <button onclick="exitToMenu()" 
-                class="w-full py-3 bg-gray-900 hover:bg-gray-800 border border-gray-800 text-gray-400 font-bold text-xs rounded-2xl active:scale-95 transition">
-          ⚙️ В ГЛАВНОЕ МЕНЮ
-        </button>
+        <button onclick="newPlayer()" class="w-full py-4 bg-gradient-to-r from-brand-purple to-brand-cyan text-white font-black text-base rounded-2xl shadow-xl shadow-brand-purple/40 active:scale-95 transition">👤 СЛЕДУЮЩИЙ ИГРОК</button>
+        <button onclick="exitToMenu()" class="w-full py-3 bg-gray-900 hover:bg-gray-800 border border-gray-800 text-gray-400 font-bold text-xs rounded-2xl active:scale-95 transition">⚙️ В ГЛАВНОЕ МЕНЮ</button>
       </div>
-
     </div>
 
   </main>
 
-  <!-- EXIT MODAL -->
   <div id="exitModal" class="fixed inset-0 z-[150] hidden">
     <div class="absolute inset-0 bg-black/80 backdrop-blur-md" onclick="closeExitModal()"></div>
     <div class="relative flex items-center justify-center min-h-screen p-4">
       <div class="w-full max-w-sm bg-brand-cardBg border border-gray-800 rounded-3xl p-6 shadow-2xl animate-slide-up text-center">
-        <div class="inline-flex items-center justify-center w-16 h-16 rounded-3xl bg-amber-500/20 border border-amber-500/40 text-3xl mb-4">
-          ⚠️
-        </div>
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-3xl bg-amber-500/20 border border-amber-500/40 text-3xl mb-4">⚠️</div>
         <h2 class="text-lg font-black text-white mb-2">ВЫЙТИ?</h2>
-        <p class="text-xs text-gray-400 mb-5">
-          Прогресс текущего раунда будет потерян
-        </p>
+        <p class="text-xs text-gray-400 mb-5">Прогресс текущего раунда будет потерян</p>
         <div class="space-y-2">
-          <button onclick="exitToMenu()" 
-                  class="w-full py-3 bg-rose-500/20 hover:bg-rose-500/30 border border-rose-500/40 text-rose-400 font-black text-xs rounded-2xl active:scale-95 transition">
-            🚪 ВЫЙТИ
-          </button>
-          <button onclick="closeExitModal()" 
-                  class="w-full py-3 bg-gray-900 hover:bg-gray-800 border border-gray-800 text-gray-400 font-bold text-xs rounded-2xl active:scale-95 transition">
-            ОСТАТЬСЯ
-          </button>
+          <button onclick="exitToMenu()" class="w-full py-3 bg-rose-500/20 hover:bg-rose-500/30 border border-rose-500/40 text-rose-400 font-black text-xs rounded-2xl active:scale-95 transition">🚪 ВЫЙТИ</button>
+          <button onclick="closeExitModal()" class="w-full py-3 bg-gray-900 hover:bg-gray-800 border border-gray-800 text-gray-400 font-bold text-xs rounded-2xl active:scale-95 transition">ОСТАТЬСЯ</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- RESET COUNTER MODAL -->
   <div id="resetCounterModal" class="fixed inset-0 z-[150] hidden">
     <div class="absolute inset-0 bg-black/80 backdrop-blur-md" onclick="closeResetCounterModal()"></div>
     <div class="relative flex items-center justify-center min-h-screen p-4">
       <div class="w-full max-w-sm bg-brand-cardBg border border-gray-800 rounded-3xl p-6 shadow-2xl animate-slide-up text-center">
-        <div class="inline-flex items-center justify-center w-16 h-16 rounded-3xl bg-brand-cyan/20 border border-brand-cyan/40 text-3xl mb-4">
-          🔄
-        </div>
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-3xl bg-brand-cyan/20 border border-brand-cyan/40 text-3xl mb-4">🔄</div>
         <h2 class="text-lg font-black text-white mb-2">СБРОСИТЬ СЧЁТЧИК?</h2>
-        <p class="text-xs text-gray-400 mb-5">
-          Следующий игрок снова будет <span class="text-brand-cyan font-bold">«Игрок 1»</span><br>
-          <span class="text-[10px] text-gray-500">Статистика сохранится</span>
-        </p>
+        <p class="text-xs text-gray-400 mb-5">Следующий игрок снова будет <span class="text-brand-cyan font-bold">«Игрок 1»</span><br><span class="text-[10px] text-gray-500">Статистика сохранится</span></p>
         <div class="space-y-2">
-          <button onclick="doResetCounter()" 
-                  class="w-full py-3 bg-brand-cyan/20 hover:bg-brand-cyan/30 border border-brand-cyan/40 text-brand-cyan font-black text-xs rounded-2xl active:scale-95 transition">
-            🔄 СБРОСИТЬ
-          </button>
-          <button onclick="closeResetCounterModal()" 
-                  class="w-full py-3 bg-gray-900 hover:bg-gray-800 border border-gray-800 text-gray-400 font-bold text-xs rounded-2xl active:scale-95 transition">
-            ОТМЕНА
-          </button>
+          <button onclick="doResetCounter()" class="w-full py-3 bg-brand-cyan/20 hover:bg-brand-cyan/30 border border-brand-cyan/40 text-brand-cyan font-black text-xs rounded-2xl active:scale-95 transition">🔄 СБРОСИТЬ</button>
+          <button onclick="closeResetCounterModal()" class="w-full py-3 bg-gray-900 hover:bg-gray-800 border border-gray-800 text-gray-400 font-bold text-xs rounded-2xl active:scale-95 transition">ОТМЕНА</button>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- ==================== SYNC MODULE ==================== -->
+  <script>
+    const Sync = {
+      CONFIG: {
+        URL: 'https://script.google.com/macros/s/AKfycbxXZkgQXEUwMIqceGfjnV7V_YSVzIKnuE1WsYLHlzNb3ovCOKz2b9OkZt5IBwHkTP_ixA/exec',
+        KEY: 'Pavel9696',
+        QUEUE_STORAGE: 'plombir_sync_queue_v1',
+        MAX_RETRIES: 3,
+        TIMEOUT_MS: 8000,
+        RETRY_DELAY_MS: 2000
+      },
+
+      async send(activity, player, result, details = {}) {
+        const payload = {
+          key: this.CONFIG.KEY,
+          activity: activity,
+          player: player,
+          result: result,
+          details: JSON.stringify(details),
+          timestamp: Date.now()
+        };
+
+        const success = await this._trySend(payload);
+
+        if (success) {
+          console.log('✅ Синхронизировано:', payload);
+          return true;
+        }
+
+        this._addToQueue(payload);
+        console.log('📥 Добавлено в очередь:', payload);
+        return false;
+      },
+
+      async _trySend(payload, attempt = 1) {
+        try {
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), this.CONFIG.TIMEOUT_MS);
+
+          await fetch(this.CONFIG.URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify(payload),
+            signal: controller.signal
+          });
+
+          clearTimeout(timeoutId);
+          return true;
+        } catch (err) {
+          console.warn(`⚠️ Попытка ${attempt} не удалась:`, err.message);
+
+          if (attempt < this.CONFIG.MAX_RETRIES) {
+            await this._sleep(this.CONFIG.RETRY_DELAY_MS);
+            return this._trySend(payload, attempt + 1);
+          }
+
+          return false;
+        }
+      },
+
+      _getQueue() {
+        try {
+          const data = localStorage.getItem(this.CONFIG.QUEUE_STORAGE);
+          return data ? JSON.parse(data) : [];
+        } catch(e) { return []; }
+      },
+
+      _saveQueue(queue) {
+        try { localStorage.setItem(this.CONFIG.QUEUE_STORAGE, JSON.stringify(queue)); } catch(e) {}
+      },
+
+      _addToQueue(payload) {
+        const queue = this._getQueue();
+        queue.push({ ...payload, queuedAt: Date.now() });
+        this._saveQueue(queue);
+      },
+
+      async flushQueue() {
+        const queue = this._getQueue();
+        if (queue.length === 0) return;
+
+        console.log(`📤 Отправка очереди (${queue.length} записей)...`);
+        const remaining = [];
+
+        for (const item of queue) {
+          const success = await this._trySend(item);
+          if (!success) remaining.push(item);
+        }
+
+        this._saveQueue(remaining);
+
+        if (remaining.length === 0) console.log('✅ Очередь очищена');
+        else console.log(`⏳ Осталось в очереди: ${remaining.length}`);
+      },
+
+      _sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+      },
+
+      init() {
+        window.addEventListener('online', () => {
+          console.log('🌐 Интернет появился — отправка очереди');
+          this.flushQueue();
+        });
+
+        if (navigator.onLine) {
+          setTimeout(() => this.flushQueue(), 2000);
+        }
+
+        setInterval(() => {
+          if (navigator.onLine) this.flushQueue();
+        }, 30000);
+      }
+    };
+
+    Sync.init();
+  </script>
 
   <!-- AUDIO -->
   <script>
@@ -435,34 +399,13 @@
         } catch(e) {}
       },
       tap() { this.tone(660, 0.06); },
-      correct() {
-        this.tone(523.25, 0.1, 'triangle', 0.12);
-        setTimeout(() => this.tone(783.99, 0.15, 'triangle', 0.12), 80);
-      },
-      wrong() {
-        this.tone(330, 0.15, 'sawtooth', 0.1);
-        setTimeout(() => this.tone(220, 0.2, 'sawtooth', 0.1), 120);
-      },
-      tick() {
-        this.tone(880, 0.03, 'sine', 0.06);
-      },
-      timeUp() {
-        this.tone(440, 0.1, 'square', 0.12);
-        setTimeout(() => this.tone(330, 0.15, 'square', 0.12), 100);
-        setTimeout(() => this.tone(220, 0.25, 'square', 0.12), 220);
-      },
-      win() {
-        const notes = [523.25, 659.25, 783.99, 1046.5];
-        notes.forEach((n, i) => setTimeout(() => this.tone(n, 0.2, 'triangle', 0.13), i * 100));
-      },
-      newPlayer() {
-        this.tone(523.25, 0.1, 'triangle', 0.1);
-        setTimeout(() => this.tone(659.25, 0.15, 'triangle', 0.1), 100);
-      },
-      reset() {
-        this.tone(400, 0.1, 'sine', 0.1);
-        setTimeout(() => this.tone(300, 0.15, 'sine', 0.1), 100);
-      }
+      correct() { this.tone(523.25, 0.1, 'triangle', 0.12); setTimeout(() => this.tone(783.99, 0.15, 'triangle', 0.12), 80); },
+      wrong() { this.tone(330, 0.15, 'sawtooth', 0.1); setTimeout(() => this.tone(220, 0.2, 'sawtooth', 0.1), 120); },
+      tick() { this.tone(880, 0.03, 'sine', 0.06); },
+      timeUp() { this.tone(440, 0.1, 'square', 0.12); setTimeout(() => this.tone(330, 0.15, 'square', 0.12), 100); setTimeout(() => this.tone(220, 0.25, 'square', 0.12), 220); },
+      win() { const notes = [523.25, 659.25, 783.99, 1046.5]; notes.forEach((n, i) => setTimeout(() => this.tone(n, 0.2, 'triangle', 0.13), i * 100)); },
+      newPlayer() { this.tone(523.25, 0.1, 'triangle', 0.1); setTimeout(() => this.tone(659.25, 0.15, 'triangle', 0.1), 100); },
+      reset() { this.tone(400, 0.1, 'sine', 0.1); setTimeout(() => this.tone(300, 0.15, 'sine', 0.1), 100); }
     };
   </script>
 
@@ -475,7 +418,7 @@
         PLAYER_COUNTER: 'plombir_player_counter_v1',
         SETTINGS: 'plombir_facts_settings_v1'
       },
-      
+
       isAuthValid(activityId) {
         try {
           const session = JSON.parse(localStorage.getItem(this.KEYS.AUTH_SESSION) || '{}');
@@ -485,25 +428,25 @@
           return true;
         } catch(e) { return false; }
       },
-      
+
       getStats() {
         try {
           const data = localStorage.getItem(this.KEYS.STATS);
           return data ? JSON.parse(data) : {};
         } catch(e) { return {}; }
       },
-      
+
       saveStats(stats) {
         try { localStorage.setItem(this.KEYS.STATS, JSON.stringify(stats)); } catch(e) {}
       },
-      
+
       getPlayerCounter(activityId) {
         try {
           const data = JSON.parse(localStorage.getItem(this.KEYS.PLAYER_COUNTER) || '{}');
           return data[activityId] || 0;
         } catch(e) { return 0; }
       },
-      
+
       incrementPlayerCounter(activityId) {
         try {
           const data = JSON.parse(localStorage.getItem(this.KEYS.PLAYER_COUNTER) || '{}');
@@ -512,7 +455,7 @@
           return data[activityId];
         } catch(e) { return 1; }
       },
-      
+
       resetPlayerCounter(activityId) {
         try {
           const data = JSON.parse(localStorage.getItem(this.KEYS.PLAYER_COUNTER) || '{}');
@@ -520,53 +463,48 @@
           localStorage.setItem(this.KEYS.PLAYER_COUNTER, JSON.stringify(data));
         } catch(e) {}
       },
-      
+
       getNextPlayerNumber(activityId) {
         return this.getPlayerCounter(activityId) + 1;
       },
-      
-      // Настройки
+
       getSettings() {
         try {
           const data = localStorage.getItem(this.KEYS.SETTINGS);
           return data ? JSON.parse(data) : { timer: 10 };
         } catch(e) { return { timer: 10 }; }
       },
-      
+
       saveSettings(settings) {
         try { localStorage.setItem(this.KEYS.SETTINGS, JSON.stringify(settings)); } catch(e) {}
       },
-      
+
       recordRound(activityId, playerName, session) {
         const stats = this.getStats();
-        
+
         if (!stats[activityId]) {
           stats[activityId] = { sessions: [], players: [] };
         }
-        
+
         stats[activityId].sessions.push({
           player: playerName,
           correct: session.correct,
           total: session.total,
           timestamp: Date.now()
         });
-        
+
         if (!stats[activityId].players.includes(playerName)) {
           stats[activityId].players.push(playerName);
         }
-        
+
         this.saveStats(stats);
       }
     };
   </script>
 
-  <!-- ==================== БАЗА ФАКТОВ (500+) ==================== -->
+  <!-- ==================== БАЗА ФАКТОВ (600+) ==================== -->
   <script>
-    // Формат: [текст, правда/ложь, пояснение]
-    // true = правда, false = ложь
-    // Всего 500+ фактов, темы перемешаны
     const FACTS_DATABASE = [
-      // === ИГРЫ & IT (100) ===
       { t: 'Minecraft — самая продаваемая видеоигра в истории (более 300 млн копий).', a: true, n: 'Она обогнала даже Tetris и GTA V.' },
       { t: 'Персонаж Марио изначально был водопроводчиком.', a: false, n: 'В своей первой игре Donkey Kong (1981) он был плотником!' },
       { t: 'В Brawl Stars персонаж Спайк — единственный герой, у которого нет ни единой реплики.', a: true, n: 'Он абсолютно немой на протяжении всех обновлений.' },
@@ -666,8 +604,6 @@
       { t: 'Первая игра серии Metal Gear вышла в 1987 году.', a: true, n: 'Она стала родоначальником жанра стелс.' },
       { t: 'В игре Dark Souls можно играть в кооперативе.', a: true, n: 'Но с ограничениями.' },
       { t: 'Компания Rockstar Games выпустила более 20 игр серии GTA.', a: false, n: 'Основных игр около 15.' },
-
-      // === ТРЕНДЫ & TIKTOK (100) ===
       { t: 'MrBeast записал видео, где просто считает до 100 000, и оно длилось 40 часов.', a: true, n: 'Это запустило его алгоритмический взлет.' },
       { t: 'Кнопка «Лайк» в Facebook изначально должна была называться «Awesome» («Круто»).', a: true, n: 'Марк Цукерберг лично заблокировал это слово.' },
       { t: 'В TikTok алгоритм урезает просмотры видео, если в кадре плохой свет или слишком темно.', a: true, n: 'Качество картинки — критерий рекомендации.' },
@@ -770,8 +706,6 @@
       { t: 'Самое популярное видео в VK по просмотрам — это клип «Despacito».', a: false, n: 'Популярны разные.' },
       { t: 'В Twitter (X) можно публиковать только текст.', a: false, n: 'Можно фото.' },
       { t: 'Первая версия Flickr была создана в 2004 году.', a: true, n: 'Для фото.' },
-
-      // === КИНО & МУЗЫКА (100) ===
       { t: 'Гарри Поттер за все 8 фильмов ни разу не произнес заклинание «Авада Кедавра».', a: true, n: 'Применяли только его враги и союзники.' },
       { t: 'Дэниэл Рэдклифф сломал около 80 волшебных палочек на съемках Гарри Поттера.', a: true, n: 'Он стучал ими как барабанными.' },
       { t: 'Тому Холланду давали полный сценарий «Мстителей», так как он не спойлерит.', a: false, n: 'Ему вырезали сценарий, так как он случайно сливал сюжет.' },
@@ -868,8 +802,6 @@
       { t: 'Песня «Gangnam Style» стала первой песней, набравшей 1 млрд просмотров на YouTube.', a: true, n: 'Это было в 2012 году.' },
       { t: 'Фильм «Мстители: Финал» собрал более $2.7 млрд.', a: true, n: 'Это рекорд.' },
       { t: 'Актер Роберт Дауни мл. получил Оскар за «Железного человека».', a: false, n: 'Он не получил Оскар за эту роль.' },
-
-      // === ЕДА & ФАСТФУД (100) ===
       { t: 'Чипсы Pringles делают из картофельного теста с крахмалом, а не из нарезки.', a: true, n: 'Настоящего картофеля там меньше половины.' },
       { t: 'Наггетсы в McDonald’s выпекают всего в 4 строгих формах.', a: true, n: '«Шарик», «Кость», «Сапог» и «Колокол».' },
       { t: 'Картошка Фри была придумана во Франции.', a: false, n: 'Её настоящая родина — Бельгия!' },
@@ -963,8 +895,6 @@
       { t: 'Шафран изобрели в Иране.', a: false, n: 'Он есть в разных странах.' },
       { t: 'Перец изобрели в Индии.', a: true, n: 'Там он растет.' },
       { t: 'Соль изобрели в Китае.', a: false, n: 'Она есть везде.' },
-
-      // === ШОК-ФАКТЫ & ПРИРОДА (100) ===
       { t: 'На ресницах 99% людей живут микроскопические клещи Demodex.', a: true, n: 'Они абсолютно безвредны.' },
       { t: 'У пингвинов есть колени.', a: true, n: 'Они скрыты под слоем жира и перьев.' },
       { t: 'Быков бесит именно красный цвет плаща.', a: false, n: 'Быки не различают красный цвет, их бесит движение.' },
@@ -995,7 +925,7 @@
       { t: 'Кости человека прочнее бетона.', a: true, n: 'Но легче.' },
       { t: 'Человек теряет около 100 волос в день.', a: true, n: 'Это норма.' },
       { t: 'Ногти на руках растут быстрее, чем на ногах.', a: true, n: 'Это факт.' },
-      { t: 'У человека больше костей, чем у взрослого.', a: false, n: 'У младенца больше.' },
+      { t: 'У младенца больше костей, чем у взрослого.', a: true, n: 'У младенца около 300.' },
       { t: 'Кровь человека красная из-за железа.', a: true, n: 'Гемоглобин содержит железо.' },
       { t: 'У человека 4 группы крови.', a: true, n: 'Плюс резус-фактор.' },
       { t: 'Человек может жить без селезенки.', a: true, n: 'Она не критична.' },
@@ -1011,6 +941,14 @@
       { t: 'У человека 206 костей.', a: true, n: 'У взрослого.' },
       { t: 'У человека 5 чувств.', a: true, n: 'Зрение, слух, вкус, обоняние, осязание.' },
       { t: 'У человека 3 цвета колбочек в глазах.', a: true, n: 'Красный, зеленый, синий.' },
+      { t: 'У человека 2 полушария мозга.', a: true, n: 'Это норма.' },
+      { t: 'У человека 4 камеры в сердце.', a: true, n: 'Это норма.' },
+      { t: 'У человека 10 пальцев на руках.', a: true, n: 'Это норма.' },
+      { t: 'У человека 10 пальцев на ногах.', a: true, n: 'Это норма.' },
+      { t: 'У человека 1 нос.', a: true, n: 'Это норма.' },
+      { t: 'У человека 1 рот.', a: true, n: 'Это норма.' },
+      { t: 'У человека 1 язык.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 глаза.', a: true, n: 'Это норма.' },
       { t: 'У человека 2 уха.', a: true, n: 'Это норма.' },
       { t: 'У человека 1 сердце.', a: true, n: 'Это норма.' },
       { t: 'У человека 2 легких.', a: true, n: 'Это норма.' },
@@ -1020,31 +958,7 @@
       { t: 'У человека 1 поджелудочная.', a: true, n: 'Это норма.' },
       { t: 'У человека 1 желчный пузырь.', a: true, n: 'Это норма.' },
       { t: 'У человека 1 аппендикс.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 полушария мозга.', a: true, n: 'Это норма.' },
-      { t: 'У человека 4 камеры в сердце.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 предсердия.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 желудочка.', a: true, n: 'Это норма.' },
-      { t: 'У человека 1 аорта.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 сонные артерии.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 яремные вены.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 подключичные артерии.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 плечевые артерии.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 лучевые артерии.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 локтевые артерии.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 бедренные артерии.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 подколенные артерии.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 большеберцовые артерии.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 малоберцовые артерии.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 стопы.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 кисти.', a: true, n: 'Это норма.' },
-      { t: 'У человека 10 пальцев на руках.', a: true, n: 'Это норма.' },
-      { t: 'У человека 10 пальцев на ногах.', a: true, n: 'Это норма.' },
-      { t: 'У человека 1 нос.', a: true, n: 'Это норма.' },
-      { t: 'У человека 1 рот.', a: true, n: 'Это норма.' },
-      { t: 'У человека 1 язык.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 глаза.', a: true, n: 'Это норма.' },
       { t: 'У человека 2 брови.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 уха.', a: true, n: 'Это норма.' },
       { t: 'У человека 2 ноздри.', a: true, n: 'Это норма.' },
       { t: 'У человека 2 губы.', a: true, n: 'Это норма.' },
       { t: 'У человека 2 щеки.', a: true, n: 'Это норма.' },
@@ -1063,31 +977,13 @@
       { t: 'У человека 2 средних пальца.', a: true, n: 'Это норма.' },
       { t: 'У человека 2 указательных пальца.', a: true, n: 'Это норма.' },
       { t: 'У человека 2 больших пальца.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 пятки.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 икры.', a: true, n: 'Это норма.' },
       { t: 'У человека 2 ягодицы.', a: true, n: 'Это норма.' },
       { t: 'У человека 2 лопатки.', a: true, n: 'Это норма.' },
       { t: 'У человека 2 ключицы.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 груди.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 соска.', a: true, n: 'Это норма.' },
       { t: 'У человека 2 подмышки.', a: true, n: 'Это норма.' },
       { t: 'У человека 2 бока.', a: true, n: 'Это норма.' },
       { t: 'У человека 2 предплечья.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 кисти.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 стопы.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 голени.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 бедра.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 колена.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 лодыжки.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 пятки.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 пальца на ногах.', a: false, n: 'Их 10.' },
-      { t: 'У человека 2 пальца на руках.', a: false, n: 'Их 10.' },
-      { t: 'У человека 2 глаза.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 уха.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 ноздри.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 губы.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 щеки.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 брови.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 икры.', a: true, n: 'Это норма.' },
       { t: 'У человека 2 ресницы.', a: false, n: 'Их много.' },
       { t: 'У человека 2 языка.', a: false, n: 'Один.' },
       { t: 'У человека 2 носа.', a: false, n: 'Один.' },
@@ -1098,22 +994,8 @@
       { t: 'У человека 2 спины.', a: false, n: 'Одна.' },
       { t: 'У человека 2 живота.', a: false, n: 'Один.' },
       { t: 'У человека 2 таза.', a: false, n: 'Один.' },
-      { t: 'У человека 2 груди.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 соска.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 подмышки.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 бока.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 предплечья.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 кисти.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 стопы.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 голени.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 бедра.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 колена.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 лодыжки.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 пятки.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 икры.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 ягодицы.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 лопатки.', a: true, n: 'Это норма.' },
-      { t: 'У человека 2 ключицы.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 пальца на ногах.', a: false, n: 'Их 10.' },
+      { t: 'У человека 2 пальца на руках.', a: false, n: 'Их 10.' }
     ];
   </script>
 
@@ -1121,7 +1003,7 @@
   <script>
     const ACTIVITY_ID = 'facts';
     const ROUND_SIZE = 5;
-    
+
     let currentPlayer = null;
     let currentNumber = 1;
     let roundFacts = [];
@@ -1129,26 +1011,23 @@
     let correctCount = 0;
     let answers = [];
     let selectedTimer = 10;
-    
-    // Timer
+
     let timerInterval = null;
     let timerRemaining = 0;
     let timerPaused = false;
     let timerEndTime = 0;
-    
-    // ==================== SCREENS ====================
+
     function showScreen(name) {
       ['start', 'game', 'result'].forEach(s => {
         document.getElementById(`screen-${s}`).classList.toggle('hidden', s !== name);
       });
     }
-    
-    // ==================== TIMER SELECTION ====================
+
     function selectTimer(sec) {
       AudioEngine.tap();
       selectedTimer = sec;
       Storage.saveSettings({ timer: sec });
-      
+
       document.querySelectorAll('.timer-btn').forEach(btn => {
         const val = parseInt(btn.dataset.timer);
         if (val === sec) {
@@ -1158,57 +1037,47 @@
         }
       });
     }
-    
-    // ==================== UPDATE NEXT PLAYER UI ====================
+
     function updateNextPlayerUI() {
       const nextNum = Storage.getNextPlayerNumber(ACTIVITY_ID);
       const totalPlayed = Storage.getPlayerCounter(ACTIVITY_ID);
-      
       document.getElementById('nextPlayerDisplay').innerText = `ИГРОК ${nextNum}`;
       document.getElementById('totalPlayedDisplay').innerText = totalPlayed;
     }
-    
-    // ==================== START ROUND ====================
+
     function startRound() {
       currentNumber = Storage.getNextPlayerNumber(ACTIVITY_ID);
       currentPlayer = `Игрок ${currentNumber} (ФАКТЫ)`;
       currentIndex = 0;
       correctCount = 0;
       answers = [];
-      
-      // Выбираем 5 случайных фактов
+
       roundFacts = pickRandomFacts(ROUND_SIZE);
-      
+
       AudioEngine.newPlayer();
-      
+
       document.getElementById('gamePlayerLabel').innerText = `Игрок ${currentNumber}`;
       document.getElementById('headerStatus').innerText = currentPlayer;
-      
+
       renderQuestionProgress();
       showScreen('game');
       showFact();
     }
-    
-    // ==================== PICK RANDOM FACTS ====================
+
     function pickRandomFacts(count) {
       const shuffled = [...FACTS_DATABASE].sort(() => Math.random() - 0.5);
       return shuffled.slice(0, count);
     }
-    
-    // ==================== RENDER QUESTION PROGRESS ====================
+
     function renderQuestionProgress() {
       const container = document.getElementById('questionProgress');
       container.innerHTML = Array.from({ length: ROUND_SIZE }, (_, i) => {
         let cls = 'q-dot w-6 h-6 rounded-full border-2 flex items-center justify-center text-[10px] font-black';
         if (i < answers.length) {
           const ans = answers[i];
-          if (ans === null) {
-            cls += ' border-gray-700 bg-gray-800/50 text-gray-600';
-          } else if (ans.correct) {
-            cls += ' border-emerald-500 bg-emerald-500/20 text-emerald-400';
-          } else {
-            cls += ' border-rose-500 bg-rose-500/20 text-rose-400';
-          }
+          if (ans === null) cls += ' border-gray-700 bg-gray-800/50 text-gray-600';
+          else if (ans.correct) cls += ' border-emerald-500 bg-emerald-500/20 text-emerald-400';
+          else cls += ' border-rose-500 bg-rose-500/20 text-rose-400';
         } else if (i === currentIndex) {
           cls += ' border-brand-purple bg-brand-purple/20 text-brand-purple';
         } else {
@@ -1217,98 +1086,81 @@
         return `<div class="${cls}">${i + 1}</div>`;
       }).join('');
     }
-    
-    // ==================== SHOW FACT ====================
+
     function showFact() {
       if (currentIndex >= ROUND_SIZE) {
         finishRound();
         return;
       }
-      
+
       const fact = roundFacts[currentIndex];
-      
       document.getElementById('factNumber').innerText = `ФАКТ #${currentIndex + 1}`;
       document.getElementById('factText').innerText = fact.t;
-      
-      // Сброс UI
+
       document.getElementById('answerButtons').classList.remove('hidden');
       document.getElementById('revealArea').classList.add('hidden');
-      
+
       renderQuestionProgress();
-      
-      // Запуск таймера
-      if (selectedTimer > 0) {
-        startTimer(selectedTimer);
-      } else {
-        document.getElementById('timerContainer').classList.add('hidden');
-      }
-      
+
+      if (selectedTimer > 0) startTimer(selectedTimer);
+      else document.getElementById('timerContainer').classList.add('hidden');
+
       lucide.createIcons();
     }
-    
-    // ==================== TIMER ====================
+
     function startTimer(seconds) {
       clearTimer();
-      
       timerRemaining = seconds;
       timerPaused = false;
       timerEndTime = Date.now() + seconds * 1000;
-      
+
       const container = document.getElementById('timerContainer');
       container.classList.remove('hidden');
       document.getElementById('timerStatus').innerText = '⏱ ИДЁТ ОТСЧЕТ';
       document.getElementById('timerStatus').className = 'text-[10px] font-black uppercase text-gray-400';
       document.getElementById('pauseBtn').innerHTML = '⏸ ПАУЗА';
-      
+
       updateTimerDisplay();
-      
+
       timerInterval = setInterval(() => {
         if (timerPaused) return;
-        
         const left = Math.max(0, timerEndTime - Date.now());
         timerRemaining = left / 1000;
-        
         updateTimerDisplay();
-        
+
         if (left <= 3000 && left > 0) {
-          if (Math.floor(left / 1000) !== Math.floor((left + 100) / 1000)) {
-            AudioEngine.tick();
-          }
+          if (Math.floor(left / 1000) !== Math.floor((left + 100) / 1000)) AudioEngine.tick();
         }
-        
+
         if (left <= 0) {
           clearTimer();
           timeUp();
         }
       }, 100);
     }
-    
+
     function updateTimerDisplay() {
       const sec = Math.ceil(timerRemaining);
       document.getElementById('timerDisplay').innerText = `${sec}с`;
-      
       const pct = (timerRemaining / selectedTimer) * 100;
       document.getElementById('timerBar').style.width = `${pct}%`;
-      
-      // Предупреждение
+
       if (sec <= 3 && sec > 0) {
-        document.getElementById('timerDisplay').classList.add('timer-warning');
         document.getElementById('timerDisplay').className = 'text-lg font-black text-brand-pink timer-warning';
       } else {
         document.getElementById('timerDisplay').className = 'text-lg font-black text-brand-cyan';
       }
     }
-    
+
     function clearTimer() {
       if (timerInterval) {
         clearInterval(timerInterval);
         timerInterval = null;
       }
     }
-    
+
     function togglePause() {
       if (timerPaused) {
-        // Resume
         const remaining = timerRemaining * 1000;
         timerEndTime = Date.now() + remaining;
         timerPaused = false;
@@ -1318,7 +1170,6 @@
         document.getElementById('timerStatus').className = 'text-[10px] font-black uppercase text-gray-400';
         AudioEngine.tap();
       } else {
-        // Pause
         timerPaused = true;
         document.getElementById('pauseBtn').innerHTML = '▶️ ПРОДОЛЖИТЬ';
         document.getElementById('pauseBtn').className = 'w-full mt-2 py-2 bg-brand-cyan/20 hover:bg-brand-cyan/30 border border-brand-cyan/50 text-brand-cyan font-bold text-xs rounded-xl transition active:scale-95';
@@ -1327,21 +1178,19 @@
         AudioEngine.tap();
       }
     }
-    
+
     function timeUp() {
       AudioEngine.timeUp();
       answerFact(null);
     }
-    
-    // ==================== ANSWER ====================
+
     function answerFact(userAnswer) {
       clearTimer();
-      
+
       const fact = roundFacts[currentIndex];
       const isCorrect = userAnswer === fact.a;
-      
+
       if (userAnswer === null) {
-        // Время вышло — неверно
         answers.push({ correct: false, timeout: true, userAnswer: null, fact });
       } else {
         if (isCorrect) {
@@ -1352,11 +1201,10 @@
         }
         answers.push({ correct: isCorrect, userAnswer, fact });
       }
-      
-      // Показать ответ
+
       document.getElementById('answerButtons').classList.add('hidden');
       document.getElementById('revealArea').classList.remove('hidden');
-      
+
       const badge = document.getElementById('revealBadge');
       if (fact.a) {
         badge.className = 'inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-black uppercase tracking-wide border bg-emerald-500/15 text-emerald-400 border-emerald-500/40';
@@ -1365,182 +1213,161 @@
         badge.className = 'inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-black uppercase tracking-wide border bg-rose-500/15 text-rose-400 border-rose-500/40';
         badge.innerHTML = '✗ ЭТО ЛОЖЬ';
       }
-      
+
       document.getElementById('revealNote').innerText = ' ' + fact.n;
-      
-      // Обновить кнопку "Следующий"
+
       const nextBtn = document.getElementById('nextFactBtn');
-      if (currentIndex >= ROUND_SIZE - 1) {
-        nextBtn.innerHTML = '🏁 ЗАВЕРШИТЬ РАУНД';
-      } else {
-        nextBtn.innerHTML = '➡️ СЛЕДУЮЩИЙ ФАКТ';
-      }
-      
+      if (currentIndex >= ROUND_SIZE - 1) nextBtn.innerHTML = '🏁 ЗАВЕРШИТЬ РАУНД';
+      else nextBtn.innerHTML = '➡️ СЛЕДУЮЩИЙ ФАКТ';
+
       document.getElementById('gameScoreDisplay').innerText = `${correctCount}/${answers.length}`;
-      
+
       renderQuestionProgress();
       document.getElementById('timerContainer').classList.add('hidden');
     }
-    
-    // ==================== NEXT FACT ====================
+
     function nextFact() {
       AudioEngine.tap();
       currentIndex++;
-      
-      if (currentIndex >= ROUND_SIZE) {
-        finishRound();
-      } else {
-        showFact();
-      }
+
+      if (currentIndex >= ROUND_SIZE) finishRound();
+      else showFact();
     }
-    
-    // ==================== FINISH ROUND ====================
-    function finishRound() {
+
+    async function finishRound() {
       clearTimer();
       AudioEngine.win();
-      
-      // Записать в статистику
+
       Storage.recordRound(ACTIVITY_ID, currentPlayer, {
         correct: correctCount,
         total: ROUND_SIZE
       });
-      
+
       Storage.incrementPlayerCounter(ACTIVITY_ID);
-      
-      // Заполнить экран результата
+
+      // ===== ОТПРАВКА В GOOGLE SHEETS =====
+      Sync.send(
+        'facts',
+        currentPlayer,
+        `${correctCount}/${ROUND_SIZE}`,
+        {
+          correct: correctCount,
+          total: ROUND_SIZE,
+          answers: answers.map(a => a.correct)
+        }
+      );
+      // =====================================
+
       document.getElementById('resultPlayerLabel').innerText = currentPlayer;
       document.getElementById('resultScore').innerText = `${correctCount}/${ROUND_SIZE}`;
-      
+
       const pct = correctCount / ROUND_SIZE;
       document.getElementById('resultPercent').innerText = `${Math.round(pct * 100)}%`;
-      
-      // Emoji
+
       if (pct === 1) document.getElementById('resultEmoji').innerText = '🔥';
       else if (pct >= 0.8) document.getElementById('resultEmoji').innerText = '⭐';
       else if (pct >= 0.6) document.getElementById('resultEmoji').innerText = '👍';
       else if (pct >= 0.4) document.getElementById('resultEmoji').innerText = '😎';
       else document.getElementById('resultEmoji').innerText = '💪';
-      
-      // Breakdown
+
       document.getElementById('resultBreakdown').innerHTML = answers.map((ans, i) => {
         const icon = ans.correct ? '✓' : '✗';
         const colorCls = ans.correct ? 'text-emerald-400' : 'text-rose-400';
         const borderCls = ans.correct ? 'border-emerald-500/40 bg-emerald-500/10' : 'border-rose-500/40 bg-rose-500/10';
         const timeoutText = ans.timeout ? ' (время вышло)' : '';
-        
+
         return `
           <div class="flex items-start gap-2 p-3 rounded-xl border ${borderCls}">
-            <div class="w-6 h-6 rounded-lg flex items-center justify-center text-xs font-black ${colorCls} flex-shrink-0">
-              ${icon}
-            </div>
+            <div class="w-6 h-6 rounded-lg flex items-center justify-center text-xs font-black ${colorCls} flex-shrink-0">${icon}</div>
             <div class="flex-1 min-w-0">
               <p class="text-xs text-gray-300 leading-snug line-clamp-2">${ans.fact.t}</p>
-              <p class="text-[10px] ${colorCls} font-bold mt-1">
-                ${ans.fact.a ? 'ПРАВДА' : 'ЛОЖЬ'}${timeoutText}
-              </p>
+              <p class="text-[10px] ${colorCls} font-bold mt-1">${ans.fact.a ? 'ПРАВДА' : 'ЛОЖЬ'}${timeoutText}</p>
             </div>
           </div>
         `;
       }).join('');
-      
-      // Rating
+
       let ratingEmoji = '';
       let ratingText = '';
       let ratingColor = '';
-      
-      if (pct === 1) {
-        ratingEmoji = '🔥'; ratingText = 'ИДЕАЛЬНО!'; ratingColor = 'text-brand-pink';
-      } else if (pct >= 0.8) {
-        ratingEmoji = '⭐'; ratingText = 'МАСТЕР'; ratingColor = 'text-brand-gold';
-      } else if (pct >= 0.6) {
-        ratingEmoji = '👍'; ratingText = 'ОТЛИЧНО'; ratingColor = 'text-emerald-400';
-      } else if (pct >= 0.4) {
-        ratingEmoji = '😎'; ratingText = 'НЕПЛОХО'; ratingColor = 'text-brand-cyan';
-      } else {
-        ratingEmoji = '💪'; ratingText = 'ЕСТЬ КУДА РАСТИ'; ratingColor = 'text-gray-400';
-      }
-      
+
+      if (pct === 1) { ratingEmoji = '🔥'; ratingText = 'ИДЕАЛЬНО!'; ratingColor = 'text-brand-pink'; }
+      else if (pct >= 0.8) { ratingEmoji = '⭐'; ratingText = 'МАСТЕР'; ratingColor = 'text-brand-gold'; }
+      else if (pct >= 0.6) { ratingEmoji = '👍'; ratingText = 'ОТЛИЧНО'; ratingColor = 'text-emerald-400'; }
+      else if (pct >= 0.4) { ratingEmoji = '😎'; ratingText = 'НЕПЛОХО'; ratingColor = 'text-brand-cyan'; }
+      else { ratingEmoji = '💪'; ratingText = 'ЕСТЬ КУДА РАСТИ'; ratingColor = 'text-gray-400'; }
+
       document.getElementById('resultRating').innerHTML = `${ratingEmoji} <span class="${ratingColor}">${ratingText}</span>`;
-      
+
       showScreen('result');
     }
-    
-    // ==================== NEW PLAYER ====================
+
     function newPlayer() {
       AudioEngine.newPlayer();
       currentIndex = 0;
       correctCount = 0;
       answers = [];
       currentPlayer = null;
-      
+
       updateNextPlayerUI();
       document.getElementById('headerStatus').innerText = 'Готов к игре';
-      
+
       showScreen('start');
     }
-    
-    // ==================== RESET COUNTER ====================
+
     function openResetCounterModal() {
       AudioEngine.tap();
       document.getElementById('resetCounterModal').classList.remove('hidden');
     }
-    
+
     function closeResetCounterModal() {
       document.getElementById('resetCounterModal').classList.add('hidden');
     }
-    
+
     function doResetCounter() {
       Storage.resetPlayerCounter(ACTIVITY_ID);
       AudioEngine.reset();
       updateNextPlayerUI();
       closeResetCounterModal();
     }
-    
-    // ==================== EXIT ====================
+
     function confirmExit() {
-      if (answers.length > 0) {
-        document.getElementById('exitModal').classList.remove('hidden');
-      } else {
-        exitToMenu();
-      }
+      if (answers.length > 0) document.getElementById('exitModal').classList.remove('hidden');
+      else exitToMenu();
     }
-    
+
     function closeExitModal() {
       document.getElementById('exitModal').classList.add('hidden');
     }
-    
+
     function exitToMenu() {
       clearTimer();
       window.location.href = '../index.html';
     }
-    
-    // ==================== INIT ====================
+
     window.addEventListener('DOMContentLoaded', () => {
-      // Telegram
-const tg = window.Telegram?.WebApp;
-if (tg) {
-  tg.ready();
-  tg.expand();
-  tg.setHeaderColor('#0b0c10');
-  tg.setBackgroundColor('#0b0c10');
-}
-      
-      // Auth
+      const tg = window.Telegram?.WebApp;
+      if (tg) {
+        tg.ready();
+        tg.expand();
+        tg.setHeaderColor('#0b0c10');
+        tg.setBackgroundColor('#0b0c10');
+      }
+
       if (!Storage.isAuthValid(ACTIVITY_ID)) {
         alert('🔒 Требуется авторизация');
         window.location.href = '../index.html';
         return;
       }
-      
-      // Загрузить настройки
+
       const settings = Storage.getSettings();
       selectedTimer = settings.timer || 10;
       selectTimer(selectedTimer);
-      
+
       updateNextPlayerUI();
       showScreen('start');
       lucide.createIcons();
-      
+
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
           closeExitModal();
