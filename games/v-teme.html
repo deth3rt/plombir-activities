@@ -1157,14 +1157,14 @@
     
     // ==================== INIT ====================
     window.addEventListener('DOMContentLoaded', () => {
-      const tg = window.Telegram?.WebApp;
-      if (tg) {
-        tg.ready();
-        tg.expand();
-        if (tg.themeParams?.bg_color) {
-          document.body.style.backgroundColor = tg.themeParams.bg_color;
-        }
-      }
+      // Telegram
+const tg = window.Telegram?.WebApp;
+if (tg) {
+  tg.ready();
+  tg.expand();
+  tg.setHeaderColor('#0b0c10');
+  tg.setBackgroundColor('#0b0c10');
+}
       
       if (!Storage.isAuthValid(ACTIVITY_ID)) {
         alert('🔒 Требуется авторизация');
