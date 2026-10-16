@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+<html lang="ru" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ПЛОМБИР YOUNG 2026 | ФАКТЫ!</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              purple: '#7c4dff',
+              pink: '#ff2a74',
+              cyan: '#00f2fe',
+              darkBg: '#0b0c10',
+              cardBg: '#13151c',
+              truth: '#00e676',
+              false: '#ff1744',
+              gold: '#ffd700'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif']
+          },
+          animation: {
+            'float': 'float 3s ease-in-out infinite',
+            'pop': 'pop 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+            'shake': 'shake 0.4s ease-in-out',
+            'slide-up': 'slideUp 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+            'bounce-in': 'bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+            'pulse-ring': 'pulseRing 1.5s ease-out infinite'
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' }
+            },
+            pop: {
+              '0%': { transform: 'scale(0.8)', opacity: '0' },
+              '50%': { transform: 'scale(1.05)' },
+              '100%': { transform: 'scale(1)', opacity: '1' }
+            },
+            shake: {
+              '0%, 100%': { transform: 'translateX(0)' },
+              '25%': { transform: 'translateX(-8px)' },
+              '75%': { transform: 'translateX(8px)' }
+            },
+            slideUp: {
+              '0%': { transform: 'translateY(40px)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' }
+            },
+            bounceIn: {
+              '0%': { transform: 'scale(0.3)', opacity: '0' },
+              '50%': { transform: 'scale(1.1)' },
+              '70%': { transform: 'scale(0.95)' },
+              '100%': { transform: 'scale(1)', opacity: '1' }
+            },
+            pulseRing: {
+              '0%': { transform: 'scale(0.9)', opacity: '0.7' },
+              '100%': { transform: 'scale(1.4)', opacity: '0' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * {
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    body { overscroll-behavior: none; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    
+    .glass {
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    
+    @keyframes timerPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+    
+    .timer-warning {
+      animation: timerPulse 0.5s ease-in-out infinite;
+    }
+  </style>
+</head>
+
+<body class="bg-brand-darkBg text-gray-100 font-sans min-h-screen antialiased overflow-x-hidden">
+
+  <!-- BACKGROUND -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden">
+    <div class="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full bg-brand-purple/25 blur-[120px] animate-float"></div>
+    <div class="absolute -bottom-40 -right-40 w-[500px] h-[500px] rounded-full bg-brand-cyan/20 blur-[120px] animate-float" style="animation-delay: 1.5s"></div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-40 glass bg-brand-darkBg/90 border-b border-gray-800/80 px-4 py-3">
+    <div class="flex items-center justify-between gap-2 max-w-md mx-auto">
+      <button onclick="confirmExit()" 
+              class="w-9 h-9 rounded-xl bg-gray-900 border border-gray-800 flex items-center justify-center hover:border-rose-500/50 transition active:scale-95">
+        <i data-lucide="arrow-left" class="w-4 h-4 text-gray-400"></i>
+      </button>
+      
+      <div class="text-center">
+        <h1 class="text-sm font-black tracking-wide">📊 ФАКТЫ!</h1>
+        <p class="text-[10px] text-gray-500 font-medium" id="headerStatus">Готов к игре</p>
+      </div>
+      
+      <button onclick="openResetCounterModal()" 
+              class="w-9 h-9 rounded-xl bg-gray-900 border border-gray-800 flex items-center justify-center hover:border-amber-500/50 transition active:scale-95">
+        <i data-lucide="refresh-cw" class="w-4 h-4 text-gray-400"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="relative z-10 px-4 py-4 max-w-md mx-auto pb-32">
+
+    <!-- ==================== SCREEN: START ==================== -->
+    <div id="screen-start" class="space-y-4 pt-4">
+      
+      <div class="text-center py-4 animate-pop">
+        <div class="inline-flex items-center justify-center w-24 h-24 rounded-[28px] bg-gradient-to-tr from-brand-purple to-brand-cyan shadow-2xl shadow-brand-purple/40 text-5xl mb-4 animate-float">
+          📊
+        </div>
+        <h2 class="text-2xl font-black text-white mb-1">ФАКТЫ!</h2>
+        <p class="text-sm text-gray-400">Правда или ложь? Блиц-раунд</p>
+      </div>
+
+      <!-- NEXT PLAYER -->
+      <div class="bg-gradient-to-tr from-brand-purple/20 to-brand-cyan/20 border-2 border-brand-purple/50 rounded-3xl p-6 text-center animate-pop" style="animation-delay: 0.1s">
+        <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2">
+          🎯 Следующий игрок
+        </p>
+        <p class="text-5xl font-black text-brand-purple mb-3" id="nextPlayerDisplay">
+          ИГРОК 1
+        </p>
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-black/30 rounded-full">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span class="text-[10px] text-gray-400 font-bold">
+            Всего сыграно: <span id="totalPlayedDisplay" class="text-white">0</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- SETTINGS -->
+      <div class="bg-brand-cardBg border border-gray-800 rounded-3xl p-5 animate-pop" style="animation-delay: 0.2s space-y-4">
+        <div>
+          <label class="text-[10px] font-black text-gray-500 uppercase tracking-wider mb-2 block">
+            ⏱ Таймер на ответ
+          </label>
+          <div class="grid grid-cols-4 gap-2" id="timerOptions">
+            <button onclick="selectTimer(10)" data-timer="10"
+                    class="timer-btn py-3 rounded-xl border-2 font-black text-sm transition active:scale-95">
+              10с
+            </button>
+            <button onclick="selectTimer(15)" data-timer="15"
+                    class="timer-btn py-3 rounded-xl border-2 font-black text-sm transition active:scale-95">
+              15с
+            </button>
+            <button onclick="selectTimer(30)" data-timer="30"
+                    class="timer-btn py-3 rounded-xl border-2 font-black text-sm transition active:scale-95">
+              30с
+            </button>
+            <button onclick="selectTimer(0)" data-timer="0"
+                    class="timer-btn py-3 rounded-xl border-2 font-black text-xs transition active:scale-95">
+              Без
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rules -->
+      <div class="bg-brand-cardBg border border-gray-800 rounded-3xl p-5 animate-pop" style="animation-delay: 0.3s">
+        <h3 class="text-[10px] font-black text-gray-500 uppercase tracking-wider mb-3">📋 Правила</h3>
+        <ul class="space-y-2 text-xs text-gray-400">
+          <li class="flex gap-2"><span class="text-brand-purple font-black">1.</span><span>5 случайных фактов</span></li>
+          <li class="flex gap-2"><span class="text-brand-purple font-black">2.</span><span>Игрок говорит: правда или ложь?</span></li>
+          <li class="flex gap-2"><span class="text-brand-purple font-black">3.</span><span>Модератор нажимает ответ</span></li>
+          <li class="flex gap-2"><span class="text-brand-purple font-black">4.</span><span>Счёт автоматический</span></li>
+        </ul>
+      </div>
+
+      <!-- START BUTTON -->
+      <button onclick="startRound()" 
+              class="w-full py-4 bg-gradient-to-r from-brand-purple to-brand-cyan text-white font-black text-base rounded-2xl shadow-xl shadow-brand-purple/40 active:scale-95 transition animate-pop"
+              style="animation-delay: 0.4s">
+        🚀 НАЧАТЬ РАУНД
+      </button>
+
+      <button onclick="openResetCounterModal()" 
+              class="w-full py-3 bg-gray-900 hover:bg-gray-800 border border-gray-800 hover:border-amber-500/50 text-gray-500 hover:text-amber-400 font-bold text-xs rounded-2xl active:scale-95 transition animate-pop"
+              style="animation-delay: 0.5s">
+        🔄 СБРОСИТЬ СЧЁТЧИК ИГРОКОВ
+      </button>
+
+    </div>
+
+    <!-- ==================== SCREEN: GAME ==================== -->
+    <div id="screen-game" class="space-y-4 pt-2 hidden">
+
+      <!-- Scoreboard -->
+      <div class="bg-gradient-to-tr from-brand-purple/20 to-brand-cyan/20 border border-brand-purple/40 rounded-3xl p-4 animate-pop">
+        <div class="flex items-center justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-brand-purple to-brand-cyan flex items-center justify-center text-2xl">
+              📊
+            </div>
+            <div>
+              <p class="text-[10px] text-gray-400 font-bold uppercase">Игрок</p>
+              <p class="text-sm font-black text-white" id="gamePlayerLabel">Игрок 1</p>
+            </div>
+          </div>
+          <div class="text-right">
+            <p class="text-[10px] text-gray-400 font-bold uppercase">Счёт</p>
+            <p class="text-3xl font-black text-brand-gold" id="gameScoreDisplay">0/0</p>
+          </div>
+        </div>
+        
+        <!-- Progress dots -->
+        <div class="flex items-center gap-2 mt-3">
+          <span class="text-[10px] text-gray-400 font-bold uppercase">Вопросы:</span>
+          <div class="flex gap-1.5" id="questionProgress">
+            <div class="q-dot w-6 h-6 rounded-full border-2 border-gray-700 flex items-center justify-center text-[10px] font-black text-gray-600">1</div>
+            <div class="q-dot w-6 h-6 rounded-full border-2 border-gray-700 flex items-center justify-center text-[10px] font-black text-gray-600">2</div>
+            <div class="q-dot w-6 h-6 rounded-full border-2 border-gray-700 flex items-center justify-center text-[10px] font-black text-gray-600">3</div>
+            <div class="q-dot w-6 h-6 rounded-full border-2 border-gray-700 flex items-center justify-center text-[10px] font-black text-gray-600">4</div>
+            <div class="q-dot w-6 h-6 rounded-full border-2 border-gray-700 flex items-center justify-center text-[10px] font-black text-gray-600">5</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TIMER BAR -->
+      <div id="timerContainer" class="hidden bg-brand-cardBg border border-gray-800 rounded-2xl p-3">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-[10px] font-black text-gray-400 uppercase" id="timerStatus">⏱ ИДЁТ ОТСЧЁТ</span>
+          <span class="text-lg font-black text-brand-cyan" id="timerDisplay">10с</span>
+        </div>
+        <div class="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
+          <div id="timerBar" class="h-full bg-gradient-to-r from-brand-cyan via-brand-purple to-brand-pink transition-all ease-linear"></div>
+        </div>
+        <button onclick="togglePause()" id="pauseBtn"
+                class="w-full mt-2 py-2 bg-gray-900 hover:bg-gray-800 border border-gray-800 hover:border-brand-cyan/50 text-gray-400 hover:text-brand-cyan font-bold text-xs rounded-xl transition active:scale-95">
+          ⏸ ПАУЗА
+        </button>
+      </div>
+
+      <!-- FACT CARD -->
+      <div class="bg-brand-cardBg border-2 border-gray-800 rounded-3xl p-5 animate-pop" id="factCard">
+        <div class="flex items-center justify-between mb-3">
+          <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-[10px] font-black tracking-wider bg-gray-800/90 text-gray-400 border border-gray-700/50" id="factNumber">
+            ФАКТ #1
+          </span>
+        </div>
+        
+        <p class="text-base md:text-lg font-bold text-gray-100 leading-snug mb-4" id="factText">
+          Загрузка...
+        </p>
+
+        <!-- Answer buttons -->
+        <div class="grid grid-cols-2 gap-2" id="answerButtons">
+          <button onclick="answerFact(true)" 
+                  class="py-4 bg-emerald-500/15 hover:bg-emerald-500/25 border-2 border-emerald-500/40 hover:border-emerald-500 text-emerald-400 font-black text-sm rounded-2xl active:scale-95 transition">
+            ✓ ПРАВДА
+          </button>
+          <button onclick="answerFact(false)" 
+                  class="py-4 bg-rose-500/15 hover:bg-rose-500/25 border-2 border-rose-500/40 hover:border-rose-500 text-rose-400 font-black text-sm rounded-2xl active:scale-95 transition">
+            ✗ ЛОЖЬ
+          </button>
+        </div>
+
+        <!-- Reveal area (hidden by default) -->
+        <div id="revealArea" class="hidden mt-4 space-y-3">
+          <div id="revealBadge" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-black uppercase tracking-wide border">
+            —
+          </div>
+          <div class="p-3 rounded-2xl bg-gray-900/80 border border-gray-800 text-xs text-gray-300 leading-relaxed">
+            <span class="font-black text-brand-cyan">💡 Пояснение:</span>
+            <span id="revealNote">—</span>
+          </div>
+          <button onclick="nextFact()" id="nextFactBtn"
+                  class="w-full py-4 bg-gradient-to-r from-brand-purple to-brand-cyan text-white font-black text-base rounded-2xl shadow-xl shadow-brand-purple/40 active:scale-95 transition">
+            ➡️ СЛЕДУЮЩИЙ ФАКТ
+          </button>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="grid grid-cols-1 gap-2">
+        <button onclick="confirmExit()" 
+                class="flex items-center justify-center gap-2 py-3.5 bg-gray-900 hover:bg-gray-800 border border-gray-800 hover:border-rose-500/50 text-gray-400 hover:text-rose-400 font-bold text-xs rounded-2xl active:scale-95 transition">
+          <i data-lucide="x" class="w-4 h-4"></i>
+          <span>ПРЕРВАТЬ РАУНД</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- ==================== SCREEN: RESULT ==================== -->
+    <div id="screen-result" class="space-y-4 pt-4 hidden">
+      
+      <div class="text-center py-4 animate-bounce-in">
+        <div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-tr from-brand-gold to-orange-400 shadow-2xl shadow-brand-gold/40 text-5xl mb-4" id="resultEmoji">
+          🏆
+        </div>
+        <h2 class="text-3xl font-black text-white mb-1">РАУНД ЗАВЕРШЁН!</h2>
+        <p class="text-sm text-gray-400" id="resultPlayerLabel">Игрок 1</p>
+      </div>
+
+      <!-- Final score -->
+      <div class="bg-gradient-to-tr from-brand-gold/20 to-orange-400/20 border-2 border-brand-gold/50 rounded-3xl p-6 text-center animate-pop" style="animation-delay: 0.1s">
+        <p class="text-[10px] text-gray-400 font-black uppercase tracking-wider mb-1">Результат</p>
+        <p class="text-6xl font-black text-brand-gold" id="resultScore">0/5</p>
+        <p class="text-xs text-gray-400 mt-2" id="resultPercent">0%</p>
+      </div>
+
+      <!-- Breakdown -->
+      <div class="bg-brand-cardBg border border-gray-800 rounded-3xl p-4 animate-pop" style="animation-delay: 0.2s">
+        <h3 class="text-[10px] font-black text-gray-500 uppercase tracking-wider mb-3">📋 Ответы</h3>
+        <div class="space-y-2" id="resultBreakdown"></div>
+      </div>
+
+      <!-- Rating -->
+      <div class="bg-brand-cardBg border border-gray-800 rounded-3xl p-4 text-center animate-pop" style="animation-delay: 0.3s">
+        <p class="text-[10px] text-gray-500 font-black uppercase tracking-wider mb-1">Оценка</p>
+        <p class="text-2xl font-black" id="resultRating">—</p>
+      </div>
+
+      <!-- Buttons -->
+      <div class="space-y-2 animate-pop" style="animation-delay: 0.4s">
+        <button onclick="newPlayer()" 
+                class="w-full py-4 bg-gradient-to-r from-brand-purple to-brand-cyan text-white font-black text-base rounded-2xl shadow-xl shadow-brand-purple/40 active:scale-95 transition">
+          👤 СЛЕДУЮЩИЙ ИГРОК
+        </button>
+        <button onclick="exitToMenu()" 
+                class="w-full py-3 bg-gray-900 hover:bg-gray-800 border border-gray-800 text-gray-400 font-bold text-xs rounded-2xl active:scale-95 transition">
+          ⚙️ В ГЛАВНОЕ МЕНЮ
+        </button>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- EXIT MODAL -->
+  <div id="exitModal" class="fixed inset-0 z-[150] hidden">
+    <div class="absolute inset-0 bg-black/80 backdrop-blur-md" onclick="closeExitModal()"></div>
+    <div class="relative flex items-center justify-center min-h-screen p-4">
+      <div class="w-full max-w-sm bg-brand-cardBg border border-gray-800 rounded-3xl p-6 shadow-2xl animate-slide-up text-center">
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-3xl bg-amber-500/20 border border-amber-500/40 text-3xl mb-4">
+          ⚠️
+        </div>
+        <h2 class="text-lg font-black text-white mb-2">ВЫЙТИ?</h2>
+        <p class="text-xs text-gray-400 mb-5">
+          Прогресс текущего раунда будет потерян
+        </p>
+        <div class="space-y-2">
+          <button onclick="exitToMenu()" 
+                  class="w-full py-3 bg-rose-500/20 hover:bg-rose-500/30 border border-rose-500/40 text-rose-400 font-black text-xs rounded-2xl active:scale-95 transition">
+            🚪 ВЫЙТИ
+          </button>
+          <button onclick="closeExitModal()" 
+                  class="w-full py-3 bg-gray-900 hover:bg-gray-800 border border-gray-800 text-gray-400 font-bold text-xs rounded-2xl active:scale-95 transition">
+            ОСТАТЬСЯ
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESET COUNTER MODAL -->
+  <div id="resetCounterModal" class="fixed inset-0 z-[150] hidden">
+    <div class="absolute inset-0 bg-black/80 backdrop-blur-md" onclick="closeResetCounterModal()"></div>
+    <div class="relative flex items-center justify-center min-h-screen p-4">
+      <div class="w-full max-w-sm bg-brand-cardBg border border-gray-800 rounded-3xl p-6 shadow-2xl animate-slide-up text-center">
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-3xl bg-brand-cyan/20 border border-brand-cyan/40 text-3xl mb-4">
+          🔄
+        </div>
+        <h2 class="text-lg font-black text-white mb-2">СБРОСИТЬ СЧЁТЧИК?</h2>
+        <p class="text-xs text-gray-400 mb-5">
+          Следующий игрок снова будет <span class="text-brand-cyan font-bold">«Игрок 1»</span><br>
+          <span class="text-[10px] text-gray-500">Статистика сохранится</span>
+        </p>
+        <div class="space-y-2">
+          <button onclick="doResetCounter()" 
+                  class="w-full py-3 bg-brand-cyan/20 hover:bg-brand-cyan/30 border border-brand-cyan/40 text-brand-cyan font-black text-xs rounded-2xl active:scale-95 transition">
+            🔄 СБРОСИТЬ
+          </button>
+          <button onclick="closeResetCounterModal()" 
+                  class="w-full py-3 bg-gray-900 hover:bg-gray-800 border border-gray-800 text-gray-400 font-bold text-xs rounded-2xl active:scale-95 transition">
+            ОТМЕНА
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AUDIO -->
+  <script>
+    const AudioEngine = {
+      ctx: null,
+      init() {
+        if (!this.ctx) {
+          const AC = window.AudioContext || window.webkitAudioContext;
+          this.ctx = new AC();
+        }
+        if (this.ctx.state === 'suspended') this.ctx.resume();
+      },
+      tone(freq, dur = 0.1, type = 'sine', vol = 0.1) {
+        try {
+          this.init();
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          osc.type = type;
+          osc.frequency.value = freq;
+          gain.gain.setValueAtTime(vol, this.ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + dur);
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+          osc.start();
+          osc.stop(this.ctx.currentTime + dur);
+        } catch(e) {}
+      },
+      tap() { this.tone(660, 0.06); },
+      correct() {
+        this.tone(523.25, 0.1, 'triangle', 0.12);
+        setTimeout(() => this.tone(783.99, 0.15, 'triangle', 0.12), 80);
+      },
+      wrong() {
+        this.tone(330, 0.15, 'sawtooth', 0.1);
+        setTimeout(() => this.tone(220, 0.2, 'sawtooth', 0.1), 120);
+      },
+      tick() {
+        this.tone(880, 0.03, 'sine', 0.06);
+      },
+      timeUp() {
+        this.tone(440, 0.1, 'square', 0.12);
+        setTimeout(() => this.tone(330, 0.15, 'square', 0.12), 100);
+        setTimeout(() => this.tone(220, 0.25, 'square', 0.12), 220);
+      },
+      win() {
+        const notes = [523.25, 659.25, 783.99, 1046.5];
+        notes.forEach((n, i) => setTimeout(() => this.tone(n, 0.2, 'triangle', 0.13), i * 100));
+      },
+      newPlayer() {
+        this.tone(523.25, 0.1, 'triangle', 0.1);
+        setTimeout(() => this.tone(659.25, 0.15, 'triangle', 0.1), 100);
+      },
+      reset() {
+        this.tone(400, 0.1, 'sine', 0.1);
+        setTimeout(() => this.tone(300, 0.15, 'sine', 0.1), 100);
+      }
+    };
+  </script>
+
+  <!-- STORAGE -->
+  <script>
+    const Storage = {
+      KEYS: {
+        STATS: 'plombir_stats_v1',
+        AUTH_SESSION: 'plombir_auth_session_v1',
+        PLAYER_COUNTER: 'plombir_player_counter_v1',
+        SETTINGS: 'plombir_facts_settings_v1'
+      },
+      
+      isAuthValid(activityId) {
+        try {
+          const session = JSON.parse(localStorage.getItem(this.KEYS.AUTH_SESSION) || '{}');
+          const expiry = session[activityId];
+          if (!expiry) return false;
+          if (Date.now() > expiry) return false;
+          return true;
+        } catch(e) { return false; }
+      },
+      
+      getStats() {
+        try {
+          const data = localStorage.getItem(this.KEYS.STATS);
+          return data ? JSON.parse(data) : {};
+        } catch(e) { return {}; }
+      },
+      
+      saveStats(stats) {
+        try { localStorage.setItem(this.KEYS.STATS, JSON.stringify(stats)); } catch(e) {}
+      },
+      
+      getPlayerCounter(activityId) {
+        try {
+          const data = JSON.parse(localStorage.getItem(this.KEYS.PLAYER_COUNTER) || '{}');
+          return data[activityId] || 0;
+        } catch(e) { return 0; }
+      },
+      
+      incrementPlayerCounter(activityId) {
+        try {
+          const data = JSON.parse(localStorage.getItem(this.KEYS.PLAYER_COUNTER) || '{}');
+          data[activityId] = (data[activityId] || 0) + 1;
+          localStorage.setItem(this.KEYS.PLAYER_COUNTER, JSON.stringify(data));
+          return data[activityId];
+        } catch(e) { return 1; }
+      },
+      
+      resetPlayerCounter(activityId) {
+        try {
+          const data = JSON.parse(localStorage.getItem(this.KEYS.PLAYER_COUNTER) || '{}');
+          data[activityId] = 0;
+          localStorage.setItem(this.KEYS.PLAYER_COUNTER, JSON.stringify(data));
+        } catch(e) {}
+      },
+      
+      getNextPlayerNumber(activityId) {
+        return this.getPlayerCounter(activityId) + 1;
+      },
+      
+      // Настройки
+      getSettings() {
+        try {
+          const data = localStorage.getItem(this.KEYS.SETTINGS);
+          return data ? JSON.parse(data) : { timer: 10 };
+        } catch(e) { return { timer: 10 }; }
+      },
+      
+      saveSettings(settings) {
+        try { localStorage.setItem(this.KEYS.SETTINGS, JSON.stringify(settings)); } catch(e) {}
+      },
+      
+      recordRound(activityId, playerName, session) {
+        const stats = this.getStats();
+        
+        if (!stats[activityId]) {
+          stats[activityId] = { sessions: [], players: [] };
+        }
+        
+        stats[activityId].sessions.push({
+          player: playerName,
+          correct: session.correct,
+          total: session.total,
+          timestamp: Date.now()
+        });
+        
+        if (!stats[activityId].players.includes(playerName)) {
+          stats[activityId].players.push(playerName);
+        }
+        
+        this.saveStats(stats);
+      }
+    };
+  </script>
+
+  <!-- ==================== БАЗА ФАКТОВ (500+) ==================== -->
+  <script>
+    // Формат: [текст, правда/ложь, пояснение]
+    // true = правда, false = ложь
+    // Всего 500+ фактов, темы перемешаны
+    const FACTS_DATABASE = [
+      // === ИГРЫ & IT (100) ===
+      { t: 'Minecraft — самая продаваемая видеоигра в истории (более 300 млн копий).', a: true, n: 'Она обогнала даже Tetris и GTA V.' },
+      { t: 'Персонаж Марио изначально был водопроводчиком.', a: false, n: 'В своей первой игре Donkey Kong (1981) он был плотником!' },
+      { t: 'В Brawl Stars персонаж Спайк — единственный герой, у которого нет ни единой реплики.', a: true, n: 'Он абсолютно немой на протяжении всех обновлений.' },
+      { t: 'Стример Ninja сыграл в Fortnite с рэпером Drake и собрал 600,000 зрителей онлайн.', a: true, n: 'Это был абсолютный рекорд Twitch на тот момент.' },
+      { t: 'Персонажи Subway Surfers бегут по рельсам со скоростью 80 км/ч.', a: false, n: 'Их скорость примерно равна обычному спортивному бегу (15-25 км/ч).' },
+      { t: 'В GTA San Andreas Си-Джей реально жиреет, если постоянно кормить его в фастфуде.', a: true, n: 'При этом снижается его выносливость и скорость бега.' },
+      { t: 'Бюджет разработки GTA V был больше, чем бюджет фильма «Мстители: Финал».', a: true, n: 'На игру потратили около $265 млн.' },
+      { t: 'Символ хэштега # официально называется «октоторп».', a: true, n: 'Это его строгое техническое наименование.' },
+      { t: 'Самый популярный пароль в мире — это "qwerty".', a: false, n: 'На первом месте из года в год остается "123456".' },
+      { t: 'Первый логотип Apple изображал Исаака Ньютона под яблоней.', a: true, n: 'Разноцветное яблоко появилось лишь спустя время.' },
+      { t: 'Первое в истории SMS-сообщение содержало текст «Merry Christmas».', a: true, n: 'Его отправили в декабре 1992 года.' },
+      { t: 'Геймеры реагируют на визуальные раздражители быстрее обычных водителей.', a: true, n: 'Это доказано многочисленными нейротестами.' },
+      { t: 'Если задонатить на Twitch более $1000, платформа автоматически выдает синюю галочку.', a: false, n: 'Галочку получают только партнеры по контракту.' },
+      { t: 'В Roblox ежедневно создается более 1 миллиона предметов виртуальной одежды.', a: true, n: 'Это огромный внутренний рынок разработчиков.' },
+      { t: 'Создатель игры PUBG (Брендан Грин) до этого вообще не умел программировать.', a: true, n: 'Он был веб-дизайнером и фотографом.' },
+      { t: 'Игра Flappy Bird была удалена из-за того, что приносила мало денег.', a: false, n: 'Она приносила $50k в день, но автор удалил её из-за угрызений совести.' },
+      { t: 'Первый компьютерный вирус Creeper не ломал ПК, а выводил надпись «Поймай меня!».', a: true, n: 'Создан в 1971 году как безвредный эксперимент.' },
+      { t: 'Раскладка QWERTY была создана для того, чтобы ЗАМЕДЛИТЬ печать на машинках.', a: true, n: 'Чтобы рычаги букв не заклинивали от быстрой печати.' },
+      { t: 'Клавиши WASD для движения впервые появились в игре CS 1.6.', a: false, n: 'Их популяризировал чемпион по Quake Дэннис Фонг в 1997 году.' },
+      { t: 'Первая игра серии Assassin’s Creed изначально разрабатывалась как продолжение Prince of Persia.', a: true, n: 'Проект назывался Prince of Persia: Assassin.' },
+      { t: 'Объем памяти первого компьютера NASA, отправившего человека на Луну, составлял всего 64 КБ.', a: true, n: 'Любой современный смартфон мощнее в миллионы раз.' },
+      { t: 'Если положить смартфон в микроволновку на 3 секунды, батарея зарядится на 50%.', a: false, n: 'Смартфон взорвется и сожжет микроволновку!' },
+      { t: 'Игроки в CS:GO суммарно провели в игре более 1.5 млн лет.', a: true, n: 'Это больше времени, чем существует вид Homo Sapiens.' },
+      { t: 'В игре Pac-Man у каждого из 4 привидений есть свой уникальный алгоритм поведения.', a: true, n: 'Одно преследует, второе устраивает засаду, третье хаотично, четвертое трусит.' },
+      { t: 'В Minecraft алмазы встречаются чаще, чем лазурит.', a: false, n: 'Лазурит встречается чаще и группами.' },
+      { t: 'Создатель Tetris Алексей Пажитнов не получал роялти за игру первые 10 лет.', a: true, n: 'Права принадлежали советскому объединению.' },
+      { t: 'Звук крика Эндермена в Minecraft — это перевернутый и замедленный голос человека.', a: true, n: 'Звукари обработали обычную речь.' },
+      { t: 'В игре Standoff 2 все скины оружия дают +10% к урону.', a: false, n: 'Скины несут исключительно косметический характер.' },
+      { t: 'Изначально компания Nintendo продавала игральные карты ручной работы.', a: true, n: 'Она была основана еще в 1889 году!' },
+      { t: 'Слово "Робот" впервые появилось не в технической книге, а в фантастической пьесе.', a: true, n: 'Придумал чешский писатель Карел Чапек.' },
+      { t: 'Билл Гейтс лично написал весь код первой версии Windows.', a: false, n: 'Разработкой занималась большая команда инженеров.' },
+      { t: 'В Among Us персонажи не имеют рук, пока не выполняют специфические действия.', a: true, n: 'Их руки появляются только во время анимаций киллов и заданий.' },
+      { t: 'Самая первая видеоигра с 3D графикой появилась еще в 1973 году (Maze War).', a: true, n: 'Это был простой векторный лабиринт.' },
+      { t: 'Айфон 1-го поколения умел снимать видео сразу из коробки.', a: false, n: 'Первый iPhone умел делать только ФОТО.' },
+      { t: 'Компания Sony создала консоль PlayStation из-за конфликта с Nintendo.', a: true, n: 'Nintendo отменила совместный проект дисковода.' },
+      { t: 'В игре Witcher 3 текстовый сценарий содержит больше слов, чем все книги про Гарри Поттера.', a: true, n: 'Более 800,000 слов.' },
+      { t: 'Стриминг Discord изначально создавался для деловых созвонов офисных рабочих.', a: false, n: 'Он создавался исключительно для киберспортсменов.' },
+      { t: 'Геймпад от Xbox One разрабатывали 3 года и потратили на тест крестовины $100 млн.', a: true, n: 'Компания тестировала тысячи прототипов.' },
+      { t: 'Карта в игре No Man’s Sky имеет 18 квинтиллионов планет.', a: true, n: 'Чтобы посетить все, понадобится 584 миллиарда лет.' },
+      { t: 'Слово "Bluetooth" переводится как "Синий Зуб" в честь вида акул.', a: false, n: 'Названо в честь датского короля Харальда Синезубого.' },
+      { t: 'Первая версия игры The Sims была симулятором архитектора без людей.', a: true, n: 'Людей добавили в последний момент.' },
+      { t: 'Создатель Stardew Valley Эрик Бароне сделал всю игру в одиночку за 4 года.', a: true, n: 'Он также написал всю музыку и нарисовал графику.' },
+      { t: 'В игре Cyberpunk 2077 более 150 концовок.', a: false, n: 'Концовок около 6-7, но вариаций внутри них много.' },
+      { t: 'Первый мем в истории интернета появился в 1990-х годах.', a: true, n: 'Это был «Dancing Baby» в 1996 году.' },
+      { t: 'В Google при поиске "askew" страница наклоняется вправо.', a: true, n: 'Это пасхалка разработчиков.' },
+      { t: 'Если набрать в поиске Google "do a barrel roll", страница перевернется на 360 градусов.', a: true, n: 'Пасхалка из игры Star Fox.' },
+      { t: 'Первая веб-камера в мире была создана для наблюдения за кофеваркой.', a: true, n: 'Студенты Кембриджа не хотели ходить впустую.' },
+      { t: 'Самое длинное доменное имя в мире содержит более 1000 символов.', a: false, n: 'Максимум — 63 символа на одно звено, 253 всего.' },
+      { t: 'Первая версия Windows называлась Windows 1.0 и вышла в 1985 году.', a: true, n: 'Она работала поверх MS-DOS.' },
+      { t: 'Кнопка "Пуск" в Windows 95 была придумана за 2 недели.', a: false, n: 'Над её концепцией работали несколько месяцев.' },
+      { t: 'Компания Apple была основана 1 апреля 1976 года.', a: true, n: 'Стив Джобс и Стив Возняк выбрали эту дату специально.' },
+      { t: 'Первая реклама Apple вышла во время Супербоула в 1984 году.', a: true, n: 'Реклама Macintosh стала легендарной.' },
+      { t: 'В Minecraft можно вырастить дерево из одного саженца без костной муки.', a: true, n: 'Но это займет много времени.' },
+      { t: 'Игра Minecraft изначально называлась Cave Game.', a: true, n: 'Название сменили перед релизом.' },
+      { t: 'В CS:GO можно было играть на карте из Team Fortress 2.', a: false, n: 'Таких официальных карт не было.' },
+      { t: 'Nintendo запрещает использовать свои игры на киберспортивных турнирах без лицензии.', a: true, n: 'Известны случаи отмены турниров.' },
+      { t: 'Самый дорогой скин в CS:GO стоит более $150,000.', a: true, n: 'Это AK-47 Case Hardened с синим узором.' },
+      { t: 'Создатель игры Undertale Тоби Фокс написал всю музыку сам.', a: true, n: 'Он также программировал и рисовал.' },
+      { t: 'В игре Dota 2 более 200 героев.', a: false, n: 'Героев около 120.' },
+      { t: 'Первая игра с поддержкой VR вышла в 1960-х годах.', a: true, n: 'Это был симулятор мотоцикла Sensorama.' },
+      { t: 'Nintendo Wii была самой продаваемой консолью своего поколения.', a: true, n: 'Обогнала Xbox 360 и PS3.' },
+      { t: 'В России запрещено продавать игры с рейтингом 18+ лицам младше 18 лет.', a: true, n: 'Это закон о защите детей.' },
+      { t: 'Первая киберспортивная дисциплина — это StarCraft.', a: false, n: 'Первой была Quake в 1997 году.' },
+      { t: 'Игра World of Warcraft приносила более $1 млрд в год на пике.', a: true, n: 'Она была самой прибыльной MMO.' },
+      { t: 'В игре Genshin Impact более 50 персонажей.', a: true, n: 'Их количество растет с каждым обновлением.' },
+      { t: 'Первая видеоигра, в которой был сюжет, — это Donkey Kong.', a: false, n: 'Сюжет был уже в Adventure (1979).' },
+      { t: 'Компания Sega выпускала консоли до 2001 года.', a: true, n: 'Последняя — Dreamcast.' },
+      { t: 'В Minecraft можно приручить дракона Края.', a: false, n: 'Дракона можно только убить.' },
+      { t: 'Первая игра серии Call of Duty вышла в 2003 году.', a: true, n: 'Действие происходило во Второй мировой.' },
+      { t: 'В игре The Last of Us главный герой — девочка.', a: false, n: 'Главный герой — Джоэл, а Элли — спутница.' },
+      { t: 'Самый популярный стример Twitch — Ninja.', a: false, n: 'Сейчас это Kai Cenat и другие.' },
+      { t: 'В игре Among Us максимальное количество игроков — 10.', a: true, n: 'Обычно 4-10.' },
+      { t: 'Первая версия игры Counter-Strike была модом для Half-Life.', a: true, n: 'Создана в 1999 году.' },
+      { t: 'В игре Roblox можно зарабатывать реальные деньги.', a: true, n: 'Разработчики получают Robux и обменивают на деньги.' },
+      { t: 'Игра Candy Crush приносит более $1 млрд в год.', a: true, n: 'Она входит в топ по прибыли.' },
+      { t: 'В Minecraft можно построить работающий компьютер.', a: true, n: 'Игроки строили простые процессоры из редстоуна.' },
+      { t: 'Первая версия игры Fortnite не была королевской битвой.', a: true, n: 'Изначально это был режим выживания.' },
+      { t: 'В игре League of Legends более 150 чемпионов.', a: true, n: 'Их количество растет.' },
+      { t: 'Создатель игры Minecraft Маркус Персон продал её Microsoft за $2.5 млрд.', a: true, n: 'Это произошло в 2014 году.' },
+      { t: 'В игре Portal главный герой — мужчина.', a: false, n: 'Главная героиня — Челл.' },
+      { t: 'Первая игра с открытым миром — это GTA III.', a: false, n: 'Открытые миры были и раньше, например в Elite (1984).' },
+      { t: 'В игре The Witcher 3 можно пройти игру, не убив ни одного человека.', a: true, n: 'Но это очень сложно.' },
+      { t: 'Компания Valve выпустила более 10 игр серии Half-Life.', a: false, n: 'Основных игр всего 2.' },
+      { t: 'В игре Terraria более 4000 предметов.', a: true, n: 'Это одна из самых больших баз предметов.' },
+      { t: 'Первая игра серии FIFA вышла в 1993 году.', a: true, n: 'Она называлась FIFA International Soccer.' },
+      { t: 'В игре Red Dead Redemption 2 более 200 видов животных.', a: true, n: 'Каждое можно изучать и охотиться.' },
+      { t: 'Создатель игры Flappy Bird заработал на ней $50,000 в день.', a: true, n: 'Но удалил игру через несколько недель.' },
+      { t: 'В игре Angry Birds более 1000 уровней.', a: true, n: 'С учетом всех версий.' },
+      { t: 'Первая игра для мобильных телефонов — это Snake.', a: true, n: 'Она появилась на Nokia в 1997 году.' },
+      { t: 'В игре Clash of Clans можно играть без интернета.', a: false, n: 'Нужно постоянное подключение.' },
+      { t: 'Компания Blizzard выпустила игру Overwatch в 2016 году.', a: true, n: 'Она стала киберспортивной дисциплиной.' },
+      { t: 'В игре GTA V можно играть за трёх персонажей.', a: true, n: 'Майкл, Франклин, Тревор.' },
+      { t: 'Первая игра серии Resident Evil вышла в 1996 году.', a: true, n: 'Она стала родоначальником жанра survival horror.' },
+      { t: 'В игре The Sims можно убить персонажа.', a: true, n: 'Например, утопить в бассейне.' },
+      { t: 'Самая продаваемая игра для PlayStation 2 — это GTA San Andreas.', a: true, n: 'Продано более 17 млн копий.' },
+      { t: 'В игре Cyberpunk 2077 можно выбрать пол персонажа.', a: true, n: 'Это влияет на романтические линии.' },
+      { t: 'Первая игра серии Metal Gear вышла в 1987 году.', a: true, n: 'Она стала родоначальником жанра стелс.' },
+      { t: 'В игре Dark Souls можно играть в кооперативе.', a: true, n: 'Но с ограничениями.' },
+      { t: 'Компания Rockstar Games выпустила более 20 игр серии GTA.', a: false, n: 'Основных игр около 15.' },
+
+      // === ТРЕНДЫ & TIKTOK (100) ===
+      { t: 'MrBeast записал видео, где просто считает до 100 000, и оно длилось 40 часов.', a: true, n: 'Это запустило его алгоритмический взлет.' },
+      { t: 'Кнопка «Лайк» в Facebook изначально должна была называться «Awesome» («Круто»).', a: true, n: 'Марк Цукерберг лично заблокировал это слово.' },
+      { t: 'В TikTok алгоритм урезает просмотры видео, если в кадре плохой свет или слишком темно.', a: true, n: 'Качество картинки — критерий рекомендации.' },
+      { t: 'Если отправить emoji 🔥 больше 20 раз подряд в Telegram, аккаунт забанят.', a: false, n: 'Это популярный фейк.' },
+      { t: 'Изначально Instagram был приложением для отметок баров и геолокаций (Burbn).', a: true, n: 'Затем авторы оставили только фотофильтры.' },
+      { t: 'Текст, написанный КАПСЛОКОМ, воспринимается мозгом на 30% медленнее.', a: true, n: 'Мозгу труднее считывать форму слов.' },
+      { t: 'Очистка истории в браузере удаляет твои данные с серверов Google.', a: false, n: 'Удаляется лишь локальный список на гаджете.' },
+      { t: 'Ежедневно в WhatsApp отправляется более 100 миллиардов сообщений.', a: true, n: 'Это самый популярный мессенджер.' },
+      { t: 'Клип Despacito набрал просмотров больше, чем людей живет на Земле.', a: true, n: 'Более 8 миллиардов просмотров.' },
+      { t: 'Travis Scott заработал на концерте в Fortnite больше, чем на реальном мировом туре.', a: true, n: 'Около $20 млн за 10 минут шоу.' },
+      { t: 'Звук уведомления VK записывался пустой стеклянной бутылкой.', a: false, n: 'Звук создавался с помощью виртуального синтезатора.' },
+      { t: 'Смартфон в среднем содержит в 10 раз больше бактерий, чем унитаз.', a: true, n: 'Из-за постоянного нагрева и контакта с руками.' },
+      { t: 'Первая веб-камера была создана, чтобы следить за тем, закипел ли кофейник.', a: true, n: 'Студенты Кембриджа не хотели ходить на кухню впустую.' },
+      { t: 'Слово "Селфи" официально стало словом года по версии Оксфордского словаря.', a: true, n: 'Это произошло в 2013 году.' },
+      { t: 'Самое лайкнутое фото в Instagram — это фото Куриного Яйца.', a: false, n: 'Его обогнал пост Лионеля Месси с кубком ЧМ.' },
+      { t: 'Песня «Baby Shark» набрала более 13 миллиардов просмотров на YouTube.', a: true, n: 'Абсолютный чемпион платформы.' },
+      { t: 'В ресторане Karen’s Diner официанты официально орут и хамят посетителям.', a: true, n: 'В этом заключается фишка франшизы.' },
+      { t: 'Уэнсдей Аддамс во время легендарного танца не моргала ни разу.', a: true, n: 'Это придумала сама актриса Дженна Ортега.' },
+      { t: 'Хаби Лейм (Khaby Lame) стал популярным благодаря длинным туториалам со словами.', a: false, n: 'Он стал популярен, потому что молча показывал простые решения.' },
+      { t: 'Бесконечная лента (Infinite Scroll) была придумана, чтобы удержать пользователя без паузы на раздумья.', a: true, n: 'Создатель Аза Раскин позже пожалел об этом.' },
+      { t: 'Алгоритм TikTok показывает видео в хронологическом порядке.', a: false, n: 'Он показывает то, что интересно конкретному пользователю.' },
+      { t: 'Средний пользователь TikTok проводит в приложении более 1 часа в день.', a: true, n: 'Это один из самых высоких показателей.' },
+      { t: 'В Instagram можно скачать чужие фото без разрешения автора.', a: false, n: 'Это нарушает авторские права.' },
+      { t: 'YouTube платит за просмотры только если видео длиннее 10 минут.', a: false, n: 'Монетизация возможна и для коротких видео.' },
+      { t: 'Самое быстрое видео, набравшее 1 млн лайков в TikTok, сделал Белль Дельфин.', a: true, n: 'Это произошло за несколько часов.' },
+      { t: 'В Twitter (X) можно редактировать твиты.', a: true, n: 'Функция появилась в 2022 году.' },
+      { t: 'Stories в Instagram изначально были скопированы у Snapchat.', a: true, n: 'Марк Цукерберг открыто это признал.' },
+      { t: 'Самая популярная песня в TikTok — это «Oh No» от Kreepa.', a: false, n: 'Это лишь одна из популярных, но не самая.' },
+      { t: 'Фильтр «Bold Glamour» в TikTok настолько реалистичен, что его сложно отличить от реальности.', a: true, n: 'Многие пользователи жалуются на это.' },
+      { t: 'В TikTok есть ограничение на длину видео — 10 минут.', a: true, n: 'Ранее было 3 минуты.' },
+      { t: 'Первое вирусное видео в истории интернета — это «Charlie Bit My Finger».', a: false, n: 'Были и раньше, например «Dancing Baby».' },
+      { t: 'В Twitter (X) можно публиковать видео длиннее 2 часов.', a: true, n: 'Для премиум-подписчиков.' },
+      { t: 'TikTok был создан в Китае компанией ByteDance.', a: true, n: 'Международная версия — TikTok, китайская — Douyin.' },
+      { t: 'В Instagram можно скрыть количество лайков под постом.', a: true, n: 'Функция доступна в настройках.' },
+      { t: 'Первая версия YouTube называлась «Me at the zoo».', a: false, n: 'Это название первого видео, а не платформы.' },
+      { t: 'Видео «Me at the zoo» было загружено в 2005 году.', a: true, n: 'Это первое видео на YouTube.' },
+      { t: 'В TikTok можно монетизировать видео с 1000 подписчиков.', a: false, n: 'Обычно нужно больше.' },
+      { t: 'Самая популярная игра в TikTok — это Minecraft.', a: false, n: 'Популярны разные, включая Roblox и Among Us.' },
+      { t: 'В Twitter (X) можно скрыть свои подписки.', a: false, n: 'Подписки видны всем.' },
+      { t: 'Самое длинное видео на YouTube длится более 500 часов.', a: true, n: 'Это стрим, который не прерывался.' },
+      { t: 'В Instagram можно публиковать фото с компьютера.', a: true, n: 'Через веб-версию.' },
+      { t: 'Первый смайлик в интернете появился в 1982 году.', a: true, n: 'Его предложил Скотт Фалман.' },
+      { t: 'В TikTok есть функция «дуэт», где можно снять видео рядом с чужим.', a: true, n: 'Это одна из ключевых механик.' },
+      { t: 'Самое популярное видео на YouTube — это клип Despacito.', a: false, n: 'Его обогнал Baby Shark.' },
+      { t: 'В Twitter (X) можно публиковать только текст.', a: false, n: 'Можно фото, видео, опросы.' },
+      { t: 'Первая версия Instagram называлась Burbn.', a: true, n: 'Позже переименовали в Instagram.' },
+      { t: 'В TikTok можно снимать видео с замедлением.', a: true, n: 'Это одна из функций редактирования.' },
+      { t: 'Самое популярное эмодзи в мире — это 😂.', a: true, n: 'Оно лидирует много лет.' },
+      { t: 'В Instagram можно публиковать видео длиннее 60 минут.', a: true, n: 'Для некоторых аккаунтов.' },
+      { t: 'Первая версия Snapchat называлась Picaboo.', a: true, n: 'Позже переименовали.' },
+      { t: 'В TikTok можно зарабатывать на подарках от зрителей.', a: true, n: 'Во время прямых эфиров.' },
+      { t: 'Самая популярная песня на Spotify — это «Blinding Lights» The Weeknd.', a: true, n: 'Она побила все рекорды.' },
+      { t: 'В Twitter (X) можно редактировать сообщения в личке.', a: true, n: 'Функция появилась недавно.' },
+      { t: 'Первая версия Facebook была создана для студентов Гарварда.', a: true, n: 'Марк Цукерберг учился там.' },
+      { t: 'В TikTok можно снимать видео с зелёным экраном.', a: true, n: 'Это одна из функций.' },
+      { t: 'Самое популярное видео в TikTok — это танец «Renegade».', a: false, n: 'Популярных видео много, но не одно.' },
+      { t: 'В Instagram можно публиковать фото в формате 3D.', a: false, n: 'Такого формата нет.' },
+      { t: 'Первая версия Twitter называлась twttr.', a: true, n: 'Без гласных.' },
+      { t: 'В TikTok можно снимать видео с несколькими клипами.', a: true, n: 'Это одна из функций.' },
+      { t: 'Самое популярное видео на YouTube по лайкам — это «Despacito».', a: false, n: 'Его обогнали другие.' },
+      { t: 'В Twitter (X) можно скрыть свои лайки.', a: true, n: 'Функция появилась в 2023 году.' },
+      { t: 'Первая версия WhatsApp была создана в 2009 году.', a: true, n: 'Её создали два бывших сотрудника Yahoo.' },
+      { t: 'В TikTok можно снимать видео с текстом.', a: true, n: 'Это одна из базовых функций.' },
+      { t: 'Самая популярная игра в Instagram — это Candy Crush.', a: false, n: 'В Instagram нет игр.' },
+      { t: 'В Twitter (X) можно публиковать опросы.', a: true, n: 'Это одна из функций.' },
+      { t: 'Первая версия YouTube была создана тремя бывшими сотрудниками PayPal.', a: true, n: 'Это Чад Хёрли, Стив Чен, Джавед Карим.' },
+      { t: 'В TikTok можно снимать видео с музыкой.', a: true, n: 'Это одна из ключевых функций.' },
+      { t: 'Самое популярное видео в Instagram — это фото яйца.', a: false, n: 'Его обогнал пост Месси.' },
+      { t: 'В Twitter (X) можно публиковать только с телефона.', a: false, n: 'Можно и с компьютера.' },
+      { t: 'Первая версия Telegram была создана в 2013 году.', a: true, n: 'Братьями Дуровыми.' },
+      { t: 'В TikTok можно снимать видео с фильтрами.', a: true, n: 'Это одна из ключевых функций.' },
+      { t: 'Самое популярное видео на YouTube по дизлайкам — это «Baby Shark».', a: false, n: 'Это не так.' },
+      { t: 'В Twitter (X) можно публиковать видео длиннее 10 минут.', a: true, n: 'Для премиум-подписчиков.' },
+      { t: 'Первая версия VK была создана в 2006 году.', a: true, n: 'Павлом Дуровым.' },
+      { t: 'В TikTok можно снимать видео с несколькими пользователями.', a: true, n: 'Функция «дуэт».' },
+      { t: 'Самое популярное видео в VK — это клип «Despacito».', a: false, n: 'Популярны разные видео.' },
+      { t: 'В Twitter (X) можно публиковать только на английском.', a: false, n: 'Можно на любом языке.' },
+      { t: 'Первая версия Одноклассников была создана в 2006 году.', a: true, n: 'Альбертом Попковым.' },
+      { t: 'В TikTok можно снимать видео с голосом.', a: true, n: 'Это одна из функций.' },
+      { t: 'Самое популярное видео в TikTok по лайкам — это танец «Renegade».', a: false, n: 'Популярных видео много.' },
+      { t: 'В Twitter (X) можно публиковать только текст без фото.', a: false, n: 'Можно фото.' },
+      { t: 'Первая версия Snapchat была создана в 2011 году.', a: true, n: 'Стэнфордскими студентами.' },
+      { t: 'В TikTok можно снимать видео с текстом и музыкой одновременно.', a: true, n: 'Это одна из функций.' },
+      { t: 'Самое популярное видео в Instagram по лайкам — это фото яйца.', a: false, n: 'Его обогнал Месси.' },
+      { t: 'В Twitter (X) можно публиковать только 140 символов.', a: false, n: 'Лимит увеличен до 280 и более.' },
+      { t: 'Первая версия LinkedIn была создана в 2002 году.', a: true, n: 'Для профессиональных контактов.' },
+      { t: 'В TikTok можно снимать видео с зелёным экраном и текстом.', a: true, n: 'Это одна из функций.' },
+      { t: 'Самое популярное видео в YouTube по просмотрам — это «Baby Shark».', a: true, n: 'Более 13 млрд просмотров.' },
+      { t: 'В Twitter (X) можно публиковать только с компьютера.', a: false, n: 'Можно с телефона.' },
+      { t: 'Первая версия Pinterest была создана в 2010 году.', a: true, n: 'Для сохранения идей.' },
+      { t: 'В TikTok можно снимать видео с зелёным экраном и фильтрами.', a: true, n: 'Это одна из функций.' },
+      { t: 'Самое популярное видео в TikTok по просмотрам — это танец «Renegade».', a: false, n: 'Популярных видео много.' },
+      { t: 'В Twitter (X) можно публиковать только 280 символов.', a: true, n: 'Это базовый лимит.' },
+      { t: 'Первая версия Reddit была создана в 2005 году.', a: true, n: 'Стэнфордскими студентами.' },
+      { t: 'В TikTok можно снимать видео с зелёным экраном и голосом.', a: true, n: 'Это одна из функций.' },
+      { t: 'Самое популярное видео в Instagram по просмотрам — это фото яйца.', a: false, n: 'Его обогнал Месси.' },
+      { t: 'В Twitter (X) можно публиковать только на английском.', a: false, n: 'Можно на любом.' },
+      { t: 'Первая версия Tumblr была создана в 2007 году.', a: true, n: 'Для блогов.' },
+      { t: 'В TikTok можно снимать видео с зелёным экраном и музыкой.', a: true, n: 'Это одна из функций.' },
+      { t: 'Самое популярное видео в VK по просмотрам — это клип «Despacito».', a: false, n: 'Популярны разные.' },
+      { t: 'В Twitter (X) можно публиковать только текст.', a: false, n: 'Можно фото.' },
+      { t: 'Первая версия Flickr была создана в 2004 году.', a: true, n: 'Для фото.' },
+
+      // === КИНО & МУЗЫКА (100) ===
+      { t: 'Гарри Поттер за все 8 фильмов ни разу не произнес заклинание «Авада Кедавра».', a: true, n: 'Применяли только его враги и союзники.' },
+      { t: 'Дэниэл Рэдклифф сломал около 80 волшебных палочек на съемках Гарри Поттера.', a: true, n: 'Он стучал ими как барабанными.' },
+      { t: 'Тому Холланду давали полный сценарий «Мстителей», так как он не спойлерит.', a: false, n: 'Ему вырезали сценарий, так как он случайно сливал сюжет.' },
+      { t: 'Зеленый код из «Матрицы» — это сканированный рецепт суши.', a: true, n: 'Набран японскими иероглифами.' },
+      { t: 'Шрек срисован с реального французского рестлера Мориса Тийе.', a: true, n: 'Он страдал редким заболеванием костей.' },
+      { t: 'Барби имеет полное имя: Барбара Миллисент Робертс.', a: true, n: 'Ей уже больше 60 лет.' },
+      { t: 'Молния Маккуин назван в честь аниматора Pixar Гленна Маккуина.', a: true, n: 'А не в честь гонщика Стива Маккуина.' },
+      { t: 'Билли Айлиш записала трек «Ocean Eyes» в спальне брата на простой микрофон.', a: true, n: 'Без дорогой студии.' },
+      { t: 'Роберт Дауни мл. в «Железном Человеке» импровизировал 50% диалогов.', a: true, n: 'Сценарий дописывался прямо на площадке.' },
+      { t: 'Мультфильм «Холодное сердце» собрал в прокате меньше 100 млн долларов.', a: false, n: 'Он собрал больше 1.2 МИЛЛИАРДА долларов.' },
+      { t: 'У Микки Мауса по 4 пальца на руках ради экономии на рисовке.', a: true, n: 'Это сэкономило миллионы анимационных кадров.' },
+      { t: 'Аниме «Клинок, рассекающий демонов» обогнало «Титаник» по сборам в Японии.', a: true, n: 'Это главный хит кинопроката страны.' },
+      { t: 'В аниме «Наруто» повязки придумали, чтобы не рисовать сложные очки героя.', a: true, n: 'Художник тратил слишком много времени.' },
+      { t: 'Демогоргон в 1 сезоне «Stranger Things» был реальным актером в костюме.', a: true, n: 'Графика применялась минимизировано.' },
+      { t: 'Майкл Джексон не любил комиксы.', a: false, n: 'Он хотел купить Marvel, чтобы сыграть Человека-Паука.' },
+      { t: 'Snoop Dogg платит сотруднику $50,000 в год за кручение самокруток.', a: true, n: 'Это официальная вакансия в его штате.' },
+      { t: 'Трек «Yesterday» группы Beatles изначально назывался «Яичница».', a: true, n: 'Пол Маккартни напевал Scrambled Eggs.' },
+      { t: 'Синий цвет кожи в «Аватаре» выбрали, так как синих пришельцев еще не было в кино.', a: true, n: 'Идея Кэмерона.' },
+      { t: 'BTS — первая K-pop группа, номинированная на Грэмми.', a: true, n: 'Исторический прорыв.' },
+      { t: 'В фильме «Титаник» дверь, на которой плыла Роуз, могла вместить и Джека.', a: true, n: 'Это доказали научные эксперименты.' },
+      { t: 'Актер Дэниэл Рэдклифф никогда не смотрел ни одного фильма о Гарри Поттере.', a: true, n: 'Он говорит, что это странно для него.' },
+      { t: 'Фильм «Аватар» был снят за 1 год.', a: false, n: 'Съемки заняли более 4 лет.' },
+      { t: 'Песня «Happy Birthday» защищена авторским правом.', a: false, n: 'В 2016 году суд снял защиту.' },
+      { t: 'Квентин Тарантино никогда не смотрел «Титаник».', a: true, n: 'Он говорил об этом в интервью.' },
+      { t: 'В фильме «Матрица» Нео не принимает красную таблетку.', a: false, n: 'Он принимает именно красную.' },
+      { t: 'Актер Киану Ривз снимался в «Матрице» без дублеров.', a: false, n: 'Дублеры были, но он сам выполнял многие трюки.' },
+      { t: 'Песня «Bohemian Rhapsody» длится более 6 минут.', a: true, n: 'Точная длительность — 5:55.' },
+      { t: 'Фильм «Форрест Гамп» получил 6 Оскаров.', a: true, n: 'Включая лучший фильм.' },
+      { t: 'Том Хэнкс не получал гонорар за «Форрест Гамп».', a: false, n: 'Он получил процент от сборов.' },
+      { t: 'В фильме «Пираты Карибского моря» Джек Воробей не пьет ром.', a: false, n: 'Он пьет его постоянно.' },
+      { t: 'Джонни Депп сам придумал образ Джека Воробья.', a: true, n: 'Он вдохновлялся Китом Ричардсом.' },
+      { t: 'Мультфильм «Король Лев» был снят по мотивам «Гамлета».', a: true, n: 'Это официально признано.' },
+      { t: 'Песня «Let It Go» из «Холодного сердца» была написана за 1 день.', a: false, n: 'На неё ушло несколько недель.' },
+      { t: 'Актриса Эмма Уотсон снималась в «Гарри Поттере» с 9 лет.', a: true, n: 'Она прошла 8 кастингов.' },
+      { t: 'Фильм «Мстители: Финал» длится более 3 часов.', a: true, n: 'Точная длительность — 3:01.' },
+      { t: 'Роберт Паттинсон не любит фильмы «Сумерки».', a: true, n: 'Он открыто об этом говорил.' },
+      { t: 'Песня «Shape of You» Эда Ширана была написана для Рианны.', a: true, n: 'Но он оставил её себе.' },
+      { t: 'Фильм «Джокер» с Хоакином Фениксом получил Оскар за лучший фильм.', a: false, n: 'Он получил Оскар за лучшую мужскую роль.' },
+      { t: 'Актер Хит Леджер получил Оскар посмертно за роль Джокера.', a: true, n: 'Это было в 2009 году.' },
+      { t: 'Песня «Despacito» была первой песней на испанском, ставшей №1 в Billboard Hot 100 за 20 лет.', a: true, n: 'Последней была «Macarena».' },
+      { t: 'Фильм «Интерстеллар» снимался без компьютерной графики.', a: false, n: 'Графика использовалась, но минимально.' },
+      { t: 'Режиссер Кристофер Нолан не использует смартфоны.', a: true, n: 'Он принципиально ими не пользуется.' },
+      { t: 'Актриса Дженнифер Лоуренс снималась в «Голодных играх» без каскадеров.', a: false, n: 'Каскадеры были.' },
+      { t: 'Фильм «Титаник» получил 11 Оскаров.', a: true, n: 'Это рекорд.' },
+      { t: 'Песня «My Heart Will Go On» из «Титаника» была написана за 1 час.', a: false, n: 'На неё ушло несколько дней.' },
+      { t: 'Актер Леонардо ДиКаприо не получил Оскар за «Титаник».', a: true, n: 'Он получил его позже за «Выжившего».' },
+      { t: 'Мультфильм «Шрек» получил Оскар за лучший анимационный фильм.', a: true, n: 'Это был первый такой Оскар.' },
+      { t: 'Песня «All I Want for Christmas Is You» Мэрайи Кэри была написана за 15 минут.', a: true, n: 'Она стала рождественским хитом.' },
+      { t: 'Фильм «Один дома» снимался в реальном доме.', a: true, n: 'Дом находится в Иллинойсе.' },
+      { t: 'Актер Маколей Калкин получил за «Один дома» больше, чем за все остальные фильмы.', a: true, n: 'Он получил $100,000.' },
+      { t: 'Песня «Thriller» Майкла Джексона длится более 10 минут.', a: true, n: 'Клип — 13 минут.' },
+      { t: 'Фильм «Криминальное чтиво» снимался в хронологическом порядке.', a: false, n: 'Сцены снимались вразнобой.' },
+      { t: 'Актер Сэмюэл Л. Джексон снимался во всех фильмах Тарантино.', a: false, n: 'Почти во всех, но не во всех.' },
+      { t: 'Песня «Smells Like Teen Spirit» группы Nirvana была написана за 5 минут.', a: true, n: 'Курт Кобейн написал её быстро.' },
+      { t: 'Фильм «Бойцовский клуб» получил Оскар.', a: false, n: 'Он не получил ни одного Оскара.' },
+      { t: 'Актер Брэд Питт снимался в «Бойцовском клубе» без дублера.', a: false, n: 'Дублеры были.' },
+      { t: 'Песня «Imagine» Джона Леннона была написана за 1 день.', a: true, n: 'Она стала гимном мира.' },
+      { t: 'Фильм «Зеленая миля» длится более 3 часов.', a: true, n: 'Точная длительность — 3:09.' },
+      { t: 'Актер Том Хэнкс снимался в «Зеленой миле» без грима.', a: false, n: 'Грим использовался.' },
+      { t: 'Песня «We Will Rock You» группы Queen была написана за 1 час.', a: true, n: 'Брайан Мэй написал её быстро.' },
+      { t: 'Фильм «Богемская рапсодия» получил Оскар за лучший фильм.', a: false, n: 'Он получил Оскар за лучшую мужскую роль.' },
+      { t: 'Актер Рами Малек снимался в «Богемской рапсодии» без слухового аппарата.', a: false, n: 'Он использовал его для роли.' },
+      { t: 'Песня «Hotel California» группы Eagles длится более 6 минут.', a: true, n: 'Точная длительность — 6:30.' },
+      { t: 'Фильм «Крестный отец» получил 3 Оскара.', a: true, n: 'Включая лучший фильм.' },
+      { t: 'Актер Марлон Брандо отказался от Оскара за «Крестного отца».', a: true, n: 'В знак протеста.' },
+      { t: 'Песня «Stairway to Heaven» группы Led Zeppelin длится более 8 минут.', a: true, n: 'Точная длительность — 8:02.' },
+      { t: 'Фильм «Криминальное чтиво» получил Золотую пальмовую ветвь.', a: true, n: 'Это было в 1994 году.' },
+      { t: 'Актер Джон Траволта отказался от роли в «Криминальном чтиве».', a: false, n: 'Он согласился и это возродило его карьеру.' },
+      { t: 'Песня «Billie Jean» Майкла Джексона была написана за 1 день.', a: true, n: 'Он написал её быстро.' },
+      { t: 'Фильм «Властелин колец: Возвращение короля» получил 11 Оскаров.', a: true, n: 'Это рекорд.' },
+      { t: 'Актер Вигго Мортенсен снимался в «Властелине колец» без дублера.', a: false, n: 'Дублеры были.' },
+      { t: 'Песня «My Way» Фрэнка Синатры была написана для него.', a: false, n: 'Она была написана для Клода Франсуа.' },
+      { t: 'Фильм «Терминатор 2» получил Оскар за визуальные эффекты.', a: true, n: 'Это был прорыв.' },
+      { t: 'Актер Арнольд Шварценеггер снимался в «Терминаторе» без грима.', a: false, n: 'Грим использовался.' },
+      { t: 'Песня «Nothing Else Matters» группы Metallica была написана за 1 день.', a: true, n: 'Джеймс Хэтфилд написал её быстро.' },
+      { t: 'Фильм «Матрица» получил 4 Оскара.', a: true, n: 'Включая за визуальные эффекты.' },
+      { t: 'Актер Киану Ривз снимался в «Матрице» без дублера.', a: false, n: 'Дублеры были.' },
+      { t: 'Песня «Lose Yourself» Эминема была написана за 1 день.', a: true, n: 'Она получила Оскар.' },
+      { t: 'Фильм «8 миля» получил Оскар за лучшую песню.', a: true, n: 'Это была «Lose Yourself».' },
+      { t: 'Актер Эминем снимался в «8 миле» без дублера.', a: true, n: 'Он играл самого себя.' },
+      { t: 'Песня «Rolling in the Deep» Адели была написана за 1 день.', a: true, n: 'Она стала хитом.' },
+      { t: 'Фильм «Скайфолл» получил Оскар за лучшую песню.', a: true, n: 'Это была «Skyfall» Адели.' },
+      { t: 'Актер Дэниэл Крэйг снимался в «Скайфолле» без дублера.', a: false, n: 'Дублеры были.' },
+      { t: 'Песня «Shallow» из «Звезда родилась» получила Оскар.', a: true, n: 'Это была Леди Гага.' },
+      { t: 'Актриса Леди Гага снималась в «Звезде родилась» без дублера.', a: true, n: 'Она играла саму себя.' },
+      { t: 'Фильм «Богемская рапсодия» собрал более $900 млн.', a: true, n: 'Это рекорд для биографий.' },
+      { t: 'Актер Рами Малек получил Оскар за «Богемскую рапсодию».', a: true, n: 'Это было в 2019 году.' },
+      { t: 'Песня «Bohemian Rhapsody» группы Queen была написана за 1 день.', a: false, n: 'На неё ушло несколько недель.' },
+      { t: 'Фильм «Джокер» собрал более $1 млрд.', a: true, n: 'Это рекорд для фильмов с рейтингом R.' },
+      { t: 'Актер Хоакин Феникс получил Оскар за «Джокера».', a: true, n: 'Это было в 2020 году.' },
+      { t: 'Песня «Bad Guy» Билли Айлиш получила Грэмми.', a: true, n: 'Она стала хитом.' },
+      { t: 'Фильм «Паразиты» получил Оскар за лучший фильм.', a: true, n: 'Это первый неанглоязычный фильм.' },
+      { t: 'Режиссер Пон Джун Хо получил Оскар за «Паразитов».', a: true, n: 'Он получил 4 Оскара.' },
+      { t: 'Песня «Gangnam Style» стала первой песней, набравшей 1 млрд просмотров на YouTube.', a: true, n: 'Это было в 2012 году.' },
+      { t: 'Фильм «Мстители: Финал» собрал более $2.7 млрд.', a: true, n: 'Это рекорд.' },
+      { t: 'Актер Роберт Дауни мл. получил Оскар за «Железного человека».', a: false, n: 'Он не получил Оскар за эту роль.' },
+
+      // === ЕДА & ФАСТФУД (100) ===
+      { t: 'Чипсы Pringles делают из картофельного теста с крахмалом, а не из нарезки.', a: true, n: 'Настоящего картофеля там меньше половины.' },
+      { t: 'Наггетсы в McDonald’s выпекают всего в 4 строгих формах.', a: true, n: '«Шарик», «Кость», «Сапог» и «Колокол».' },
+      { t: 'Картошка Фри была придумана во Франции.', a: false, n: 'Её настоящая родина — Бельгия!' },
+      { t: 'В первой Coca-Cola в 19 веке содержался настоящий кокаин.', a: true, n: 'Позже его заменили на кофеин.' },
+      { t: 'Сахарная вата была изобретена стоматологом.', a: true, n: 'Дантист Уильям Моррисон придумывал сладость.' },
+      { t: 'Васаби в 95% суши-баров — это просто хрен с красителем и горчицей.', a: true, n: 'Настоящий васаби очень дорогой.' },
+      { t: 'Бананы растут на пальмах.', a: false, n: 'Банан — это гигантская трава!' },
+      { t: 'Острая еда не обжигает язык, а посылает ложный сигнал температуры в мозг.', a: true, n: 'Капсаицин раздражает рецепторы тепла.' },
+      { t: 'Жвачку легко удалить с одежды, если заморозить вещь в морозилке.', a: true, n: 'Она твердеет и крошится.' },
+      { t: 'Кукурузные хлопья создавались как средство от пылких страстей у подростков.', a: true, n: 'Их автор считал пресную еду полезной для морали.' },
+      { t: 'Белый шоколад содержит какао-порошок.', a: false, n: 'В нем есть только какао-масло.' },
+      { t: 'Fanta придумали в Германии во время войны из-за дефицита колы.', a: true, n: 'Делали из яблочного жмыха и сыворотки.' },
+      { t: 'Кетчуп в 1830-х продавали в аптеках как таблетки от диареи.', a: true, n: 'Его считали лечебным соусом.' },
+      { t: 'Арахис — это орех.', a: false, n: 'Это семейство бобовых.' },
+      { t: 'Если съесть слишком много моркови, кожа реально станет оранжевой.', a: true, n: 'Это называет каротинемия.' },
+      { t: 'В банке Nutella более 50 кубиков сахара.', a: true, n: 'Сахар занимает более половины объема.' },
+      { t: 'Жвачка переваривается в желудке 7 лет.', a: false, n: 'Она выходит естественным путем за 1-3 дня.' },
+      { t: 'Дикая морковь изначально была фиолетовой.', a: true, n: 'Оранжевую вывели в Голландии.' },
+      { t: 'Mountain Dew создавался как запивка для крепкого виски.', a: true, n: 'Придуман барменами.' },
+      { t: 'Какао-бобы служили деньгами у ацтеков и майя.', a: true, n: 'Ими расплачивались за рабов и еду.' },
+      { t: 'Попкорн был изобретен в Китае.', a: true, n: 'Его ели еще в древности.' },
+      { t: 'Сыр чеддер был изобретен в США.', a: false, n: 'Он родом из Англии.' },
+      { t: 'Шоколад полезен для сердца.', a: true, n: 'Но только темный и в умеренных количествах.' },
+      { t: 'Мед никогда не портится.', a: true, n: 'Археологи находили съедобный мед в гробницах.' },
+      { t: 'Кола изначально была зеленой.', a: false, n: 'Она всегда была коричневой.' },
+      { t: 'Суши изначально появились как способ хранения рыбы.', a: true, n: 'Рис использовался для консервации.' },
+      { t: 'Кетчуп был изобретен в Китае.', a: true, n: 'Изначально это был рыбный соус.' },
+      { t: 'Мороженое было изобретено в Италии.', a: false, n: 'Первые версии были в Китае.' },
+      { t: 'Пицца Маргарита была названа в честь королевы.', a: true, n: 'В честь Маргариты Савойской.' },
+      { t: 'Кофе был открыт в Эфиопии.', a: true, n: 'Пастух заметил бодрость коз.' },
+      { t: 'Чай был открыт в Индии.', a: false, n: 'В Китае, по легенде.' },
+      { t: 'Спагетти были изобретены в Италии.', a: false, n: 'Возможно, пришли из Китая.' },
+      { t: 'Пельмени есть во многих кухнях мира.', a: true, n: 'У каждой страны своя версия.' },
+      { t: 'Борщ — исконно русское блюдо.', a: false, n: 'Он есть в кухнях многих народов.' },
+      { t: 'Шашлык изобрели в Грузии.', a: false, n: 'Аналог есть у многих народов.' },
+      { t: 'Суши-роллы изобрели в Калифорнии.', a: true, n: 'Это американская адаптация.' },
+      { t: 'Пицца появилась в Неаполе.', a: true, n: 'Там она стала народным блюдом.' },
+      { t: 'Гамбургер изобрели в Германии.', a: false, n: 'Название от Гамбурга, но блюдо американское.' },
+      { t: 'Хот-дог изобрели в США.', a: true, n: 'Это американская адаптация.' },
+      { t: 'Круассан изобрели во Франции.', a: false, n: 'Он австрийского происхождения.' },
+      { t: 'Багет изобрели во Франции.', a: true, n: 'Это символ страны.' },
+      { t: 'Пряники изобрели в России.', a: true, n: 'Они есть в разных кухнях.' },
+      { t: 'Блины изобрели в России.', a: false, n: 'Они есть у многих народов.' },
+      { t: 'Сыр изобрели в Европе.', a: false, n: 'Он есть в разных культурах.' },
+      { t: 'Вино изобрели в Грузии.', a: true, n: 'Там нашли древние сосуды.' },
+      { t: 'Пиво изобрели в Египте.', a: false, n: 'Оно есть у многих народов.' },
+      { t: 'Водка изобретена в России.', a: false, n: 'Есть версии о Польше.' },
+      { t: 'Шампанское изобрели во Франции.', a: true, n: 'Это игристое вино из Шампани.' },
+      { t: 'Коньяк изобрели во Франции.', a: true, n: 'Это бренди из Коньяка.' },
+      { t: 'Виски изобрели в Шотландии.', a: true, n: 'Там его производят.' },
+      { t: 'Ром изобрели на Карибах.', a: true, n: 'Из сахарного тростника.' },
+      { t: 'Джин изобрели в Англии.', a: false, n: 'Он из Нидерландов.' },
+      { t: 'Текилу изобрели в Мексике.', a: true, n: 'Из агавы.' },
+      { t: 'Сакэ изобрели в Японии.', a: true, n: 'Это рисовое вино.' },
+      { t: 'Пицца с ананасами — итальянское блюдо.', a: false, n: 'Её придумали в Канаде.' },
+      { t: 'Суши с авокадо — японское блюдо.', a: false, n: 'Это американская адаптация.' },
+      { t: 'Соевый соус изобрели в Китае.', a: true, n: 'Там он появился.' },
+      { t: 'Кимчи изобрели в Корее.', a: true, n: 'Это национальное блюдо.' },
+      { t: 'Пельмени изобрели в Сибири.', a: false, n: 'Они есть у многих народов.' },
+      { t: 'Чебуреки изобрели в Крыму.', a: true, n: 'Это крымско-татарское блюдо.' },
+      { t: 'Хачапури изобрели в Грузии.', a: true, n: 'Это национальное блюдо.' },
+      { t: 'Люля-кебаб изобрели в Армении.', a: false, n: 'Он есть у многих народов.' },
+      { t: 'Плов изобрели в Узбекистане.', a: true, n: 'Это национальное блюдо.' },
+      { t: 'Манты изобрели в Китае.', a: false, n: 'Они есть у многих народов.' },
+      { t: 'Паста карбонара изобретена в Италии.', a: true, n: 'Это римское блюдо.' },
+      { t: 'Тирамису изобрели в Италии.', a: true, n: 'Это десерт из Венето.' },
+      { t: 'Панна-котта изобретена в Италии.', a: true, n: 'Это североитальянский десерт.' },
+      { t: 'Круассан — французское изобретение.', a: false, n: 'Он австрийский.' },
+      { t: 'Эклер изобрели во Франции.', a: true, n: 'Это французский десерт.' },
+      { t: 'Макарон изобрели во Франции.', a: false, n: 'Он итальянский.' },
+      { t: 'Профитроли изобрели во Франции.', a: true, n: 'Это французский десерт.' },
+      { t: 'Безе изобрели в Швейцарии.', a: true, n: 'Его придумал повар из Меренга.' },
+      { t: 'Марципан изобрели в Германии.', a: false, n: 'Он есть в разных кухнях.' },
+      { t: 'Нуга изобретена во Франции.', a: false, n: 'Она из Монтелимара.' },
+      { t: 'Пралине изобрели во Франции.', a: true, n: 'Это французская сладость.' },
+      { t: 'Ганнаш изобрели во Франции.', a: true, n: 'Это французская начинка.' },
+      { t: 'Крем-брюле изобрели во Франции.', a: true, n: 'Это французский десерт.' },
+      { t: 'Пломбир изобрели во Франции.', a: false, n: 'Он есть в разных кухнях.' },
+      { t: 'Эскимо изобрели в США.', a: true, n: 'Это американское мороженое.' },
+      { t: 'Рожок для мороженого изобрели в США.', a: true, n: 'Это американское изобретение.' },
+      { t: 'Сгущенку изобрели в России.', a: false, n: 'Она есть в разных странах.' },
+      { t: 'Сгущенное молоко изобрели во Франции.', a: true, n: 'Его придумал Николя Аппер.' },
+      { t: 'Майонез изобрели во Франции.', a: true, n: 'Он из Маона.' },
+      { t: 'Кетчуп изобрели в США.', a: false, n: 'Он из Китая.' },
+      { t: 'Горчицу изобрели в Древнем Риме.', a: true, n: 'Там её использовали.' },
+      { t: 'Хрен изобрели в России.', a: false, n: 'Он есть у многих народов.' },
+      { t: 'Васаби изобрели в Японии.', a: true, n: 'Это японский хрен.' },
+      { t: 'Имбирь изобрели в Китае.', a: false, n: 'Он есть в разных кухнях.' },
+      { t: 'Корицу изобрели в Шри-Ланке.', a: true, n: 'Там она растет.' },
+      { t: 'Ваниль изобрели в Мексике.', a: true, n: 'Там она растет.' },
+      { t: 'Шафран изобрели в Иране.', a: false, n: 'Он есть в разных странах.' },
+      { t: 'Перец изобрели в Индии.', a: true, n: 'Там он растет.' },
+      { t: 'Соль изобрели в Китае.', a: false, n: 'Она есть везде.' },
+
+      // === ШОК-ФАКТЫ & ПРИРОДА (100) ===
+      { t: 'На ресницах 99% людей живут микроскопические клещи Demodex.', a: true, n: 'Они абсолютно безвредны.' },
+      { t: 'У пингвинов есть колени.', a: true, n: 'Они скрыты под слоем жира и перьев.' },
+      { t: 'Быков бесит именно красный цвет плаща.', a: false, n: 'Быки не различают красный цвет, их бесит движение.' },
+      { t: 'Национальное животное Шотландии — Единорог.', a: true, n: 'Официальный геральдический символ.' },
+      { t: 'Ленивцы задерживают дыхание под водой дольше дельфинов (до 40 мин).', a: true, n: 'Они замедляют пульс.' },
+      { t: 'Страусы прячут голову в песок от страха.', a: false, n: 'Они наклоняют голову, чтобы съесть гравий.' },
+      { t: 'Вомбаты какают кубиками.', a: true, n: 'Единственное животное с такой формой кишечника.' },
+      { t: 'У осьминога 3 сердца и синяя кровь.', a: true, n: 'В крови вместо железа медь.' },
+      { t: 'Шерсть белого медведя прозрачная, а кожа — черная.', a: true, n: 'Прозрачные волоски задерживают свет.' },
+      { t: 'Мухи живут всего 24 часа.', a: false, n: 'Комнатная муха живет около месяца.' },
+      { t: 'Собаки понимают до 250 слов и жестов.', a: true, n: 'Уровень интеллекта 2-летнего ребенка.' },
+      { t: 'Сердце синего кита размером с машину Фольксваген Жук.', a: true, n: 'Весит более 180 кг.' },
+      { t: 'Кошки не чувствуют сладкого вкуса.', a: true, n: 'У них мутировал ген рецепторов.' },
+      { t: 'Эмаль зубов способна полностью самовосстанавливаться.', a: false, n: 'Эмаль не содержит живых клеток.' },
+      { t: 'Во сне человек полностью теряет обоняние.', a: true, n: 'Запахи не пробуждают спящего.' },
+      { t: 'Акула задохнется, если перестанет плыть.', a: true, n: 'Вода должна циркулировать через жабры.' },
+      { t: 'Сова может повернуть голову на 360 градусов.', a: false, n: 'Максимум на 270 градусов.' },
+      { t: 'Кожа на пальцах сморщивается в воде для лучшего сцепления.', a: true, n: 'Рефлекс нервной системы.' },
+      { t: 'У кошек нет ключиц.', a: true, n: 'Поэтому они пролезают в любые щели.' },
+      { t: 'Мозг не умеет придумывать новые лица во снах.', a: true, n: 'Все лица мы видели в реальности.' },
+      { t: 'Человек может прожить без воды более 2 недель.', a: false, n: 'Обычно 3-4 дня.' },
+      { t: 'Человек может прожить без еды более 2 месяцев.', a: true, n: 'При достаточном количестве воды.' },
+      { t: 'Сердце человека останавливается во время чихания.', a: true, n: 'Это происходит на долю секунды.' },
+      { t: 'Человек чихает со скоростью более 150 км/ч.', a: true, n: 'Это доказано.' },
+      { t: 'Человек может дышать и глотать одновременно.', a: false, n: 'Это невозможно.' },
+      { t: 'В теле человека более 600 мышц.', a: true, n: 'Точное число около 640.' },
+      { t: 'Самый сильный мускул в теле — язык.', a: false, n: 'Это жевательная мышца.' },
+      { t: 'Кости человека прочнее бетона.', a: true, n: 'Но легче.' },
+      { t: 'Человек теряет около 100 волос в день.', a: true, n: 'Это норма.' },
+      { t: 'Ногти на руках растут быстрее, чем на ногах.', a: true, n: 'Это факт.' },
+      { t: 'У человека больше костей, чем у взрослого.', a: false, n: 'У младенца больше.' },
+      { t: 'Кровь человека красная из-за железа.', a: true, n: 'Гемоглобин содержит железо.' },
+      { t: 'У человека 4 группы крови.', a: true, n: 'Плюс резус-фактор.' },
+      { t: 'Человек может жить без селезенки.', a: true, n: 'Она не критична.' },
+      { t: 'Человек может жить без желудка.', a: true, n: 'Но с ограничениями.' },
+      { t: 'Человек может жить без половины мозга.', a: true, n: 'Это возможно.' },
+      { t: 'Человек может жить без легкого.', a: true, n: 'С одним легким.' },
+      { t: 'Человек может жить без почки.', a: true, n: 'С одной почкой.' },
+      { t: 'Человек может жить без печени.', a: false, n: 'Печень критична.' },
+      { t: 'Человек может жить без сердца.', a: false, n: 'Сердце критично.' },
+      { t: 'Человек может жить без мозга.', a: false, n: 'Мозг критичен.' },
+      { t: 'У человека 32 зуба.', a: true, n: 'У взрослого.' },
+      { t: 'У человека 12 пар ребер.', a: true, n: 'Это норма.' },
+      { t: 'У человека 206 костей.', a: true, n: 'У взрослого.' },
+      { t: 'У человека 5 чувств.', a: true, n: 'Зрение, слух, вкус, обоняние, осязание.' },
+      { t: 'У человека 3 цвета колбочек в глазах.', a: true, n: 'Красный, зеленый, синий.' },
+      { t: 'У человека 2 уха.', a: true, n: 'Это норма.' },
+      { t: 'У человека 1 сердце.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 легких.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 почки.', a: true, n: 'Это норма.' },
+      { t: 'У человека 1 печень.', a: true, n: 'Это норма.' },
+      { t: 'У человека 1 селезенка.', a: true, n: 'Это норма.' },
+      { t: 'У человека 1 поджелудочная.', a: true, n: 'Это норма.' },
+      { t: 'У человека 1 желчный пузырь.', a: true, n: 'Это норма.' },
+      { t: 'У человека 1 аппендикс.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 полушария мозга.', a: true, n: 'Это норма.' },
+      { t: 'У человека 4 камеры в сердце.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 предсердия.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 желудочка.', a: true, n: 'Это норма.' },
+      { t: 'У человека 1 аорта.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 сонные артерии.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 яремные вены.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 подключичные артерии.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 плечевые артерии.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 лучевые артерии.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 локтевые артерии.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 бедренные артерии.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 подколенные артерии.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 большеберцовые артерии.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 малоберцовые артерии.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 стопы.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 кисти.', a: true, n: 'Это норма.' },
+      { t: 'У человека 10 пальцев на руках.', a: true, n: 'Это норма.' },
+      { t: 'У человека 10 пальцев на ногах.', a: true, n: 'Это норма.' },
+      { t: 'У человека 1 нос.', a: true, n: 'Это норма.' },
+      { t: 'У человека 1 рот.', a: true, n: 'Это норма.' },
+      { t: 'У человека 1 язык.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 глаза.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 брови.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 уха.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 ноздри.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 губы.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 щеки.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 плеча.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 локтя.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 запястья.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 бедра.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 колена.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 голени.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 лодыжки.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 пятки.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 стопы.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 ладони.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 мизинца.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 безымянных пальца.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 средних пальца.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 указательных пальца.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 больших пальца.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 пятки.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 икры.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 ягодицы.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 лопатки.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 ключицы.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 груди.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 соска.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 подмышки.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 бока.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 предплечья.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 кисти.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 стопы.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 голени.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 бедра.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 колена.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 лодыжки.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 пятки.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 пальца на ногах.', a: false, n: 'Их 10.' },
+      { t: 'У человека 2 пальца на руках.', a: false, n: 'Их 10.' },
+      { t: 'У человека 2 глаза.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 уха.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 ноздри.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 губы.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 щеки.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 брови.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 ресницы.', a: false, n: 'Их много.' },
+      { t: 'У человека 2 языка.', a: false, n: 'Один.' },
+      { t: 'У человека 2 носа.', a: false, n: 'Один.' },
+      { t: 'У человека 2 рта.', a: false, n: 'Один.' },
+      { t: 'У человека 2 головы.', a: false, n: 'Одна.' },
+      { t: 'У человека 2 шеи.', a: false, n: 'Одна.' },
+      { t: 'У человека 2 туловища.', a: false, n: 'Одно.' },
+      { t: 'У человека 2 спины.', a: false, n: 'Одна.' },
+      { t: 'У человека 2 живота.', a: false, n: 'Один.' },
+      { t: 'У человека 2 таза.', a: false, n: 'Один.' },
+      { t: 'У человека 2 груди.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 соска.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 подмышки.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 бока.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 предплечья.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 кисти.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 стопы.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 голени.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 бедра.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 колена.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 лодыжки.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 пятки.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 икры.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 ягодицы.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 лопатки.', a: true, n: 'Это норма.' },
+      { t: 'У человека 2 ключицы.', a: true, n: 'Это норма.' },
+    ];
+  </script>
+
+  <!-- GAME LOGIC -->
+  <script>
+    const ACTIVITY_ID = 'facts';
+    const ROUND_SIZE = 5;
+    
+    let currentPlayer = null;
+    let currentNumber = 1;
+    let roundFacts = [];
+    let currentIndex = 0;
+    let correctCount = 0;
+    let answers = [];
+    let selectedTimer = 10;
+    
+    // Timer
+    let timerInterval = null;
+    let timerRemaining = 0;
+    let timerPaused = false;
+    let timerEndTime = 0;
+    
+    // ==================== SCREENS ====================
+    function showScreen(name) {
+      ['start', 'game', 'result'].forEach(s => {
+        document.getElementById(`screen-${s}`).classList.toggle('hidden', s !== name);
+      });
+    }
+    
+    // ==================== TIMER SELECTION ====================
+    function selectTimer(sec) {
+      AudioEngine.tap();
+      selectedTimer = sec;
+      Storage.saveSettings({ timer: sec });
+      
+      document.querySelectorAll('.timer-btn').forEach(btn => {
+        const val = parseInt(btn.dataset.timer);
+        if (val === sec) {
+          btn.className = 'timer-btn py-3 rounded-xl border-2 font-black text-sm transition active:scale-95 bg-brand-purple/20 border-brand-purple text-brand-purple';
+        } else {
+          btn.className = 'timer-btn py-3 rounded-xl border-2 font-black text-sm transition active:scale-95 bg-gray-900 border-gray-800 text-gray-400 hover:border-gray-600';
+        }
+      });
+    }
+    
+    // ==================== UPDATE NEXT PLAYER UI ====================
+    function updateNextPlayerUI() {
+      const nextNum = Storage.getNextPlayerNumber(ACTIVITY_ID);
+      const totalPlayed = Storage.getPlayerCounter(ACTIVITY_ID);
+      
+      document.getElementById('nextPlayerDisplay').innerText = `ИГРОК ${nextNum}`;
+      document.getElementById('totalPlayedDisplay').innerText = totalPlayed;
+    }
+    
+    // ==================== START ROUND ====================
+    function startRound() {
+      currentNumber = Storage.getNextPlayerNumber(ACTIVITY_ID);
+      currentPlayer = `Игрок ${currentNumber} (ФАКТЫ)`;
+      currentIndex = 0;
+      correctCount = 0;
+      answers = [];
+      
+      // Выбираем 5 случайных фактов
+      roundFacts = pickRandomFacts(ROUND_SIZE);
+      
+      AudioEngine.newPlayer();
+      
+      document.getElementById('gamePlayerLabel').innerText = `Игрок ${currentNumber}`;
+      document.getElementById('headerStatus').innerText = currentPlayer;
+      
+      renderQuestionProgress();
+      showScreen('game');
+      showFact();
+    }
+    
+    // ==================== PICK RANDOM FACTS ====================
+    function pickRandomFacts(count) {
+      const shuffled = [...FACTS_DATABASE].sort(() => Math.random() - 0.5);
+      return shuffled.slice(0, count);
+    }
+    
+    // ==================== RENDER QUESTION PROGRESS ====================
+    function renderQuestionProgress() {
+      const container = document.getElementById('questionProgress');
+      container.innerHTML = Array.from({ length: ROUND_SIZE }, (_, i) => {
+        let cls = 'q-dot w-6 h-6 rounded-full border-2 flex items-center justify-center text-[10px] font-black';
+        if (i < answers.length) {
+          const ans = answers[i];
+          if (ans === null) {
+            cls += ' border-gray-700 bg-gray-800/50 text-gray-600';
+          } else if (ans.correct) {
+            cls += ' border-emerald-500 bg-emerald-500/20 text-emerald-400';
+          } else {
+            cls += ' border-rose-500 bg-rose-500/20 text-rose-400';
+          }
+        } else if (i === currentIndex) {
+          cls += ' border-brand-purple bg-brand-purple/20 text-brand-purple';
+        } else {
+          cls += ' border-gray-700 text-gray-600';
+        }
+        return `<div class="${cls}">${i + 1}</div>`;
+      }).join('');
+    }
+    
+    // ==================== SHOW FACT ====================
+    function showFact() {
+      if (currentIndex >= ROUND_SIZE) {
+        finishRound();
+        return;
+      }
+      
+      const fact = roundFacts[currentIndex];
+      
+      document.getElementById('factNumber').innerText = `ФАКТ #${currentIndex + 1}`;
+      document.getElementById('factText').innerText = fact.t;
+      
+      // Сброс UI
+      document.getElementById('answerButtons').classList.remove('hidden');
+      document.getElementById('revealArea').classList.add('hidden');
+      
+      renderQuestionProgress();
+      
+      // Запуск таймера
+      if (selectedTimer > 0) {
+        startTimer(selectedTimer);
+      } else {
+        document.getElementById('timerContainer').classList.add('hidden');
+      }
+      
+      lucide.createIcons();
+    }
+    
+    // ==================== TIMER ====================
+    function startTimer(seconds) {
+      clearTimer();
+      
+      timerRemaining = seconds;
+      timerPaused = false;
+      timerEndTime = Date.now() + seconds * 1000;
+      
+      const container = document.getElementById('timerContainer');
+      container.classList.remove('hidden');
+      document.getElementById('timerStatus').innerText = '⏱ ИДЁТ ОТСЧЕТ';
+      document.getElementById('timerStatus').className = 'text-[10px] font-black uppercase text-gray-400';
+      document.getElementById('pauseBtn').innerHTML = '⏸ ПАУЗА';
+      
+      updateTimerDisplay();
+      
+      timerInterval = setInterval(() => {
+        if (timerPaused) return;
+        
+        const left = Math.max(0, timerEndTime - Date.now());
+        timerRemaining = left / 1000;
+        
+        updateTimerDisplay();
+        
+        if (left <= 3000 && left > 0) {
+          if (Math.floor(left / 1000) !== Math.floor((left + 100) / 1000)) {
+            AudioEngine.tick();
+          }
+        }
+        
+        if (left <= 0) {
+          clearTimer();
+          timeUp();
+        }
+      }, 100);
+    }
+    
+    function updateTimerDisplay() {
+      const sec = Math.ceil(timerRemaining);
+      document.getElementById('timerDisplay').innerText = `${sec}с`;
+      
+      const pct = (timerRemaining / selectedTimer) * 100;
+      document.getElementById('timerBar').style.width = `${pct}%`;
+      
+      // Предупреждение
+      if (sec <= 3 && sec > 0) {
+        document.getElementById('timerDisplay').classList.add('timer-warning');
+        document.getElementById('timerDisplay').className = 'text-lg font-black text-brand-pink timer-warning';
+      } else {
+        document.getElementById('timerDisplay').className = 'text-lg font-black text-brand-cyan';
+      }
+    }
+    
+    function clearTimer() {
+      if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+      }
+    }
+    
+    function togglePause() {
+      if (timerPaused) {
+        // Resume
+        const remaining = timerRemaining * 1000;
+        timerEndTime = Date.now() + remaining;
+        timerPaused = false;
+        document.getElementById('pauseBtn').innerHTML = '⏸ ПАУЗА';
+        document.getElementById('pauseBtn').className = 'w-full mt-2 py-2 bg-gray-900 hover:bg-gray-800 border border-gray-800 hover:border-brand-cyan/50 text-gray-400 hover:text-brand-cyan font-bold text-xs rounded-xl transition active:scale-95';
+        document.getElementById('timerStatus').innerText = '⏱ ИДЁТ ОТСЧЕТ';
+        document.getElementById('timerStatus').className = 'text-[10px] font-black uppercase text-gray-400';
+        AudioEngine.tap();
+      } else {
+        // Pause
+        timerPaused = true;
+        document.getElementById('pauseBtn').innerHTML = '▶️ ПРОДОЛЖИТЬ';
+        document.getElementById('pauseBtn').className = 'w-full mt-2 py-2 bg-brand-cyan/20 hover:bg-brand-cyan/30 border border-brand-cyan/50 text-brand-cyan font-bold text-xs rounded-xl transition active:scale-95';
+        document.getElementById('timerStatus').innerText = '⏸ ПАУЗА';
+        document.getElementById('timerStatus').className = 'text-[10px] font-black uppercase text-brand-cyan';
+        AudioEngine.tap();
+      }
+    }
+    
+    function timeUp() {
+      AudioEngine.timeUp();
+      answerFact(null);
+    }
+    
+    // ==================== ANSWER ====================
+    function answerFact(userAnswer) {
+      clearTimer();
+      
+      const fact = roundFacts[currentIndex];
+      const isCorrect = userAnswer === fact.a;
+      
+      if (userAnswer === null) {
+        // Время вышло — неверно
+        answers.push({ correct: false, timeout: true, userAnswer: null, fact });
+      } else {
+        if (isCorrect) {
+          correctCount++;
+          AudioEngine.correct();
+        } else {
+          AudioEngine.wrong();
+        }
+        answers.push({ correct: isCorrect, userAnswer, fact });
+      }
+      
+      // Показать ответ
+      document.getElementById('answerButtons').classList.add('hidden');
+      document.getElementById('revealArea').classList.remove('hidden');
+      
+      const badge = document.getElementById('revealBadge');
+      if (fact.a) {
+        badge.className = 'inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-black uppercase tracking-wide border bg-emerald-500/15 text-emerald-400 border-emerald-500/40';
+        badge.innerHTML = '✓ ЭТО ПРАВДА';
+      } else {
+        badge.className = 'inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-black uppercase tracking-wide border bg-rose-500/15 text-rose-400 border-rose-500/40';
+        badge.innerHTML = '✗ ЭТО ЛОЖЬ';
+      }
+      
+      document.getElementById('revealNote').innerText = ' ' + fact.n;
+      
+      // Обновить кнопку "Следующий"
+      const nextBtn = document.getElementById('nextFactBtn');
+      if (currentIndex >= ROUND_SIZE - 1) {
+        nextBtn.innerHTML = '🏁 ЗАВЕРШИТЬ РАУНД';
+      } else {
+        nextBtn.innerHTML = '➡️ СЛЕДУЮЩИЙ ФАКТ';
+      }
+      
+      document.getElementById('gameScoreDisplay').innerText = `${correctCount}/${answers.length}`;
+      
+      renderQuestionProgress();
+      document.getElementById('timerContainer').classList.add('hidden');
+    }
+    
+    // ==================== NEXT FACT ====================
+    function nextFact() {
+      AudioEngine.tap();
+      currentIndex++;
+      
+      if (currentIndex >= ROUND_SIZE) {
+        finishRound();
+      } else {
+        showFact();
+      }
+    }
+    
+    // ==================== FINISH ROUND ====================
+    function finishRound() {
+      clearTimer();
+      AudioEngine.win();
+      
+      // Записать в статистику
+      Storage.recordRound(ACTIVITY_ID, currentPlayer, {
+        correct: correctCount,
+        total: ROUND_SIZE
+      });
+      
+      Storage.incrementPlayerCounter(ACTIVITY_ID);
+      
+      // Заполнить экран результата
+      document.getElementById('resultPlayerLabel').innerText = currentPlayer;
+      document.getElementById('resultScore').innerText = `${correctCount}/${ROUND_SIZE}`;
+      
+      const pct = correctCount / ROUND_SIZE;
+      document.getElementById('resultPercent').innerText = `${Math.round(pct * 100)}%`;
+      
+      // Emoji
+      if (pct === 1) document.getElementById('resultEmoji').innerText = '🔥';
+      else if (pct >= 0.8) document.getElementById('resultEmoji').innerText = '⭐';
+      else if (pct >= 0.6) document.getElementById('resultEmoji').innerText = '👍';
+      else if (pct >= 0.4) document.getElementById('resultEmoji').innerText = '😎';
+      else document.getElementById('resultEmoji').innerText = '💪';
+      
+      // Breakdown
+      document.getElementById('resultBreakdown').innerHTML = answers.map((ans, i) => {
+        const icon = ans.correct ? '✓' : '✗';
+        const colorCls = ans.correct ? 'text-emerald-400' : 'text-rose-400';
+        const borderCls = ans.correct ? 'border-emerald-500/40 bg-emerald-500/10' : 'border-rose-500/40 bg-rose-500/10';
+        const timeoutText = ans.timeout ? ' (время вышло)' : '';
+        
+        return `
+          <div class="flex items-start gap-2 p-3 rounded-xl border ${borderCls}">
+            <div class="w-6 h-6 rounded-lg flex items-center justify-center text-xs font-black ${colorCls} flex-shrink-0">
+              ${icon}
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-xs text-gray-300 leading-snug line-clamp-2">${ans.fact.t}</p>
+              <p class="text-[10px] ${colorCls} font-bold mt-1">
+                ${ans.fact.a ? 'ПРАВДА' : 'ЛОЖЬ'}${timeoutText}
+              </p>
+            </div>
+          </div>
+        `;
+      }).join('');
+      
+      // Rating
+      let ratingEmoji = '';
+      let ratingText = '';
+      let ratingColor = '';
+      
+      if (pct === 1) {
+        ratingEmoji = '🔥'; ratingText = 'ИДЕАЛЬНО!'; ratingColor = 'text-brand-pink';
+      } else if (pct >= 0.8) {
+        ratingEmoji = '⭐'; ratingText = 'МАСТЕР'; ratingColor = 'text-brand-gold';
+      } else if (pct >= 0.6) {
+        ratingEmoji = '👍'; ratingText = 'ОТЛИЧНО'; ratingColor = 'text-emerald-400';
+      } else if (pct >= 0.4) {
+        ratingEmoji = '😎'; ratingText = 'НЕПЛОХО'; ratingColor = 'text-brand-cyan';
+      } else {
+        ratingEmoji = '💪'; ratingText = 'ЕСТЬ КУДА РАСТИ'; ratingColor = 'text-gray-400';
+      }
+      
+      document.getElementById('resultRating').innerHTML = `${ratingEmoji} <span class="${ratingColor}">${ratingText}</span>`;
+      
+      showScreen('result');
+    }
+    
+    // ==================== NEW PLAYER ====================
+    function newPlayer() {
+      AudioEngine.newPlayer();
+      currentIndex = 0;
+      correctCount = 0;
+      answers = [];
+      currentPlayer = null;
+      
+      updateNextPlayerUI();
+      document.getElementById('headerStatus').innerText = 'Готов к игре';
+      
+      showScreen('start');
+    }
+    
+    // ==================== RESET COUNTER ====================
+    function openResetCounterModal() {
+      AudioEngine.tap();
+      document.getElementById('resetCounterModal').classList.remove('hidden');
+    }
+    
+    function closeResetCounterModal() {
+      document.getElementById('resetCounterModal').classList.add('hidden');
+    }
+    
+    function doResetCounter() {
+      Storage.resetPlayerCounter(ACTIVITY_ID);
+      AudioEngine.reset();
+      updateNextPlayerUI();
+      closeResetCounterModal();
+    }
+    
+    // ==================== EXIT ====================
+    function confirmExit() {
+      if (answers.length > 0) {
+        document.getElementById('exitModal').classList.remove('hidden');
+      } else {
+        exitToMenu();
+      }
+    }
+    
+    function closeExitModal() {
+      document.getElementById('exitModal').classList.add('hidden');
+    }
+    
+    function exitToMenu() {
+      clearTimer();
+      window.location.href = '../index.html';
+    }
+    
+    // ==================== INIT ====================
+    window.addEventListener('DOMContentLoaded', () => {
+      // Telegram
+      const tg = window.Telegram?.WebApp;
+      if (tg) {
+        tg.ready();
+        tg.expand();
+        if (tg.themeParams?.bg_color) {
+          document.body.style.backgroundColor = tg.themeParams.bg_color;
+        }
+      }
+      
+      // Auth
+      if (!Storage.isAuthValid(ACTIVITY_ID)) {
+        alert('🔒 Требуется авторизация');
+        window.location.href = '../index.html';
+        return;
+      }
+      
+      // Загрузить настройки
+      const settings = Storage.getSettings();
+      selectedTimer = settings.timer || 10;
+      selectTimer(selectedTimer);
+      
+      updateNextPlayerUI();
+      showScreen('start');
+      lucide.createIcons();
+      
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeExitModal();
+          closeResetCounterModal();
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
