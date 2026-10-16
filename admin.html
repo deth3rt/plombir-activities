@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>ПЛОМБИР YOUNG 2026 | АДМИН-ПАНЕЛЬ</title>
-  
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -35,31 +35,15 @@
             'pop': 'pop 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
             'shake': 'shake 0.4s ease-in-out',
             'slide-up': 'slideUp 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
-            'fade-in': 'fadeIn 0.3s ease-out'
+            'fade-in': 'fadeIn 0.3s ease-out',
+            'spin-slow': 'spin 1.5s linear infinite'
           },
           keyframes: {
-            float: {
-              '0%, 100%': { transform: 'translateY(0px)' },
-              '50%': { transform: 'translateY(-10px)' }
-            },
-            pop: {
-              '0%': { transform: 'scale(0.8)', opacity: '0' },
-              '50%': { transform: 'scale(1.05)' },
-              '100%': { transform: 'scale(1)', opacity: '1' }
-            },
-            shake: {
-              '0%, 100%': { transform: 'translateX(0)' },
-              '25%': { transform: 'translateX(-8px)' },
-              '75%': { transform: 'translateX(8px)' }
-            },
-            slideUp: {
-              '0%': { transform: 'translateY(40px)', opacity: '0' },
-              '100%': { transform: 'translateY(0)', opacity: '1' }
-            },
-            fadeIn: {
-              '0%': { opacity: '0' },
-              '100%': { opacity: '1' }
-            }
+            float: { '0%, 100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-10px)' } },
+            pop: { '0%': { transform: 'scale(0.8)', opacity: '0' }, '50%': { transform: 'scale(1.05)' }, '100%': { transform: 'scale(1)', opacity: '1' } },
+            shake: { '0%, 100%': { transform: 'translateX(0)' }, '25%': { transform: 'translateX(-8px)' }, '75%': { transform: 'translateX(8px)' } },
+            slideUp: { '0%': { transform: 'translateY(40px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
+            fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } }
           }
         }
       }
@@ -67,31 +51,17 @@
   </script>
 
   <style>
-    * {
-      -webkit-tap-highlight-color: transparent;
-      user-select: none;
-      -webkit-user-select: none;
-    }
-    
+    * { -webkit-tap-highlight-color: transparent; user-select: none; -webkit-user-select: none; }
     body { overscroll-behavior: none; }
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    
-    input, textarea {
-      user-select: text;
-      -webkit-user-select: text;
-    }
-    
-    .glass {
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-    }
+    input, textarea { user-select: text; -webkit-user-select: text; }
+    .glass { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
   </style>
 </head>
 
 <body class="bg-brand-darkBg text-gray-100 font-sans min-h-screen antialiased selection:bg-brand-purple overflow-x-hidden">
 
-  <!-- ==================== BACKGROUND ==================== -->
   <div class="fixed inset-0 pointer-events-none overflow-hidden">
     <div class="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full bg-brand-purple/20 blur-[120px] animate-float"></div>
     <div class="absolute -bottom-40 -right-40 w-[500px] h-[500px] rounded-full bg-brand-pink/20 blur-[120px] animate-float" style="animation-delay: 1.5s"></div>
@@ -100,47 +70,32 @@
   <!-- ==================== AUTH GUARD ==================== -->
   <div id="authGuard" class="fixed inset-0 z-[200] bg-brand-darkBg flex items-center justify-center p-4">
     <div class="w-full max-w-sm bg-brand-cardBg border border-gray-800 rounded-3xl p-6 shadow-2xl animate-slide-up text-center">
-      <div class="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-gradient-to-tr from-brand-purple to-brand-pink shadow-xl shadow-brand-purple/40 text-4xl mb-4">
-        🔐
-      </div>
+      <div class="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-gradient-to-tr from-brand-purple to-brand-pink shadow-xl shadow-brand-purple/40 text-4xl mb-4">🔐</div>
       <h2 class="text-xl font-black text-white mb-1">АДМИН-ПАНЕЛЬ</h2>
       <p class="text-sm text-gray-400 mb-5">Введите пароль администратора</p>
 
       <div class="relative mb-3">
-        <input 
-          type="password" 
-          id="adminPassInput" 
-          placeholder="••••••••"
-          autocomplete="off"
-          onkeydown="if(event.key === 'Enter') checkAdminAuth()"
-          class="w-full bg-gray-900 border-2 border-gray-800 rounded-2xl px-4 py-3.5 text-center text-lg font-bold tracking-widest text-white placeholder-gray-600 focus:outline-none focus:border-brand-purple transition"
-        >
+        <input type="password" id="adminPassInput" placeholder="••••••••" autocomplete="off"
+               onkeydown="if(event.key === 'Enter') checkAdminAuth()"
+               class="w-full bg-gray-900 border-2 border-gray-800 rounded-2xl px-4 py-3.5 text-center text-lg font-bold tracking-widest text-white placeholder-gray-600 focus:outline-none focus:border-brand-purple transition">
       </div>
 
       <div id="authError" class="hidden mb-3 px-4 py-2 bg-rose-500/10 border border-rose-500/30 rounded-xl">
         <p class="text-xs font-bold text-rose-400">❌ Неверный пароль</p>
       </div>
 
-      <button onclick="checkAdminAuth()" 
-              class="w-full py-3.5 bg-gradient-to-r from-brand-purple to-brand-pink text-white font-black rounded-2xl shadow-lg shadow-brand-purple/40 active:scale-95 transition">
-        🚀 ВОЙТИ
-      </button>
-      <button onclick="window.location.href='index.html'" 
-              class="w-full mt-2 py-3 bg-gray-900 hover:bg-gray-800 text-gray-400 font-bold rounded-2xl border border-gray-800 active:scale-95 transition">
-        ← НАЗАД
-      </button>
+      <button onclick="checkAdminAuth()" class="w-full py-3.5 bg-gradient-to-r from-brand-purple to-brand-pink text-white font-black rounded-2xl shadow-lg shadow-brand-purple/40 active:scale-95 transition">🚀 ВОЙТИ</button>
+      <button onclick="window.location.href='index.html'" class="w-full mt-2 py-3 bg-gray-900 hover:bg-gray-800 text-gray-400 font-bold rounded-2xl border border-gray-800 active:scale-95 transition">← НАЗАД</button>
     </div>
   </div>
 
   <!-- ==================== MAIN APP ==================== -->
   <div id="mainApp" class="hidden relative z-10 min-h-screen flex flex-col">
 
-    <!-- HEADER -->
     <header class="sticky top-0 z-40 glass bg-brand-darkBg/90 border-b border-gray-800/80 px-4 py-3">
       <div class="flex items-center justify-between gap-2 max-w-2xl mx-auto">
         <div class="flex items-center gap-3">
-          <button onclick="window.location.href='index.html'" 
-                  class="w-9 h-9 rounded-xl bg-gray-900 border border-gray-800 flex items-center justify-center hover:border-brand-purple transition active:scale-95">
+          <button onclick="window.location.href='index.html'" class="w-9 h-9 rounded-xl bg-gray-900 border border-gray-800 flex items-center justify-center hover:border-brand-purple transition active:scale-95">
             <i data-lucide="arrow-left" class="w-4 h-4 text-gray-400"></i>
           </button>
           <div>
@@ -148,54 +103,77 @@
             <p class="text-[10px] text-gray-500 font-medium">ПЛОМБИР YOUNG · 2026</p>
           </div>
         </div>
-        <button onclick="lockAdmin()" 
-                class="w-9 h-9 rounded-xl bg-gray-900 border border-gray-800 flex items-center justify-center hover:border-rose-500/50 transition active:scale-95">
+        <button onclick="lockAdmin()" class="w-9 h-9 rounded-xl bg-gray-900 border border-gray-800 flex items-center justify-center hover:border-rose-500/50 transition active:scale-95">
           <i data-lucide="lock" class="w-4 h-4 text-gray-400"></i>
         </button>
       </div>
     </header>
 
-    <!-- TABS -->
     <div class="px-4 pt-3 pb-2 max-w-2xl mx-auto w-full">
       <div class="flex gap-1 bg-gray-900/60 border border-gray-800 rounded-2xl p-1 overflow-x-auto no-scrollbar">
-        <button onclick="switchTab('stats')" id="tabBtn-stats" 
-                class="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition whitespace-nowrap">
+        <button onclick="switchTab('stats')" id="tabBtn-stats" class="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition whitespace-nowrap">
           <i data-lucide="bar-chart-3" class="w-3.5 h-3.5"></i>
           <span>Статистика</span>
         </button>
-        <button onclick="switchTab('activities')" id="tabBtn-activities" 
-                class="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition whitespace-nowrap">
+        <button onclick="switchTab('activities')" id="tabBtn-activities" class="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition whitespace-nowrap">
           <i data-lucide="gamepad-2" class="w-3.5 h-3.5"></i>
           <span>Активности</span>
         </button>
-        <button onclick="switchTab('passwords')" id="tabBtn-passwords" 
-                class="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition whitespace-nowrap">
+        <button onclick="switchTab('passwords')" id="tabBtn-passwords" class="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition whitespace-nowrap">
           <i data-lucide="key" class="w-3.5 h-3.5"></i>
           <span>Пароли</span>
         </button>
-        <button onclick="switchTab('data')" id="tabBtn-data" 
-                class="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition whitespace-nowrap">
+        <button onclick="switchTab('data')" id="tabBtn-data" class="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition whitespace-nowrap">
           <i data-lucide="database" class="w-3.5 h-3.5"></i>
           <span>Данные</span>
         </button>
       </div>
     </div>
 
-    <!-- CONTENT -->
     <main class="flex-1 px-4 pb-24 max-w-2xl mx-auto w-full">
 
       <!-- ==================== TAB: STATS ==================== -->
       <div id="tab-stats" class="tab-content">
-        <div class="space-y-3 pt-2" id="statsContainer"></div>
+        <!-- Индикатор загрузки -->
+        <div id="statsLoading" class="py-16 text-center">
+          <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-purple/20 border border-brand-purple/40 mb-4">
+            <i data-lucide="loader-2" class="w-8 h-8 text-brand-purple animate-spin-slow"></i>
+          </div>
+          <p class="text-sm font-bold text-gray-400">Загрузка статистики...</p>
+          <p class="text-[10px] text-gray-600 mt-1">Подключение к Google Sheets</p>
+        </div>
+
+        <!-- Контент -->
+        <div id="statsContent" class="space-y-3 pt-2 hidden"></div>
+
+        <!-- Ошибка -->
+        <div id="statsError" class="hidden py-12 text-center">
+          <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-rose-500/20 border border-rose-500/40 mb-4">
+            <i data-lucide="alert-circle" class="w-8 h-8 text-rose-400"></i>
+          </div>
+          <p class="text-sm font-bold text-rose-400 mb-2">Не удалось загрузить</p>
+          <p class="text-[10px] text-gray-500 mb-4" id="statsErrorText">Проверь интернет</p>
+          <button onclick="loadStatsFromSheets()" class="px-4 py-2 bg-rose-500/20 hover:bg-rose-500/30 border border-rose-500/40 text-rose-400 font-black text-xs rounded-xl active:scale-95 transition">
+            🔄 ПОВТОРИТЬ
+          </button>
+        </div>
+
+        <!-- Пусто -->
+        <div id="statsEmpty" class="hidden py-16 text-center">
+          <div class="text-5xl mb-3">📊</div>
+          <p class="text-gray-400 font-bold text-sm">Пока нет записей</p>
+          <p class="text-xs text-gray-500 mt-1">Сыграйте в игры — данные появятся</p>
+          <button onclick="loadStatsFromSheets()" class="mt-4 px-4 py-2 bg-brand-purple/20 hover:bg-brand-purple/30 border border-brand-purple/40 text-brand-purple font-black text-xs rounded-xl active:scale-95 transition">
+            🔄 ОБНОВИТЬ
+          </button>
+        </div>
       </div>
 
       <!-- ==================== TAB: ACTIVITIES ==================== -->
       <div id="tab-activities" class="tab-content hidden">
         <div class="space-y-3 pt-2">
           <div id="activitiesContainer"></div>
-          
-          <button onclick="openAddActivity()" 
-                  class="w-full flex items-center justify-center gap-2 py-4 bg-gradient-to-r from-brand-purple/20 to-brand-pink/20 border-2 border-dashed border-brand-purple/50 hover:border-brand-purple text-brand-purple rounded-2xl font-black text-sm transition active:scale-95">
+          <button onclick="openAddActivity()" class="w-full flex items-center justify-center gap-2 py-4 bg-gradient-to-r from-brand-purple/20 to-brand-pink/20 border-2 border-dashed border-brand-purple/50 hover:border-brand-purple text-brand-purple rounded-2xl font-black text-sm transition active:scale-95">
             <i data-lucide="plus-circle" class="w-5 h-5"></i>
             <span>ДОБАВИТЬ АКТИВНОСТЬ</span>
           </button>
@@ -210,7 +188,42 @@
       <!-- ==================== TAB: DATA ==================== -->
       <div id="tab-data" class="tab-content hidden">
         <div class="space-y-4 pt-2">
-          
+
+          <!-- Очередь отправки -->
+          <div class="bg-brand-cardBg border border-gray-800 rounded-3xl p-5">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-2xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center">
+                <i data-lucide="inbox" class="w-5 h-5 text-amber-400"></i>
+              </div>
+              <div class="flex-1">
+                <h3 class="font-black text-white text-sm">ОЧЕРЕДЬ ОТПРАВКИ</h3>
+                <p class="text-[11px] text-gray-500">Неотправленные записи</p>
+              </div>
+              <div class="text-right">
+                <p class="text-2xl font-black text-amber-400" id="queueCount">0</p>
+              </div>
+            </div>
+            <button onclick="flushQueue()" class="w-full py-3 bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 text-amber-400 font-black text-xs rounded-2xl transition active:scale-95">
+              📤 ОТПРАВИТЬ СЕЙЧАС
+            </button>
+          </div>
+
+          <!-- Обновить статистику -->
+          <div class="bg-brand-cardBg border border-gray-800 rounded-3xl p-5">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-2xl bg-brand-cyan/20 border border-brand-cyan/30 flex items-center justify-center">
+                <i data-lucide="refresh-cw" class="w-5 h-5 text-brand-cyan"></i>
+              </div>
+              <div>
+                <h3 class="font-black text-white text-sm">ОБНОВИТЬ</h3>
+                <p class="text-[11px] text-gray-500">Загрузить свежие данные из Google Sheets</p>
+              </div>
+            </div>
+            <button onclick="loadStatsFromSheets()" class="w-full py-3 bg-brand-cyan/20 hover:bg-brand-cyan/30 border border-brand-cyan/40 text-brand-cyan font-black text-xs rounded-2xl transition active:scale-95">
+              🔄 ОБНОВИТЬ СТАТИСТИКУ
+            </button>
+          </div>
+
           <!-- Export -->
           <div class="bg-brand-cardBg border border-gray-800 rounded-3xl p-5">
             <div class="flex items-center gap-3 mb-3">
@@ -219,11 +232,10 @@
               </div>
               <div>
                 <h3 class="font-black text-white text-sm">ЭКСПОРТ</h3>
-                <p class="text-[11px] text-gray-500">Скачать все данные в JSON</p>
+                <p class="text-[11px] text-gray-500">Скачать настройки в JSON</p>
               </div>
             </div>
-            <button onclick="exportData()" 
-                    class="w-full py-3 bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-400 font-black text-xs rounded-2xl transition active:scale-95">
+            <button onclick="exportData()" class="w-full py-3 bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-400 font-black text-xs rounded-2xl transition active:scale-95">
               📥 СКАЧАТЬ JSON
             </button>
           </div>
@@ -236,12 +248,11 @@
               </div>
               <div>
                 <h3 class="font-black text-white text-sm">ИМПОРТ</h3>
-                <p class="text-[11px] text-gray-500">Загрузить данные из JSON</p>
+                <p class="text-[11px] text-gray-500">Загрузить настройки из JSON</p>
               </div>
             </div>
             <input type="file" id="importFileInput" accept=".json" onchange="importData(event)" class="hidden">
-            <button onclick="document.getElementById('importFileInput').click()" 
-                    class="w-full py-3 bg-brand-cyan/20 hover:bg-brand-cyan/30 border border-brand-cyan/40 text-brand-cyan font-black text-xs rounded-2xl transition active:scale-95">
+            <button onclick="document.getElementById('importFileInput').click()" class="w-full py-3 bg-brand-cyan/20 hover:bg-brand-cyan/30 border border-brand-cyan/40 text-brand-cyan font-black text-xs rounded-2xl transition active:scale-95">
               📤 ВЫБРАТЬ ФАЙЛ
             </button>
           </div>
@@ -254,17 +265,15 @@
               </div>
               <div>
                 <h3 class="font-black text-white text-sm">СБРОС</h3>
-                <p class="text-[11px] text-gray-500">Удалить все данные безвозвратно</p>
+                <p class="text-[11px] text-gray-500">Удалить локальные данные</p>
               </div>
             </div>
             <div class="space-y-2">
-              <button onclick="resetStats()" 
-                      class="w-full py-3 bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 text-amber-400 font-black text-xs rounded-2xl transition active:scale-95">
-                🔄 СБРОСИТЬ СТАТИСТИКУ
+              <button onclick="resetStats()" class="w-full py-3 bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 text-amber-400 font-black text-xs rounded-2xl transition active:scale-95">
+                🔄 СБРОСИТЬ ЛОКАЛЬНУЮ СТАТИСТИКУ
               </button>
-              <button onclick="resetAll()" 
-                      class="w-full py-3 bg-rose-500/20 hover:bg-rose-500/30 border border-rose-500/40 text-rose-400 font-black text-xs rounded-2xl transition active:scale-95">
-                🗑️ СБРОСИТЬ ВСЁ
+              <button onclick="resetAll()" class="w-full py-3 bg-rose-500/20 hover:bg-rose-500/30 border border-rose-500/40 text-rose-400 font-black text-xs rounded-2xl transition active:scale-95">
+                🗑️ СБРОСИТЬ ВСЁ ЛОКАЛЬНОЕ
               </button>
             </div>
           </div>
@@ -280,74 +289,59 @@
     <div class="absolute inset-0 bg-black/80 backdrop-blur-md" onclick="closeActivityModal()"></div>
     <div class="relative flex items-center justify-center min-h-screen p-4">
       <div class="w-full max-w-md bg-brand-cardBg border border-gray-800 rounded-3xl p-5 shadow-2xl animate-slide-up max-h-[90vh] overflow-y-auto no-scrollbar">
-        
+
         <div class="flex items-center justify-between mb-4">
           <h2 id="activityModalTitle" class="text-lg font-black text-white">РЕДАКТИРОВАТЬ</h2>
-          <button onclick="closeActivityModal()" 
-                  class="w-8 h-8 rounded-xl bg-gray-900 border border-gray-800 flex items-center justify-center hover:border-rose-500/50 transition">
+          <button onclick="closeActivityModal()" class="w-8 h-8 rounded-xl bg-gray-900 border border-gray-800 flex items-center justify-center hover:border-rose-500/50 transition">
             <i data-lucide="x" class="w-4 h-4 text-gray-400"></i>
           </button>
         </div>
 
         <div class="space-y-3">
-          
           <div>
             <label class="text-[10px] font-black text-gray-500 uppercase tracking-wider mb-1 block">Название</label>
-            <input type="text" id="editActivityName" 
-                   class="w-full bg-gray-900 border border-gray-800 rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none focus:border-brand-purple transition">
+            <input type="text" id="editActivityName" class="w-full bg-gray-900 border border-gray-800 rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none focus:border-brand-purple transition">
           </div>
 
           <div class="grid grid-cols-2 gap-2">
             <div>
               <label class="text-[10px] font-black text-gray-500 uppercase tracking-wider mb-1 block">Эмодзи</label>
-              <input type="text" id="editActivityEmoji" maxlength="2"
-                     class="w-full bg-gray-900 border border-gray-800 rounded-xl px-3 py-2.5 text-center text-xl focus:outline-none focus:border-brand-purple transition">
+              <input type="text" id="editActivityEmoji" maxlength="2" class="w-full bg-gray-900 border border-gray-800 rounded-xl px-3 py-2.5 text-center text-xl focus:outline-none focus:border-brand-purple transition">
             </div>
             <div>
               <label class="text-[10px] font-black text-gray-500 uppercase tracking-wider mb-1 block">Пароль</label>
-              <input type="text" id="editActivityPassword"
-                     class="w-full bg-gray-900 border border-gray-800 rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none focus:border-brand-purple transition">
+              <input type="text" id="editActivityPassword" class="w-full bg-gray-900 border border-gray-800 rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none focus:border-brand-purple transition">
             </div>
           </div>
 
           <div>
             <label class="text-[10px] font-black text-gray-500 uppercase tracking-wider mb-1 block">Описание</label>
-            <input type="text" id="editActivityDesc"
-                   class="w-full bg-gray-900 border border-gray-800 rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none focus:border-brand-purple transition">
+            <input type="text" id="editActivityDesc" class="w-full bg-gray-900 border border-gray-800 rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none focus:border-brand-purple transition">
           </div>
 
           <div>
             <label class="text-[10px] font-black text-gray-500 uppercase tracking-wider mb-1 block">URL (ссылка)</label>
-            <input type="text" id="editActivityUrl"
-                   class="w-full bg-gray-900 border border-gray-800 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-brand-purple transition font-mono">
+            <input type="text" id="editActivityUrl" class="w-full bg-gray-900 border border-gray-800 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-brand-purple transition font-mono">
           </div>
 
           <div>
             <label class="text-[10px] font-black text-gray-500 uppercase tracking-wider mb-1 block">Градиент</label>
-            <div class="grid grid-cols-4 gap-2" id="gradientPicker">
-              <!-- Filled dynamically -->
-            </div>
+            <div class="grid grid-cols-4 gap-2" id="gradientPicker"></div>
           </div>
 
           <div class="flex items-center justify-between py-2 px-3 bg-gray-900/60 rounded-xl border border-gray-800">
             <span class="text-xs font-bold text-gray-300">Включена</span>
-            <button onclick="toggleEditEnabled()" id="editEnabledToggle" 
-                    class="relative w-12 h-6 rounded-full bg-gray-700 transition">
+            <button onclick="toggleEditEnabled()" id="editEnabledToggle" class="relative w-12 h-6 rounded-full bg-gray-700 transition">
               <span id="editEnabledKnob" class="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform"></span>
             </button>
           </div>
 
           <div class="flex gap-2 pt-2">
-            <button onclick="saveActivity()" 
-                    class="flex-1 py-3 bg-gradient-to-r from-brand-purple to-brand-pink text-white font-black rounded-2xl shadow-lg shadow-brand-purple/40 active:scale-95 transition">
-              💾 СОХРАНИТЬ
-            </button>
-            <button id="deleteActivityBtn" onclick="deleteActivity()" 
-                    class="px-4 py-3 bg-rose-500/20 hover:bg-rose-500/30 border border-rose-500/40 text-rose-400 font-black rounded-2xl active:scale-95 transition">
+            <button onclick="saveActivity()" class="flex-1 py-3 bg-gradient-to-r from-brand-purple to-brand-pink text-white font-black rounded-2xl shadow-lg shadow-brand-purple/40 active:scale-95 transition">💾 СОХРАНИТЬ</button>
+            <button id="deleteActivityBtn" onclick="deleteActivity()" class="px-4 py-3 bg-rose-500/20 hover:bg-rose-500/30 border border-rose-500/40 text-rose-400 font-black rounded-2xl active:scale-95 transition">
               <i data-lucide="trash-2" class="w-4 h-4"></i>
             </button>
           </div>
-
         </div>
       </div>
     </div>
@@ -380,28 +374,24 @@
         } catch(e) {}
       },
       tap() { this.tone(660, 0.08); },
-      success() {
-        this.tone(523.25, 0.1, 'triangle', 0.12);
-        setTimeout(() => this.tone(659.25, 0.1, 'triangle', 0.12), 100);
-        setTimeout(() => this.tone(783.99, 0.2, 'triangle', 0.12), 200);
-      },
-      error() {
-        this.tone(220, 0.15, 'sawtooth', 0.1);
-        setTimeout(() => this.tone(180, 0.2, 'sawtooth', 0.1), 100);
-      }
+      success() { this.tone(523.25, 0.1, 'triangle', 0.12); setTimeout(() => this.tone(659.25, 0.1, 'triangle', 0.12), 100); setTimeout(() => this.tone(783.99, 0.2, 'triangle', 0.12), 200); },
+      error() { this.tone(220, 0.15, 'sawtooth', 0.1); setTimeout(() => this.tone(180, 0.2, 'sawtooth', 0.1), 100); }
     };
   </script>
 
   <!-- ==================== STORAGE ==================== -->
   <script>
+    const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxo2r1eU0YEqaAQ_BUc5Q1MRVBCzoda4WCYvi3-17XWeMqDyjbc5lSkwFGw1xLEvhMrng/exec';
+    const SHEETS_KEY = 'Pavel9696';
+
     const DEFAULT_ACTIVITIES = [
       { id: 'lipkiy', name: 'ЛИПКИЙ', emoji: '🧩', description: 'Дартс. 3 броска. 0–100 очков', password: 'lipkiy2026', url: 'games/lipkiy.html', enabled: true, gradient: 'from-brand-pink to-orange-400' },
       { id: 'facts', name: 'ФАКТЫ!', emoji: '📊', description: 'Правда или ложь? Блиц-раунд', password: 'facts2026', url: 'games/facts.html', enabled: true, gradient: 'from-brand-purple to-brand-cyan' },
       { id: 'v-teme', name: 'В ТЕМЕ', emoji: '💰', description: 'Угадай цену. Дуэль на двоих', password: 'tema2026', url: 'games/v-teme.html', enabled: true, gradient: 'from-brand-cyan to-emerald-400' }
     ];
-    
+
     const DEFAULT_ADMIN_PASSWORD = 'admin2026';
-    
+
     const GRADIENTS = [
       'from-brand-purple to-brand-pink',
       'from-brand-pink to-orange-400',
@@ -418,44 +408,49 @@
         ACTIVITIES: 'plombir_activities_v1',
         ADMIN_PASS: 'plombir_admin_pass_v1',
         STATS: 'plombir_stats_v1',
-        AUTH_SESSION: 'plombir_auth_session_v1'
+        AUTH_SESSION: 'plombir_auth_session_v1',
+        SYNC_QUEUE: 'plombir_sync_queue_v1'
       },
-      
+
       getActivities() {
         try {
           const data = localStorage.getItem(this.KEYS.ACTIVITIES);
-          if (!data) {
-            this.saveActivities(DEFAULT_ACTIVITIES);
-            return [...DEFAULT_ACTIVITIES];
-          }
+          if (!data) { this.saveActivities(DEFAULT_ACTIVITIES); return [...DEFAULT_ACTIVITIES]; }
           return JSON.parse(data);
         } catch(e) { return [...DEFAULT_ACTIVITIES]; }
       },
-      
+
       saveActivities(activities) {
         try { localStorage.setItem(this.KEYS.ACTIVITIES, JSON.stringify(activities)); } catch(e) {}
       },
-      
+
       getAdminPassword() {
         try { return localStorage.getItem(this.KEYS.ADMIN_PASS) || DEFAULT_ADMIN_PASSWORD; }
         catch(e) { return DEFAULT_ADMIN_PASSWORD; }
       },
-      
+
       setAdminPassword(pwd) {
         try { localStorage.setItem(this.KEYS.ADMIN_PASS, pwd); } catch(e) {}
       },
-      
+
       getStats() {
         try {
           const data = localStorage.getItem(this.KEYS.STATS);
           return data ? JSON.parse(data) : {};
         } catch(e) { return {}; }
       },
-      
+
       saveStats(stats) {
         try { localStorage.setItem(this.KEYS.STATS, JSON.stringify(stats)); } catch(e) {}
       },
-      
+
+      getQueue() {
+        try {
+          const data = localStorage.getItem(this.KEYS.SYNC_QUEUE);
+          return data ? JSON.parse(data) : [];
+        } catch(e) { return []; }
+      },
+
       setAuthSession(activityId) {
         try {
           const session = JSON.parse(localStorage.getItem(this.KEYS.AUTH_SESSION) || '{}');
@@ -463,7 +458,7 @@
           localStorage.setItem(this.KEYS.AUTH_SESSION, JSON.stringify(session));
         } catch(e) {}
       },
-      
+
       isAuthValid(activityId) {
         try {
           const session = JSON.parse(localStorage.getItem(this.KEYS.AUTH_SESSION) || '{}');
@@ -477,7 +472,7 @@
           return true;
         } catch(e) { return false; }
       },
-      
+
       clearAuthSession() {
         try { localStorage.removeItem(this.KEYS.AUTH_SESSION); } catch(e) {}
       }
@@ -489,12 +484,13 @@
     let editingActivityId = null;
     let editingEnabled = true;
     let selectedGradient = GRADIENTS[0];
-    
+    let sheetsData = { rows: [], loaded: false };
+
     // ==================== AUTH ====================
     function checkAdminAuth() {
       const input = document.getElementById('adminPassInput').value;
       const errorEl = document.getElementById('authError');
-      
+
       if (input === Storage.getAdminPassword()) {
         AudioEngine.success();
         Storage.setAuthSession('admin');
@@ -510,101 +506,196 @@
         document.getElementById('adminPassInput').value = '';
       }
     }
-    
+
     function lockAdmin() {
       if (!confirm('Заблокировать админ-панель?')) return;
       Storage.clearAuthSession();
       window.location.href = 'index.html';
     }
-    
+
     // ==================== INIT ====================
     function initAdmin() {
       switchTab('stats');
-      renderStats();
       renderActivitiesAdmin();
       renderPasswords();
+      updateQueueCount();
       lucide.createIcons();
     }
-    
+
     // ==================== TABS ====================
     function switchTab(tab) {
       AudioEngine.tap();
-      
+
       document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
       document.getElementById(`tab-${tab}`).classList.remove('hidden');
-      
+
       document.querySelectorAll('[id^="tabBtn-"]').forEach(btn => {
         btn.className = "flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition whitespace-nowrap text-gray-500 hover:text-gray-300";
       });
-      
+
       const activeBtn = document.getElementById(`tabBtn-${tab}`);
       activeBtn.className = "flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition whitespace-nowrap bg-brand-purple text-white shadow-lg shadow-brand-purple/30";
-      
-      if (tab === 'stats') renderStats();
+
+      if (tab === 'stats') loadStatsFromSheets();
       if (tab === 'activities') renderActivitiesAdmin();
       if (tab === 'passwords') renderPasswords();
-      
+      if (tab === 'data') updateQueueCount();
+
       lucide.createIcons();
     }
-    
-    // ==================== STATS ====================
-    function renderStats() {
-      const container = document.getElementById('statsContainer');
-      const stats = Storage.getStats();
+
+    // ==================== LOAD FROM SHEETS ====================
+    async function loadStatsFromSheets() {
+      const loading = document.getElementById('statsLoading');
+      const content = document.getElementById('statsContent');
+      const error = document.getElementById('statsError');
+      const empty = document.getElementById('statsEmpty');
+
+      loading.classList.remove('hidden');
+      content.classList.add('hidden');
+      error.classList.add('hidden');
+      empty.classList.add('hidden');
+
+      try {
+        const url = `${SHEETS_URL}?key=${SHEETS_KEY}&t=${Date.now()}`;
+        const response = await fetch(url, {
+          method: 'GET',
+          mode: 'cors'
+        });
+
+        if (!response.ok) throw new Error('HTTP ' + response.status);
+
+        const data = await response.json();
+
+        if (data.error) throw new Error(data.error);
+
+        sheetsData = { rows: data.rows || [], loaded: true, total: data.total || 0 };
+
+        loading.classList.add('hidden');
+
+        if (sheetsData.rows.length === 0) {
+          empty.classList.remove('hidden');
+          lucide.createIcons();
+          return;
+        }
+
+        renderStatsFromData(sheetsData.rows);
+        content.classList.remove('hidden');
+
+      } catch(err) {
+        console.error('Ошибка загрузки:', err);
+        loading.classList.add('hidden');
+        error.classList.remove('hidden');
+        document.getElementById('statsErrorText').innerText = err.message || 'Не удалось загрузить';
+      }
+
+      lucide.createIcons();
+    }
+
+    // ==================== RENDER STATS ====================
+    function renderStatsFromData(rows) {
+      const container = document.getElementById('statsContent');
       const activities = Storage.getActivities();
-      
-      let totalPlayers = 0;
-      let totalSessions = 0;
-      
-      const html = activities.map(act => {
-        const data = stats[act.id] || { sessions: [], players: [] };
-        const sessionsCount = data.sessions?.length || 0;
-        const playersCount = data.players?.length || 0;
-        
-        totalPlayers += playersCount;
-        totalSessions += sessionsCount;
-        
-        // Вычисляем лучший результат
+
+      // Группируем по активности
+      const byActivity = {};
+      activities.forEach(a => byActivity[a.id] = []);
+      byActivity['other'] = [];
+
+      rows.forEach(r => {
+        const key = r.activity || 'other';
+        if (!byActivity[key]) byActivity[key] = [];
+        byActivity[key].push(r);
+      });
+
+      // Считаем итоги
+      const totalPlayers = new Set();
+      rows.forEach(r => { if (r.player) totalPlayers.add(r.player); });
+      const totalRounds = rows.length;
+
+      // Сводка
+      let summaryHtml = `
+        <div class="bg-gradient-to-tr from-brand-purple/20 to-brand-pink/20 border border-brand-purple/40 rounded-3xl p-4 mb-2 animate-pop">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="font-black text-white text-xs uppercase tracking-wider">📊 ОБЩАЯ СВОДКА</h3>
+            <button onclick="loadStatsFromSheets()" class="text-[10px] text-brand-cyan font-black uppercase hover:underline">🔄 Обновить</button>
+          </div>
+          <div class="grid grid-cols-3 gap-2">
+            <div class="text-center">
+              <p class="text-2xl font-black text-brand-cyan">${totalPlayers.size}</p>
+              <p class="text-[9px] text-gray-400 font-bold uppercase">Игроков</p>
+            </div>
+            <div class="text-center">
+              <p class="text-2xl font-black text-brand-pink">${totalRounds}</p>
+              <p class="text-[9px] text-gray-400 font-bold uppercase">Записей</p>
+            </div>
+            <div class="text-center">
+              <p class="text-2xl font-black text-brand-purple">${activities.length}</p>
+              <p class="text-[9px] text-gray-400 font-bold uppercase">Активностей</p>
+            </div>
+          </div>
+        </div>
+      `;
+
+      // Карточки по активностям
+      const activityCards = activities.map(act => {
+        const actRows = byActivity[act.id] || [];
+        const uniquePlayers = new Set(actRows.map(r => r.player).filter(Boolean));
+        const count = actRows.length;
+
+        // Метрики
         let bestResult = '—';
         let avgResult = '—';
-        
-        if (act.id === 'lipkiy' && data.sessions?.length > 0) {
-          const scores = data.sessions.map(s => s.score || 0);
-          const best = Math.max(...scores);
-          const avg = Math.round(scores.reduce((a, b) => a + b, 0) / scores.length);
-          bestResult = `${best} очков`;
-          avgResult = `${avg} очков`;
-        } else if (act.id === 'facts' && data.sessions?.length > 0) {
-          const scores = data.sessions.map(s => (s.correct || 0) / (s.total || 5));
-          const best = Math.max(...scores);
-          const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
-          bestResult = `${Math.round(best * 100)}%`;
-          avgResult = `${Math.round(avg * 100)}%`;
-        } else if (act.id === 'v-teme' && data.sessions?.length > 0) {
-          bestResult = `${sessionsCount} игр`;
-          avgResult = '—';
+        let lastPlayed = '—';
+
+        if (count > 0) {
+          if (act.id === 'lipkiy') {
+            const scores = actRows.map(r => parseInt(r.result) || 0);
+            const best = Math.max(...scores);
+            const avg = Math.round(scores.reduce((a, b) => a + b, 0) / scores.length);
+            bestResult = `${best} очков`;
+            avgResult = `${avg} очков`;
+          } else if (act.id === 'facts') {
+            const scores = actRows.map(r => {
+              const parts = String(r.result).split('/');
+              return parseInt(parts[0]) || 0;
+            });
+            const best = Math.max(...scores);
+            const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
+            bestResult = `${best}/5`;
+            avgResult = `${avg.toFixed(1)}/5`;
+          } else if (act.id === 'v-teme') {
+            bestResult = `${count} игр`;
+            avgResult = '—';
+          }
+
+          // Последняя игра
+          const last = actRows[actRows.length - 1];
+          if (last && last.timestamp) {
+            try {
+              const d = new Date(last.timestamp);
+              lastPlayed = `${String(d.getDate()).padStart(2,'0')}.${String(d.getMonth()+1).padStart(2,'0')} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
+            } catch(e) {}
+          }
         }
-        
+
         return `
           <div class="bg-brand-cardBg border border-gray-800 rounded-3xl p-4 animate-pop">
             <div class="flex items-center gap-3 mb-3">
-              <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr ${act.gradient} flex items-center justify-center text-2xl">
-                ${act.emoji}
-              </div>
-              <div class="flex-1">
+              <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr ${act.gradient} flex items-center justify-center text-2xl">${act.emoji}</div>
+              <div class="flex-1 min-w-0">
                 <h3 class="font-black text-white text-sm">${act.name}</h3>
-                <p class="text-[10px] text-gray-500">${act.enabled ? '✅ Включена' : '❌ Отключена'}</p>
+                <p class="text-[10px] text-gray-500 truncate">Последняя: ${lastPlayed}</p>
               </div>
             </div>
-            
             <div class="grid grid-cols-2 gap-2">
               <div class="bg-gray-900/60 rounded-xl p-2.5 border border-gray-800/60">
                 <p class="text-[9px] text-gray-500 font-bold uppercase">Игроков</p>
-                <p class="text-lg font-black text-brand-cyan">${playersCount}</p>
+                <p class="text-lg font-black text-brand-cyan">${uniquePlayers.size}</p>
               </div>
               <div class="bg-gray-900/60 rounded-xl p-2.5 border border-gray-800/60">
-                <p class="text-[9px] text-gray-500 font-bold uppercase">Раундов</p>
-                <p class="text-lg font-black text-brand-purple">${sessionsCount}</p>
+                <p class="text-[9px] text-gray-500 font-bold uppercase">Записей</p>
+                <p class="text-lg font-black text-brand-purple">${count}</p>
               </div>
               <div class="bg-gray-900/60 rounded-xl p-2.5 border border-gray-800/60">
                 <p class="text-[9px] text-gray-500 font-bold uppercase">Лучший</p>
@@ -618,85 +709,118 @@
           </div>
         `;
       }).join('');
-      
-      // Общая сводка
-      const summaryHtml = `
-        <div class="bg-gradient-to-tr from-brand-purple/20 to-brand-pink/20 border border-brand-purple/40 rounded-3xl p-4 mb-2 animate-pop">
-          <h3 class="font-black text-white text-xs uppercase tracking-wider mb-3">📊 ОБЩАЯ СВОДКА</h3>
-          <div class="grid grid-cols-3 gap-2">
-            <div class="text-center">
-              <p class="text-2xl font-black text-brand-cyan">${totalPlayers}</p>
-              <p class="text-[9px] text-gray-400 font-bold uppercase">Игроков</p>
-            </div>
-            <div class="text-center">
-              <p class="text-2xl font-black text-brand-pink">${totalSessions}</p>
-              <p class="text-[9px] text-gray-400 font-bold uppercase">Раундов</p>
-            </div>
-            <div class="text-center">
-              <p class="text-2xl font-black text-brand-purple">${activities.length}</p>
-              <p class="text-[9px] text-gray-400 font-bold uppercase">Активностей</p>
-            </div>
+
+      // Последние 10 записей
+      const recent = [...rows].reverse().slice(0, 10);
+      const recentHtml = recent.length > 0 ? `
+        <div class="bg-brand-cardBg border border-gray-800 rounded-3xl p-4 mt-3 animate-pop">
+          <h3 class="text-[10px] font-black text-gray-500 uppercase tracking-wider mb-3">📋 Последние записи</h3>
+          <div class="space-y-2">
+            ${recent.map(r => {
+              const act = activities.find(a => a.id === r.activity);
+              const emoji = act ? act.emoji : '🎮';
+              const name = act ? act.name : r.activity;
+              let timeStr = '';
+              try {
+                const d = new Date(r.timestamp);
+                timeStr = `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
+              } catch(e) {}
+              return `
+                <div class="flex items-center gap-2 p-2 bg-gray-900/60 rounded-xl border border-gray-800/60">
+                  <span class="text-base">${emoji}</span>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-[11px] font-bold text-white truncate">${r.player || '—'}</p>
+                    <p class="text-[9px] text-gray-500">${name} · ${timeStr}</p>
+                  </div>
+                  <span class="text-xs font-black text-brand-gold">${r.result || '—'}</span>
+                </div>
+              `;
+            }).join('')}
           </div>
         </div>
-      `;
-      
-      if (activities.length === 0) {
-        container.innerHTML = `<div class="text-center py-16"><p class="text-gray-500 text-sm">Нет активностей</p></div>`;
-      } else {
-        container.innerHTML = summaryHtml + html;
-      }
-      
+      ` : '';
+
+      container.innerHTML = summaryHtml + activityCards + recentHtml;
       lucide.createIcons();
     }
-    
+
+    // ==================== QUEUE ====================
+    function updateQueueCount() {
+      const queue = Storage.getQueue();
+      document.getElementById('queueCount').innerText = queue.length;
+    }
+
+    async function flushQueue() {
+      const queue = Storage.getQueue();
+      if (queue.length === 0) {
+        AudioEngine.error();
+        alert('📭 Очередь пуста');
+        return;
+      }
+
+      AudioEngine.tap();
+      let sent = 0;
+      const remaining = [];
+
+      for (const item of queue) {
+        try {
+          await fetch(SHEETS_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify(item)
+          });
+          sent++;
+        } catch(e) {
+          remaining.push(item);
+        }
+      }
+
+      try { localStorage.setItem(Storage.KEYS.SYNC_QUEUE, JSON.stringify(remaining)); } catch(e) {}
+
+      updateQueueCount();
+
+      if (remaining.length === 0) {
+        AudioEngine.success();
+        alert(`✅ Отправлено ${sent} записей`);
+      } else {
+        AudioEngine.error();
+        alert(`⚠️ Отправлено ${sent}, осталось ${remaining.length}`);
+      }
+    }
+
     // ==================== ACTIVITIES ADMIN ====================
     function renderActivitiesAdmin() {
       const container = document.getElementById('activitiesContainer');
       const activities = Storage.getActivities();
-      
+
       if (activities.length === 0) {
-        container.innerHTML = `
-          <div class="text-center py-12 animate-pop">
-            <div class="text-5xl mb-3">🎮</div>
-            <p class="text-gray-400 font-bold text-sm">Активностей пока нет</p>
-            <p class="text-xs text-gray-500 mt-1">Добавь первую!</p>
-          </div>
-        `;
+        container.innerHTML = `<div class="text-center py-12 animate-pop"><div class="text-5xl mb-3">🎮</div><p class="text-gray-400 font-bold text-sm">Активностей пока нет</p></div>`;
         return;
       }
-      
+
       container.innerHTML = activities.map(act => `
         <div class="bg-brand-cardBg border border-gray-800 rounded-3xl p-4 animate-pop">
           <div class="flex items-center gap-3 mb-3">
-            <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr ${act.gradient} flex items-center justify-center text-2xl shadow-lg">
-              ${act.emoji}
-            </div>
+            <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr ${act.gradient} flex items-center justify-center text-2xl shadow-lg">${act.emoji}</div>
             <div class="flex-1 min-w-0">
               <h3 class="font-black text-white text-sm truncate">${act.name}</h3>
               <p class="text-[10px] text-gray-500 truncate">${act.description || '—'}</p>
             </div>
-            <button onclick="toggleActivityEnabled('${act.id}')" 
-                    class="w-10 h-6 rounded-full transition relative ${act.enabled ? 'bg-emerald-500' : 'bg-gray-700'}">
+            <button onclick="toggleActivityEnabled('${act.id}')" class="w-10 h-6 rounded-full transition relative ${act.enabled ? 'bg-emerald-500' : 'bg-gray-700'}">
               <span class="absolute top-0.5 ${act.enabled ? 'left-[18px]' : 'left-0.5'} w-5 h-5 rounded-full bg-white shadow transition-all"></span>
             </button>
           </div>
-          
           <div class="flex gap-2">
-            <button onclick="openEditActivity('${act.id}')" 
-                    class="flex-1 py-2.5 bg-gray-900 hover:bg-gray-800 border border-gray-800 hover:border-brand-purple text-gray-300 hover:text-brand-purple font-bold text-xs rounded-xl transition active:scale-95">
-              ✏️ РЕДАКТИРОВАТЬ
-            </button>
-            <button onclick="testActivity('${act.id}')" 
-                    class="px-3 py-2.5 bg-gray-900 hover:bg-gray-800 border border-gray-800 hover:border-brand-cyan text-gray-300 hover:text-brand-cyan font-bold text-xs rounded-xl transition active:scale-95">
-              🚀
-            </button>
+            <button onclick="openEditActivity('${act.id}')" class="flex-1 py-2.5 bg-gray-900 hover:bg-gray-800 border border-gray-800 hover:border-brand-purple text-gray-300 hover:text-brand-purple font-bold text-xs rounded-xl transition active:scale-95">✏️ РЕДАКТИРОВАТЬ</button>
+            <button onclick="testActivity('${act.id}')" class="px-3 py-2.5 bg-gray-900 hover:bg-gray-800 border border-gray-800 hover:border-brand-cyan text-gray-300 hover:text-brand-cyan font-bold text-xs rounded-xl transition active:scale-95">🚀</button>
           </div>
         </div>
       `).join('');
-      
+
       lucide.createIcons();
     }
-    
+
     function toggleActivityEnabled(id) {
       AudioEngine.tap();
       const activities = Storage.getActivities();
@@ -705,28 +829,23 @@
       act.enabled = !act.enabled;
       Storage.saveActivities(activities);
       renderActivitiesAdmin();
-      renderStats();
     }
-    
+
     function testActivity(id) {
       AudioEngine.tap();
       const activities = Storage.getActivities();
       const act = activities.find(a => a.id === id);
-      if (!act) return;
-      if (!act.url) {
-        alert('❌ У активности нет URL');
-        return;
-      }
+      if (!act || !act.url) { alert('❌ У активности нет URL'); return; }
       window.open(act.url, '_blank');
     }
-    
+
     // ==================== EDIT ACTIVITY ====================
     function openAddActivity() {
       AudioEngine.tap();
       editingActivityId = null;
       editingEnabled = true;
       selectedGradient = GRADIENTS[0];
-      
+
       document.getElementById('activityModalTitle').innerText = '➕ НОВАЯ АКТИВНОСТЬ';
       document.getElementById('editActivityName').value = '';
       document.getElementById('editActivityEmoji').value = '🎮';
@@ -734,24 +853,23 @@
       document.getElementById('editActivityPassword').value = '';
       document.getElementById('editActivityUrl').value = 'games/';
       document.getElementById('deleteActivityBtn').style.display = 'none';
-      
+
       renderGradientPicker();
       updateEnabledToggle();
-      
       document.getElementById('activityModal').classList.remove('hidden');
       lucide.createIcons();
     }
-    
+
     function openEditActivity(id) {
       AudioEngine.tap();
       const activities = Storage.getActivities();
       const act = activities.find(a => a.id === id);
       if (!act) return;
-      
+
       editingActivityId = id;
       editingEnabled = act.enabled;
       selectedGradient = act.gradient || GRADIENTS[0];
-      
+
       document.getElementById('activityModalTitle').innerText = '✏️ РЕДАКТИРОВАТЬ';
       document.getElementById('editActivityName').value = act.name;
       document.getElementById('editActivityEmoji').value = act.emoji;
@@ -759,44 +877,40 @@
       document.getElementById('editActivityPassword').value = act.password;
       document.getElementById('editActivityUrl').value = act.url || '';
       document.getElementById('deleteActivityBtn').style.display = 'flex';
-      
+
       renderGradientPicker();
       updateEnabledToggle();
-      
       document.getElementById('activityModal').classList.remove('hidden');
       lucide.createIcons();
     }
-    
+
     function closeActivityModal() {
       document.getElementById('activityModal').classList.add('hidden');
       editingActivityId = null;
     }
-    
+
     function renderGradientPicker() {
       const container = document.getElementById('gradientPicker');
       container.innerHTML = GRADIENTS.map(g => `
-        <button onclick="selectGradient('${g}')" 
-                class="h-10 rounded-xl bg-gradient-to-tr ${g} border-2 transition ${selectedGradient === g ? 'border-white scale-110' : 'border-transparent opacity-60'}">
-        </button>
+        <button onclick="selectGradient('${g}')" class="h-10 rounded-xl bg-gradient-to-tr ${g} border-2 transition ${selectedGradient === g ? 'border-white scale-110' : 'border-transparent opacity-60'}"></button>
       `).join('');
     }
-    
+
     function selectGradient(g) {
       AudioEngine.tap();
       selectedGradient = g;
       renderGradientPicker();
     }
-    
+
     function toggleEditEnabled() {
       AudioEngine.tap();
       editingEnabled = !editingEnabled;
       updateEnabledToggle();
     }
-    
+
     function updateEnabledToggle() {
       const toggle = document.getElementById('editEnabledToggle');
       const knob = document.getElementById('editEnabledKnob');
-      
       if (editingEnabled) {
         toggle.className = "relative w-12 h-6 rounded-full bg-emerald-500 transition";
         knob.className = "absolute top-0.5 left-[18px] w-5 h-5 rounded-full bg-white shadow transition-transform";
@@ -805,130 +919,100 @@
         knob.className = "absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform";
       }
     }
-    
+
     function saveActivity() {
       const name = document.getElementById('editActivityName').value.trim();
       const emoji = document.getElementById('editActivityEmoji').value.trim() || '🎮';
       const desc = document.getElementById('editActivityDesc').value.trim();
       const password = document.getElementById('editActivityPassword').value.trim();
       const url = document.getElementById('editActivityUrl').value.trim();
-      
+
       if (!name || !password || !url) {
         AudioEngine.error();
         alert('❌ Заполни название, пароль и URL');
         return;
       }
-      
+
       const activities = Storage.getActivities();
-      
+
       if (editingActivityId) {
-        // Редактирование
         const act = activities.find(a => a.id === editingActivityId);
         if (!act) return;
-        act.name = name;
-        act.emoji = emoji;
-        act.description = desc;
-        act.password = password;
-        act.url = url;
-        act.enabled = editingEnabled;
-        act.gradient = selectedGradient;
+        act.name = name; act.emoji = emoji; act.description = desc;
+        act.password = password; act.url = url;
+        act.enabled = editingEnabled; act.gradient = selectedGradient;
       } else {
-        // Новая
-        const newId = 'act_' + Date.now();
         activities.push({
-          id: newId,
+          id: 'act_' + Date.now(),
           name, emoji, description: desc,
-          password, url,
-          enabled: editingEnabled,
-          gradient: selectedGradient
+          password, url, enabled: editingEnabled, gradient: selectedGradient
         });
       }
-      
+
       Storage.saveActivities(activities);
       AudioEngine.success();
       closeActivityModal();
       renderActivitiesAdmin();
-      renderStats();
       renderPasswords();
     }
-    
+
     function deleteActivity() {
       if (!editingActivityId) return;
-      if (!confirm('🗑️ Удалить эту активность? Это действие необратимо.')) return;
-      
+      if (!confirm('🗑️ Удалить эту активность? Необратимо.')) return;
       const activities = Storage.getActivities().filter(a => a.id !== editingActivityId);
       Storage.saveActivities(activities);
       AudioEngine.success();
       closeActivityModal();
       renderActivitiesAdmin();
-      renderStats();
       renderPasswords();
     }
-    
+
     // ==================== PASSWORDS ====================
     function renderPasswords() {
       const container = document.getElementById('passwordsContainer');
       const activities = Storage.getActivities();
       const adminPwd = Storage.getAdminPassword();
-      
+
       const adminHtml = `
         <div class="bg-gradient-to-tr from-brand-purple/20 to-brand-pink/20 border border-brand-purple/40 rounded-3xl p-4">
           <div class="flex items-center gap-3 mb-3">
-            <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-brand-purple to-brand-pink flex items-center justify-center text-xl">
-              ⚙️
-            </div>
-            <div>
-              <h3 class="font-black text-white text-sm">АДМИН</h3>
-              <p class="text-[10px] text-gray-400">Пароль от панели</p>
-            </div>
+            <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-brand-purple to-brand-pink flex items-center justify-center text-xl">⚙️</div>
+            <div><h3 class="font-black text-white text-sm">АДМИН</h3><p class="text-[10px] text-gray-400">Пароль от панели</p></div>
           </div>
           <div class="flex gap-2">
-            <input type="text" id="adminPassField" value="${adminPwd}"
-                   class="flex-1 bg-gray-900 border border-gray-800 rounded-xl px-3 py-2.5 text-xs font-mono text-white focus:outline-none focus:border-brand-purple">
-            <button onclick="saveAdminPassword()" 
-                    class="px-3 py-2.5 bg-brand-purple/20 hover:bg-brand-purple/30 border border-brand-purple/40 text-brand-purple rounded-xl transition active:scale-95">
+            <input type="text" id="adminPassField" value="${adminPwd}" class="flex-1 bg-gray-900 border border-gray-800 rounded-xl px-3 py-2.5 text-xs font-mono text-white focus:outline-none focus:border-brand-purple">
+            <button onclick="saveAdminPassword()" class="px-3 py-2.5 bg-brand-purple/20 hover:bg-brand-purple/30 border border-brand-purple/40 text-brand-purple rounded-xl transition active:scale-95">
               <i data-lucide="save" class="w-4 h-4"></i>
             </button>
           </div>
         </div>
       `;
-      
+
       const activitiesHtml = activities.map(act => `
         <div class="bg-brand-cardBg border border-gray-800 rounded-3xl p-4">
           <div class="flex items-center gap-3 mb-3">
-            <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr ${act.gradient} flex items-center justify-center text-xl">
-              ${act.emoji}
-            </div>
-            <div>
-              <h3 class="font-black text-white text-sm">${act.name}</h3>
-              <p class="text-[10px] text-gray-400">Пароль для входа</p>
-            </div>
+            <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr ${act.gradient} flex items-center justify-center text-xl">${act.emoji}</div>
+            <div><h3 class="font-black text-white text-sm">${act.name}</h3><p class="text-[10px] text-gray-400">Пароль для входа</p></div>
           </div>
           <div class="flex gap-2">
-            <input type="text" id="passField-${act.id}" value="${act.password}"
-                   class="flex-1 bg-gray-900 border border-gray-800 rounded-xl px-3 py-2.5 text-xs font-mono text-white focus:outline-none focus:border-brand-purple">
-            <button onclick="saveActivityPassword('${act.id}')" 
-                    class="px-3 py-2.5 bg-brand-cyan/20 hover:bg-brand-cyan/30 border border-brand-cyan/40 text-brand-cyan rounded-xl transition active:scale-95">
+            <input type="text" id="passField-${act.id}" value="${act.password}" class="flex-1 bg-gray-900 border border-gray-800 rounded-xl px-3 py-2.5 text-xs font-mono text-white focus:outline-none focus:border-brand-purple">
+            <button onclick="saveActivityPassword('${act.id}')" class="px-3 py-2.5 bg-brand-cyan/20 hover:bg-brand-cyan/30 border border-brand-cyan/40 text-brand-cyan rounded-xl transition active:scale-95">
               <i data-lucide="save" class="w-4 h-4"></i>
             </button>
           </div>
         </div>
       `).join('');
-      
-      container.innerHTML = adminHtml + activitiesHtml;
-      
-      // Кнопка сброса паролей
+
       const resetBtn = `
-        <button onclick="resetAllPasswords()" 
-                class="w-full py-3 bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 text-amber-400 font-black text-xs rounded-2xl transition active:scale-95 mt-3">
+        <button onclick="resetAllPasswords()" class="w-full py-3 bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 text-amber-400 font-black text-xs rounded-2xl transition active:scale-95 mt-3">
           🔄 СБРОСИТЬ К СТАНДАРТНЫМ
         </button>
       `;
-      container.insertAdjacentHTML('beforeend', resetBtn);
-      
+
+      container.innerHTML = adminHtml + activitiesHtml + resetBtn;
       lucide.createIcons();
     }
-    
+
     function saveAdminPassword() {
       const newPwd = document.getElementById('adminPassField').value.trim();
       if (!newPwd) { AudioEngine.error(); alert('Пароль не может быть пустым'); return; }
@@ -936,11 +1020,10 @@
       AudioEngine.success();
       alert('✅ Пароль администратора сохранён');
     }
-    
+
     function saveActivityPassword(id) {
       const newPwd = document.getElementById(`passField-${id}`).value.trim();
       if (!newPwd) { AudioEngine.error(); alert('Пароль не может быть пустым'); return; }
-      
       const activities = Storage.getActivities();
       const act = activities.find(a => a.id === id);
       if (!act) return;
@@ -949,40 +1032,30 @@
       AudioEngine.success();
       alert(`✅ Пароль для «${act.name}» сохранён`);
     }
-    
+
     function resetAllPasswords() {
       if (!confirm('🔄 Сбросить ВСЕ пароли к стандартным?')) return;
-      
       const activities = Storage.getActivities();
-      const defaultMap = {
-        'lipkiy': 'lipkiy2026',
-        'facts': 'facts2026',
-        'v-teme': 'tema2026'
-      };
-      
-      activities.forEach(act => {
-        if (defaultMap[act.id]) act.password = defaultMap[act.id];
-      });
-      
+      const defaultMap = { 'lipkiy': 'lipkiy2026', 'facts': 'facts2026', 'v-teme': 'tema2026' };
+      activities.forEach(act => { if (defaultMap[act.id]) act.password = defaultMap[act.id]; });
       Storage.saveActivities(activities);
       Storage.setAdminPassword('admin2026');
       AudioEngine.success();
       renderPasswords();
       alert('✅ Пароли сброшены');
     }
-    
+
     // ==================== EXPORT / IMPORT ====================
     function exportData() {
       AudioEngine.tap();
-      
       const data = {
-        version: '1.0',
+        version: '2.0',
         exportedAt: new Date().toISOString(),
         activities: Storage.getActivities(),
         adminPassword: Storage.getAdminPassword(),
-        stats: Storage.getStats()
+        stats: Storage.getStats(),
+        syncQueue: Storage.getQueue()
       };
-      
       const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
@@ -990,33 +1063,29 @@
       a.download = `plombir-backup-${new Date().toISOString().slice(0, 10)}.json`;
       a.click();
       URL.revokeObjectURL(url);
-      
       AudioEngine.success();
     }
-    
+
     function importData(event) {
       const file = event.target.files[0];
       if (!file) return;
-      
       const reader = new FileReader();
       reader.onload = (e) => {
         try {
           const data = JSON.parse(e.target.result);
-          
           if (!data.activities) throw new Error('Неверный формат');
-          
-          if (!confirm('📤 Импортировать данные? Текущие данные будут перезаписаны.')) return;
-          
+          if (!confirm('📤 Импортировать данные? Текущие будут перезаписаны.')) return;
           Storage.saveActivities(data.activities);
           if (data.adminPassword) Storage.setAdminPassword(data.adminPassword);
           if (data.stats) Storage.saveStats(data.stats);
-          
+          if (data.syncQueue) {
+            try { localStorage.setItem(Storage.KEYS.SYNC_QUEUE, JSON.stringify(data.syncQueue)); } catch(err) {}
+          }
           AudioEngine.success();
           alert('✅ Данные импортированы!');
-          
-          renderStats();
           renderActivitiesAdmin();
           renderPasswords();
+          updateQueueCount();
         } catch(err) {
           AudioEngine.error();
           alert('❌ Ошибка импорта: ' + err.message);
@@ -1025,41 +1094,37 @@
       reader.readAsText(file);
       event.target.value = '';
     }
-    
+
     function resetStats() {
-      if (!confirm('🔄 Сбросить ВСЮ статистику? Пароли и активности останутся.')) return;
+      if (!confirm('🔄 Сбросить ЛОКАЛЬНУЮ статистику? Google Sheets не тронется.')) return;
       Storage.saveStats({});
       AudioEngine.success();
-      renderStats();
-      alert('✅ Статистика сброшена');
+      alert('✅ Локальная статистика сброшена');
     }
-    
+
     function resetAll() {
-      if (!confirm('🗑️ СБРОСИТЬ ВСЁ? Это удалит активности, пароли и статистику безвозвратно!')) return;
-      if (!confirm('⚠️ ТОЧНО ВСЁ? Отменить будет невозможно!')) return;
-      
+      if (!confirm('🗑️ СБРОСИТЬ ВСЁ ЛОКАЛЬНОЕ? Активности, пароли, очередь.')) return;
+      if (!confirm('⚠️ ТОЧНО? Google Sheets НЕ тронется.')) return;
       localStorage.removeItem(Storage.KEYS.ACTIVITIES);
       localStorage.removeItem(Storage.KEYS.ADMIN_PASS);
       localStorage.removeItem(Storage.KEYS.STATS);
       localStorage.removeItem(Storage.KEYS.AUTH_SESSION);
-      
+      localStorage.removeItem(Storage.KEYS.SYNC_QUEUE);
       AudioEngine.success();
-      alert('✅ Всё сброшено. Страница будет перезагружена.');
+      alert('✅ Всё сброшено. Страница перезагрузится.');
       window.location.reload();
     }
-    
+
     // ==================== INIT ====================
     window.addEventListener('DOMContentLoaded', () => {
-      // Telegram
-const tg = window.Telegram?.WebApp;
-if (tg) {
-  tg.ready();
-  tg.expand();
-  tg.setHeaderColor('#0b0c10');
-  tg.setBackgroundColor('#0b0c10');
-}
-      
-      // Если уже авторизован — сразу открываем
+      const tg = window.Telegram?.WebApp;
+      if (tg) {
+        tg.ready();
+        tg.expand();
+        tg.setHeaderColor('#0b0c10');
+        tg.setBackgroundColor('#0b0c10');
+      }
+
       if (Storage.isAuthValid('admin')) {
         document.getElementById('authGuard').classList.add('hidden');
         document.getElementById('mainApp').classList.remove('hidden');
@@ -1067,9 +1132,9 @@ if (tg) {
       } else {
         setTimeout(() => document.getElementById('adminPassInput')?.focus(), 200);
       }
-      
+
       lucide.createIcons();
-      
+
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeActivityModal();
       });
